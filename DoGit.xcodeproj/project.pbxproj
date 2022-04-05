@@ -10,6 +10,7 @@
 		3E354D34DEA6834CE378BC61 /* Pods_DoGitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88234AC7A5A3D442985C1208 /* Pods_DoGitTests.framework */; };
 		4A16541246350F7E2CA0DB09 /* Pods_DoGit_DoGitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C63A0AD8017F7DD82AE676C /* Pods_DoGit_DoGitUITests.framework */; };
 		AC68422D55937FDA7DDDA8BC /* Pods_DoGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11783B7403D9D41963DC47E4 /* Pods_DoGit.framework */; };
+		D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */; };
 		D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */; };
 		D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */; };
 		D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6427FC882E000E6F9F /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		B964C28EFBC0E14FB8C023E4 /* Pods-DoGitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGitTests.release.xcconfig"; path = "Target Support Files/Pods-DoGitTests/Pods-DoGitTests.release.xcconfig"; sourceTree = "<group>"; };
 		C8D62AB8D874795468A7FFD8 /* Pods-DoGit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.debug.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.debug.xcconfig"; sourceTree = "<group>"; };
 		CA64F7C78AF0CB174E5DD30C /* Pods-DoGit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.release.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.release.xcconfig"; sourceTree = "<group>"; };
+		D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DoGit.swift"; sourceTree = "<group>"; };
 		D8AFFC5D27FC882E000E6F9F /* DoGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		D89A1C6927FC8D890041FA58 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */,
+				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
 				D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
 			);
