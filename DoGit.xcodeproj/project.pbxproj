@@ -103,8 +103,31 @@
 				F6FD0F0E79104D69A8E3F563 /* Pods-DoGitTests.debug.xcconfig */,
 				B964C28EFBC0E14FB8C023E4 /* Pods-DoGitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D89A1C6927FC8D890041FA58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D89A1C6A27FC8D990041FA58 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8AFFC6627FC882E000E6F9F /* Main.storyboard */,
+				D8AFFC6B27FC882F000E6F9F /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D89A1C6B27FC8DB70041FA58 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8AFFC6427FC882E000E6F9F /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		D8AFFC5427FC882E000E6F9F = {
@@ -133,12 +156,12 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D89A1C6B27FC8DB70041FA58 /* ViewController */,
+				D89A1C6A27FC8D990041FA58 /* View */,
+				D89A1C6927FC8D890041FA58 /* Model */,
 				D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */,
 				D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */,
-				D8AFFC6427FC882E000E6F9F /* ViewController.swift */,
-				D8AFFC6627FC882E000E6F9F /* Main.storyboard */,
 				D8AFFC6927FC882F000E6F9F /* Assets.xcassets */,
-				D8AFFC6B27FC882F000E6F9F /* LaunchScreen.storyboard */,
 				D8AFFC6E27FC882F000E6F9F /* Info.plist */,
 			);
 			path = DoGit;
