@@ -23,6 +23,9 @@
 		D8AFFC7827FC882F000E6F9F /* DoGitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC7727FC882F000E6F9F /* DoGitTests.swift */; };
 		D8AFFC8227FC882F000E6F9F /* DoGitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */; };
 		D8AFFC8427FC882F000E6F9F /* DoGitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */; };
+		D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6F627FECC52003372BC /* SetNameViewController.swift */; };
+		D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */; };
+		D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */; };
 		D8E5FE1D27FC8A2700F0EDA5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D8E5FE1C27FC8A2700F0EDA5 /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		D8AFFC7D27FC882F000E6F9F /* DoGitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoGitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITests.swift; sourceTree = "<group>"; };
 		D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8D5C6F627FECC52003372BC /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
+		D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UnderLine.swift"; sourceTree = "<group>"; };
+		D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetNameViewController+UI.swift"; sourceTree = "<group>"; };
 		D8E5FE1C27FC8A2700F0EDA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F6FD0F0E79104D69A8E3F563 /* Pods-DoGitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGitTests.debug.xcconfig"; path = "Target Support Files/Pods-DoGitTests/Pods-DoGitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CA2D7E2A6D65A0C694812A /* Pods-DoGit-DoGitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit-DoGitUITests.release.xcconfig"; path = "Target Support Files/Pods-DoGit-DoGitUITests/Pods-DoGit-DoGitUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 				D89A1C6E27FC92A10041FA58 /* Repository.swift */,
 				D89A1C7227FC96B50041FA58 /* Todo.swift */,
 				D89A1C7427FC97320041FA58 /* User.swift */,
+				D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				D8AFFC6427FC882E000E6F9F /* ViewController.swift */,
+				D8D5C6F627FECC52003372BC /* SetNameViewController.swift */,
+				D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -447,7 +456,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */,
+				D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */,
+				D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */,
 				D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */,
+				D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */,
 				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
 				D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
@@ -638,7 +650,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -648,7 +660,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -668,7 +680,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +690,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
