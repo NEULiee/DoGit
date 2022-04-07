@@ -11,6 +11,9 @@
 		4A16541246350F7E2CA0DB09 /* Pods_DoGit_DoGitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C63A0AD8017F7DD82AE676C /* Pods_DoGit_DoGitUITests.framework */; };
 		AC68422D55937FDA7DDDA8BC /* Pods_DoGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11783B7403D9D41963DC47E4 /* Pods_DoGit.framework */; };
 		D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */; };
+		D89A1C6F27FC92A10041FA58 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C6E27FC92A10041FA58 /* Repository.swift */; };
+		D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C7227FC96B50041FA58 /* Todo.swift */; };
+		D89A1C7527FC97320041FA58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C7427FC97320041FA58 /* User.swift */; };
 		D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */; };
 		D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */; };
 		D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6427FC882E000E6F9F /* ViewController.swift */; };
@@ -49,6 +52,9 @@
 		C8D62AB8D874795468A7FFD8 /* Pods-DoGit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.debug.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.debug.xcconfig"; sourceTree = "<group>"; };
 		CA64F7C78AF0CB174E5DD30C /* Pods-DoGit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.release.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.release.xcconfig"; sourceTree = "<group>"; };
 		D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DoGit.swift"; sourceTree = "<group>"; };
+		D89A1C6E27FC92A10041FA58 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		D89A1C7227FC96B50041FA58 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		D89A1C7427FC97320041FA58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8AFFC5D27FC882E000E6F9F /* DoGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
+				D89A1C6E27FC92A10041FA58 /* Repository.swift */,
+				D89A1C7227FC96B50041FA58 /* Todo.swift */,
+				D89A1C7427FC97320041FA58 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,9 +447,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */,
+				D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */,
 				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
 				D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
+				D89A1C6F27FC92A10041FA58 /* Repository.swift in Sources */,
+				D89A1C7527FC97320041FA58 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +638,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,6 +668,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
