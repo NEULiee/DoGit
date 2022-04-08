@@ -16,7 +16,7 @@ extension SetNameViewController: UITextFieldDelegate {
     func configureUI() {
         
         // MARK: titleLabel
-        titleLabel.text = "Github의 Name을 입력해주세요."
+        titleLabel.text = "Github의 아이디를 입력해주세요."
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
@@ -32,6 +32,7 @@ extension SetNameViewController: UITextFieldDelegate {
         nameTextField.tintColor = .mainColor
         nameTextField.clearButtonMode = .whileEditing
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.addTarget(self, action: #selector(didChangeNameTextField(_:)), for: .editingChanged)
         
         view.addSubview(nameTextField)
         
@@ -50,7 +51,9 @@ extension SetNameViewController: UITextFieldDelegate {
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.backgroundColor = .mainColor
         doneButton.layer.cornerRadius = 5
+        doneButton.isEnabled = false
         doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         
         view.addSubview(doneButton)
         
