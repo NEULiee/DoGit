@@ -12,6 +12,8 @@
 		AC68422D55937FDA7DDDA8BC /* Pods_DoGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11783B7403D9D41963DC47E4 /* Pods_DoGit.framework */; };
 		D80BD83D28018C3600DD6780 /* UserDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */; };
 		D80BD8412801A7B700DD6780 /* IsFetchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8402801A7B700DD6780 /* IsFetchUserData.swift */; };
+		D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */; };
+		D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */; };
 		D8971BF028001D0900568ED0 /* DoGitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BEF28001D0900568ED0 /* DoGitError.swift */; };
 		D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BF12800266A00568ED0 /* SetNameViewController+Actions.swift */; };
 		D8971BF5280044D000568ED0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BF4280044D000568ED0 /* UserData.swift */; };
@@ -22,7 +24,7 @@
 		D89A1C7527FC97320041FA58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D89A1C7427FC97320041FA58 /* User.swift */; };
 		D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */; };
 		D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */; };
-		D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6427FC882E000E6F9F /* ViewController.swift */; };
+		D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC6427FC882E000E6F9F /* MainTodoViewController.swift */; };
 		D8AFFC6827FC882E000E6F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AFFC6627FC882E000E6F9F /* Main.storyboard */; };
 		D8AFFC6A27FC882F000E6F9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AFFC6927FC882F000E6F9F /* Assets.xcassets */; };
 		D8AFFC6D27FC882F000E6F9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AFFC6B27FC882F000E6F9F /* LaunchScreen.storyboard */; };
@@ -62,6 +64,8 @@
 		CA64F7C78AF0CB174E5DD30C /* Pods-DoGit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.release.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.release.xcconfig"; sourceTree = "<group>"; };
 		D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManagerTests.swift; sourceTree = "<group>"; };
 		D80BD8402801A7B700DD6780 /* IsFetchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsFetchUserData.swift; sourceTree = "<group>"; };
+		D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+UI.swift"; sourceTree = "<group>"; };
+		D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+DataSource.swift"; sourceTree = "<group>"; };
 		D8971BEF28001D0900568ED0 /* DoGitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitError.swift; sourceTree = "<group>"; };
 		D8971BF12800266A00568ED0 /* SetNameViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetNameViewController+Actions.swift"; sourceTree = "<group>"; };
 		D8971BF4280044D000568ED0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -73,7 +77,7 @@
 		D8AFFC5D27FC882E000E6F9F /* DoGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D8AFFC6427FC882E000E6F9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8AFFC6427FC882E000E6F9F /* MainTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTodoViewController.swift; sourceTree = "<group>"; };
 		D8AFFC6727FC882E000E6F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8AFFC6927FC882F000E6F9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8AFFC6C27FC882F000E6F9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,6 +134,16 @@
 				B964C28EFBC0E14FB8C023E4 /* Pods-DoGitTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D80BD8432801B18A00DD6780 /* MainTodoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8AFFC6427FC882E000E6F9F /* MainTodoViewController.swift */,
+				D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */,
+				D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */,
+			);
+			path = MainTodoViewController;
 			sourceTree = "<group>";
 		};
 		D8971BF32800441000568ED0 /* Data */ = {
@@ -201,7 +215,7 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
-				D8AFFC6427FC882E000E6F9F /* ViewController.swift */,
+				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
 				D89A1C6B27FC8DB70041FA58 /* SetNameViewController */,
 				D89A1C6A27FC8D990041FA58 /* View */,
 				D89A1C6927FC8D890041FA58 /* Model */,
@@ -481,9 +495,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */,
 				D8971BF92800479F00568ED0 /* UserDataManager.swift in Sources */,
 				D8971BF5280044D000568ED0 /* UserData.swift in Sources */,
-				D8AFFC6527FC882E000E6F9F /* ViewController.swift in Sources */,
+				D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */,
 				D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */,
 				D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */,
 				D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */,
@@ -494,6 +509,7 @@
 				D80BD8412801A7B700DD6780 /* IsFetchUserData.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
 				D89A1C6F27FC92A10041FA58 /* Repository.swift in Sources */,
+				D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */,
 				D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */,
 				D89A1C7527FC97320041FA58 /* User.swift in Sources */,
 			);

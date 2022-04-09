@@ -15,6 +15,8 @@ extension SetNameViewController {
     
     func configureUI() {
         
+        view.backgroundColor = .white
+        
         // MARK: titleLabel
         titleLabel.text = "Github의 아이디를 입력해주세요."
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

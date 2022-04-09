@@ -14,8 +14,11 @@ extension SetNameViewController {
         userDataManager.fetchUser(userId: name) { result in
             switch result {
             case .success:
-                print("success")
+                DispatchQueue.main.sync {
+                    self.dismiss(animated: true)
+                }
             case .failed:
+                self.hapticNotification.notificationOccurred(.error)
                 DispatchQueue.main.sync {
                     self.showAlert()
                 }
