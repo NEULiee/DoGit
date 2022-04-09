@@ -6,14 +6,12 @@
 //
 
 import Foundation
-import RealmSwift
 
-class User: Object {
+class User {
     
-    @Persisted var userName: String = ""
+    static let shared = User()
     
-    convenience init(userName: String) {
-        self.init()
-        self.userName = userName
-    }
+    var name: String = ""
+    
+    private init() {}
 }

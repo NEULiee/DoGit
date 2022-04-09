@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SetNameViewController: UITextFieldDelegate {
+extension SetNameViewController {
     
     func focusOnNameTextField() {
         nameTextField.becomeFirstResponder()
@@ -16,7 +16,7 @@ extension SetNameViewController: UITextFieldDelegate {
     func configureUI() {
         
         // MARK: titleLabel
-        titleLabel.text = "Github의 Name을 입력해주세요."
+        titleLabel.text = "Github의 아이디를 입력해주세요."
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
@@ -51,6 +51,7 @@ extension SetNameViewController: UITextFieldDelegate {
         doneButton.backgroundColor = .mainColor
         doneButton.layer.cornerRadius = 5
         doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         
         view.addSubview(doneButton)
         

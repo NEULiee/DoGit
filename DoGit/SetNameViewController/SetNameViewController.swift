@@ -14,6 +14,8 @@ class SetNameViewController: UIViewController {
     let doneToolbar = UIToolbar()
     let doneButton = UIButton.init(type: .custom)
     
+    let userDataManager = UserDataManager()
+    
     override func viewWillAppear(_ animated: Bool) {
         focusOnNameTextField()
     }
