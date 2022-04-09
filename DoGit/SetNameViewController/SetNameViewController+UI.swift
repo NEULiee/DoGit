@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension SetNameViewController: UITextFieldDelegate {
+extension SetNameViewController {
     
     func focusOnNameTextField() {
         nameTextField.becomeFirstResponder()
@@ -32,7 +32,6 @@ extension SetNameViewController: UITextFieldDelegate {
         nameTextField.tintColor = .mainColor
         nameTextField.clearButtonMode = .whileEditing
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        nameTextField.addTarget(self, action: #selector(didChangeNameTextField(_:)), for: .editingChanged)
         
         view.addSubview(nameTextField)
         
@@ -51,7 +50,6 @@ extension SetNameViewController: UITextFieldDelegate {
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.backgroundColor = .mainColor
         doneButton.layer.cornerRadius = 5
-        doneButton.isEnabled = false
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         
