@@ -22,6 +22,10 @@ class MainTodoViewController: UIViewController {
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setUserName()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         checkUserName()
     }
@@ -30,11 +34,16 @@ class MainTodoViewController: UIViewController {
 }
 
 extension MainTodoViewController {
+    
+    func setUserName() {
+        nameLabel.text = User.shared.name
+    }
+    
     func checkUserName() {
         if User.shared.name == "" {
             presentSetNameViewControllerModal()
         } else {
-            nameLabel.text = User.shared.name
+            setUserName()
         }
     }
     
