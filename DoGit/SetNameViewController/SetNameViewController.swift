@@ -16,6 +16,8 @@ class SetNameViewController: UIViewController {
     
     let userDataManager = UserDataManager()
     
+    let hapticNotification = UINotificationFeedbackGenerator()
+    
     override func viewWillAppear(_ animated: Bool) {
         focusOnNameTextField()
     }
