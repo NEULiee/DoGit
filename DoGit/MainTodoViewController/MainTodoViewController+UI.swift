@@ -31,6 +31,8 @@ extension MainTodoViewController {
     
     func configureUI() {
 
+        view.backgroundColor = .white
+        
         // nameLabel.numberOfLines = 2
         nameLabel.sizeToFit()
         
@@ -66,5 +68,14 @@ extension MainTodoViewController {
             stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        NSLayoutConstraint.activate([
+//            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            collectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+//            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+//        ])
     }
 }
