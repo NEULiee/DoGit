@@ -30,7 +30,7 @@ extension SetNameViewController {
         ])
         
         // MARK: nameTextField
-        nameTextField.font = UIFont.Font.light18
+        nameTextField.font = UIFont.Font.regular18
         nameTextField.borderStyle = .none
         nameTextField.textAlignment = .center
         nameTextField.tintColor = .mainColor

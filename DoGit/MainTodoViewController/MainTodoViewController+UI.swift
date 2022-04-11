@@ -7,26 +7,6 @@
 
 import UIKit
 
-import SwiftUI
-
-//struct CanvasViewController: UIViewControllerRepresentable {
-//    typealias UIViewControllerType = MainTodoViewController
-//
-//    func makeUIViewController(context: Context) -> MainTodoViewController {
-//        return MainTodoViewController()
-//    }
-//
-//    func updateUIViewController(_ uiViewController: MainTodoViewController, context: Context) {
-//    }
-//}
-//
-//@available(iOS 13.0.0, *)
-//struct ViewPreview: PreviewProvider {
-//    static var previews: some View {
-//        CanvasViewController()
-//    }
-//}
-
 extension MainTodoViewController {
     
     func configureUI() {
@@ -39,15 +19,13 @@ extension MainTodoViewController {
         
         addRepositoryButton.setImage(systemName: "plus")
         addRepositoryButton.tintColor = .darkGray
-        addRepositoryButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             addRepositoryButton.widthAnchor.constraint(equalToConstant: 28),
-            addRepositoryButton.heightAnchor.constraint(equalToConstant: 28)
+            addRepositoryButton.heightAnchor.constraint(equalToConstant: 28),
         ])
 
         menuButton.setImage(systemName: "ellipsis")
         menuButton.tintColor = .darkGray
-        menuButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             menuButton.widthAnchor.constraint(equalToConstant: 28),
             menuButton.heightAnchor.constraint(equalToConstant: 28)
@@ -57,7 +35,7 @@ extension MainTodoViewController {
             let stackView = UIStackView(arrangedSubviews: [nameLabel, addRepositoryButton, menuButton])
             stackView.axis = .horizontal
             stackView.distribution = .fill
-            stackView.alignment = .fill
+            stackView.alignment = .center
             stackView.spacing = 12
             view.addSubview(stackView)
             return stackView
@@ -79,5 +57,26 @@ extension MainTodoViewController {
 //            collectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
 //            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 //        ])
+    }
+    
+    func addGuideMentLabel() {
+        let guideMentLabel: UILabel = UILabel()
+        
+        guideMentLabel.font = UIFont.Font.light18
+        guideMentLabel.textAlignment = .center
+        guideMentLabel.numberOfLines = 0
+        guideMentLabel.text = "오른쪽 위의 +버튼을 눌러\n저장소를 추가해주세요."
+        
+        view.addSubview(guideMentLabel)
+        guideMentLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            guideMentLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            guideMentLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    func deleteGuidMentLabel() {
+        
     }
 }
