@@ -10,14 +10,19 @@ import RealmSwift
 
 class MainTodoViewController: UIViewController {
     
+    let realm = try! Realm()
+    
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
     let menuButton = UIButton()
     // let collectionView = UICollectionView()
 
     override func viewDidLoad() {
-        configureUI()
         super.viewDidLoad()
+        configureUI()
+        addGuideMentLabel()
+        
+        realmLocation()
         
         // print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
@@ -35,16 +40,24 @@ class MainTodoViewController: UIViewController {
 
 extension MainTodoViewController {
     
+    // MARK: - Realm
+    func realmLocation() {
+        print(#function)
+        print(realm.configuration.fileURL!)
+        print(realm.configuration.schemaVersion)
+        print("=========================")
+    }
+    
+    // MARK: - Method
     func setUserName() {
-        nameLabel.text = User.shared.name
+        nameLabel.text = "UserName"
     }
     
     func checkUserName() {
-        if User.shared.name == "" {
-            presentSetNameViewControllerModal()
-        } else {
-            setUserName()
-        }
+//        if User.shared.name == "" {
+//            presentSetNameViewControllerModal()
+//            addGuideMentLabel()
+//        }
     }
     
     func presentSetNameViewControllerModal() {
