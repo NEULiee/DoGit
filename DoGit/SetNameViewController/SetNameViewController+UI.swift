@@ -19,6 +19,7 @@ extension SetNameViewController {
         
         // MARK: titleLabel
         titleLabel.text = "Github의 아이디를 입력해주세요."
+        titleLabel.font = UIFont.Font.regular18
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
@@ -29,6 +30,7 @@ extension SetNameViewController {
         ])
         
         // MARK: nameTextField
+        nameTextField.font = UIFont.Font.light18
         nameTextField.borderStyle = .none
         nameTextField.textAlignment = .center
         nameTextField.tintColor = .mainColor
@@ -48,6 +50,7 @@ extension SetNameViewController {
         nameTextField.underLine(borderColor: .mainColor)
         
         // MARK: doneButton
+        doneButton.titleLabel?.font = UIFont.Font.regular18
         doneButton.setTitle("확인", for: .normal)
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.backgroundColor = .mainColor

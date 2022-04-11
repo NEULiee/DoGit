@@ -34,9 +34,10 @@ extension MainTodoViewController {
         view.backgroundColor = .white
         
         // nameLabel.numberOfLines = 2
+        nameLabel.font = UIFont.Font.bold32
         nameLabel.sizeToFit()
         
-        addRepositoryButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addRepositoryButton.setImage(systemName: "plus")
         addRepositoryButton.tintColor = .darkGray
         addRepositoryButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -44,7 +45,7 @@ extension MainTodoViewController {
             addRepositoryButton.heightAnchor.constraint(equalToConstant: 28)
         ])
 
-        menuButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        menuButton.setImage(systemName: "ellipsis")
         menuButton.tintColor = .darkGray
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -57,6 +58,7 @@ extension MainTodoViewController {
             stackView.axis = .horizontal
             stackView.distribution = .fill
             stackView.alignment = .fill
+            stackView.spacing = 12
             view.addSubview(stackView)
             return stackView
         }()
@@ -65,7 +67,7 @@ extension MainTodoViewController {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
             stackView.heightAnchor.constraint(equalToConstant: 40)
         ])
         
