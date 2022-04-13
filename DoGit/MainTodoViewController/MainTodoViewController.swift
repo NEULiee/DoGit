@@ -23,12 +23,10 @@ class MainTodoViewController: UIViewController {
         addGuideMentLabel()
         
         realmLocation()
-        
-        // print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setUserName()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,10 +52,13 @@ extension MainTodoViewController {
     }
     
     func checkUserName() {
-//        if User.shared.name == "" {
-//            presentSetNameViewControllerModal()
-//            addGuideMentLabel()
-//        }
+        let result = realm.objects(User.self)
+        if result.count == 0 {
+            presentSetNameViewControllerModal()
+        } else {
+            guard let user = result.first else { return }
+            nameLabel.text = user.name
+        }
     }
     
     func presentSetNameViewControllerModal() {

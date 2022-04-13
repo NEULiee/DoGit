@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct UserDataManager {
     
@@ -32,7 +33,12 @@ struct UserDataManager {
             }
             
             if let name = self.userJSONDecode(data: data) {
-                User.shared.name = name
+                let realm = try! Realm()
+                let user = User(name: name)
+                try! realm.write {
+                    realm.add(user)
+                }
+                
                 completion(.success)
             } else {
                 completion(.failed)
@@ -45,7 +51,7 @@ struct UserDataManager {
         let decoder = JSONDecoder()
         
         do {
-            let decodeData = try decoder.decode(UserData.self, from: data)
+            let decodeData = try decoder.decode(GithubUserData.self, from: data)
             return decodeData.name
         } catch {
             print("decode failed")
