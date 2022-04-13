@@ -30,6 +30,7 @@ extension SetNameViewController {
         ])
         
         // MARK: nameTextField
+        nameTextField.accessibilityIdentifier = "nameTextField"
         nameTextField.font = UIFont.Font.regular18
         nameTextField.borderStyle = .none
         nameTextField.textAlignment = .center
@@ -50,6 +51,7 @@ extension SetNameViewController {
         nameTextField.underLine(borderColor: .mainColor)
         
         // MARK: doneButton
+        doneButton.accessibilityIdentifier = "doneButton"
         doneButton.titleLabel?.font = UIFont.Font.regular18
         doneButton.setTitle("확인", for: .normal)
         doneButton.setTitleColor(.white, for: .normal)
