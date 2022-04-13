@@ -28,6 +28,7 @@ extension SetNameViewController {
     
     func showAlert() {
         let alert = UIAlertController(title: "", message: "존재하지 않는 이름이에요.", preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "nameAlert"
         alert.view.tintColor = .mainColor
         alert.addAction(UIAlertAction(title: "다시입력", style: .default, handler: { [weak self] _ in
             self?.dismiss(animated: true)
