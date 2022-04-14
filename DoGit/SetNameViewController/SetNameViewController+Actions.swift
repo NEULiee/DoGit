@@ -17,17 +17,17 @@ extension SetNameViewController {
                 DispatchQueue.main.sync {
                     self.dismiss(animated: true)
                 }
-            case .failed:
+            case .failure(let error):
                 self.hapticNotification.notificationOccurred(.error)
                 DispatchQueue.main.sync {
-                    self.showAlert()
+                    self.showAlert(message: error.localizedDescription)
                 }
             }
         }
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "", message: "존재하지 않는 이름이에요.", preferredStyle: .alert)
+    func showAlert(message errorDescription: String) {
+        let alert = UIAlertController(title: "", message: errorDescription, preferredStyle: .alert)
         alert.view.accessibilityIdentifier = "nameAlert"
         alert.view.tintColor = .mainColor
         alert.addAction(UIAlertAction(title: "다시입력", style: .default, handler: { [weak self] _ in

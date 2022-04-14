@@ -12,23 +12,18 @@ struct UserDataManager {
     
     private let githubUserURL = "https://api.github.com/users/"
     
-    func fetchUser(userId: String, completion: @escaping (IsFetchUserData) -> Void) {
+    func fetchUser(userId: String, completion: @escaping (Result<String, Error>) -> Void) {
         
         guard let url = URL(string: githubUserURL + userId) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            if error != nil {
-                completion(.failed)
-                return
-            }
-            
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                completion(.failed)
+                completion(.failure(error ?? DoGitError.userNameNotFound))
                 return
             }
             
             guard let data = data else {
-                completion(.failed)
+                completion(.failure(DoGitError.userNameNotFound))
                 return
             }
             
@@ -38,10 +33,9 @@ struct UserDataManager {
                 try! realm.write {
                     realm.add(user)
                 }
-                
-                completion(.success)
+                completion(.success(name))
             } else {
-                completion(.failed)
+                completion(.failure(DoGitError.userNameNotFound))
             }
         }.resume()
     }

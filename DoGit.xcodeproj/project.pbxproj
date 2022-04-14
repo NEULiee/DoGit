@@ -11,7 +11,6 @@
 		4A16541246350F7E2CA0DB09 /* Pods_DoGit_DoGitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C63A0AD8017F7DD82AE676C /* Pods_DoGit_DoGitUITests.framework */; };
 		AC68422D55937FDA7DDDA8BC /* Pods_DoGit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11783B7403D9D41963DC47E4 /* Pods_DoGit.framework */; };
 		D80BD83D28018C3600DD6780 /* UserDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */; };
-		D80BD8412801A7B700DD6780 /* IsFetchUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8402801A7B700DD6780 /* IsFetchUserData.swift */; };
 		D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */; };
 		D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */; };
 		D8971BF028001D0900568ED0 /* DoGitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BEF28001D0900568ED0 /* DoGitError.swift */; };
@@ -68,7 +67,6 @@
 		C8D62AB8D874795468A7FFD8 /* Pods-DoGit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.debug.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.debug.xcconfig"; sourceTree = "<group>"; };
 		CA64F7C78AF0CB174E5DD30C /* Pods-DoGit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit.release.xcconfig"; path = "Target Support Files/Pods-DoGit/Pods-DoGit.release.xcconfig"; sourceTree = "<group>"; };
 		D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManagerTests.swift; sourceTree = "<group>"; };
-		D80BD8402801A7B700DD6780 /* IsFetchUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsFetchUserData.swift; sourceTree = "<group>"; };
 		D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+UI.swift"; sourceTree = "<group>"; };
 		D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+DataSource.swift"; sourceTree = "<group>"; };
 		D8971BEF28001D0900568ED0 /* DoGitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitError.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 			children = (
 				D8971BF4280044D000568ED0 /* GithubUserData.swift */,
 				D8971BF82800479F00568ED0 /* UserDataManager.swift */,
-				D80BD8402801A7B700DD6780 /* IsFetchUserData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -540,7 +537,6 @@
 				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
 				D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */,
 				D8971BF028001D0900568ED0 /* DoGitError.swift in Sources */,
-				D80BD8412801A7B700DD6780 /* IsFetchUserData.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
 				D89A1C6F27FC92A10041FA58 /* Repository.swift in Sources */,
 				D8B64BEF280447BB009A70BA /* UIFont+Font.swift in Sources */,

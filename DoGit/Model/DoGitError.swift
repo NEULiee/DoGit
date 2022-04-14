@@ -7,17 +7,17 @@
 
 import Foundation
 
-enum DoGitError: Error {
+enum DoGitError: LocalizedError {
     
+    case failedConnectServer
     case userNameNotFound
-    case nameValidation
     
     var errorDescription: String? {
         switch self {
+        case .failedConnectServer:
+            return NSLocalizedString("서버연결에 실패했어요.", comment: "fail to connect server")
         case .userNameNotFound:
-            return String("존재하지 않는 이름이에요.")
-        case .nameValidation:
-            return String("39자까지 입력할 수 있어요.")
+            return NSLocalizedString("존재하지 않는 이름이에요.", comment: "user name not found")
         }
     }
 }
