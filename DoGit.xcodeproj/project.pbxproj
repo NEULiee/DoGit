@@ -13,6 +13,10 @@
 		D80BD83D28018C3600DD6780 /* UserDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */; };
 		D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */; };
 		D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */; };
+		D82DC69928085C6800C5ABCB /* TodoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82DC69828085C6800C5ABCB /* TodoHeader.swift */; };
+		D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */; };
+		D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */; };
+		D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */; };
 		D8971BF028001D0900568ED0 /* DoGitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BEF28001D0900568ED0 /* DoGitError.swift */; };
 		D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BF12800266A00568ED0 /* SetNameViewController+Actions.swift */; };
 		D8971BF5280044D000568ED0 /* GithubUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8971BF4280044D000568ED0 /* GithubUserData.swift */; };
@@ -69,6 +73,10 @@
 		D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManagerTests.swift; sourceTree = "<group>"; };
 		D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+UI.swift"; sourceTree = "<group>"; };
 		D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+DataSource.swift"; sourceTree = "<group>"; };
+		D82DC69828085C6800C5ABCB /* TodoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeader.swift; sourceTree = "<group>"; };
+		D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneButton.swift; sourceTree = "<group>"; };
+		D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+Actions.swift"; sourceTree = "<group>"; };
+		D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepositoryStore.swift; sourceTree = "<group>"; };
 		D8971BEF28001D0900568ED0 /* DoGitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitError.swift; sourceTree = "<group>"; };
 		D8971BF12800266A00568ED0 /* SetNameViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetNameViewController+Actions.swift"; sourceTree = "<group>"; };
 		D8971BF4280044D000568ED0 /* GithubUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserData.swift; sourceTree = "<group>"; };
@@ -150,6 +158,8 @@
 				D8AFFC6427FC882E000E6F9F /* MainTodoViewController.swift */,
 				D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */,
 				D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */,
+				D82DC69828085C6800C5ABCB /* TodoHeader.swift */,
+				D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */,
 			);
 			path = MainTodoViewController;
 			sourceTree = "<group>";
@@ -172,6 +182,8 @@
 				D89A1C6E27FC92A10041FA58 /* Repository.swift */,
 				D89A1C7227FC96B50041FA58 /* Todo.swift */,
 				D89A1C7427FC97320041FA58 /* User.swift */,
+				D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */,
+				D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,7 +270,6 @@
 				D8B64BE928044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf */,
 				D8B64BEA28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf */,
 				D8B64BE828044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf */,
-				D8B64BEE280447BB009A70BA /* UIFont+Font.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -266,9 +277,10 @@
 		D8B64BF028044DB7009A70BA /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */,
+				D8B64BEE280447BB009A70BA /* UIFont+Font.swift */,
 				D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */,
 				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
-				D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -528,10 +540,13 @@
 				D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */,
 				D8971BF92800479F00568ED0 /* UserDataManager.swift in Sources */,
 				D8971BF5280044D000568ED0 /* GithubUserData.swift in Sources */,
+				D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */,
+				D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */,
 				D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */,
 				D8B64BF228044DD0009A70BA /* UIButton+SetImage.swift in Sources */,
 				D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */,
 				D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */,
+				D82DC69928085C6800C5ABCB /* TodoHeader.swift in Sources */,
 				D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */,
 				D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */,
 				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
@@ -543,6 +558,7 @@
 				D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */,
 				D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */,
 				D89A1C7527FC97320041FA58 /* User.swift in Sources */,
+				D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
