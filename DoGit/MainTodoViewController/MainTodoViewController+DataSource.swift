@@ -38,16 +38,13 @@ extension MainTodoViewController {
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, todo: Todo) {
         var contentConfiguration = cell.defaultContentConfiguration()
-        let circleImage = todo.isDone ? UIImage(systemName: "circle.fill") : UIImage(systemName: "circle")
-        contentConfiguration.image = circleImage
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.font = UIFont.Font.light14
         cell.contentConfiguration = contentConfiguration
         
         var doneButtonConfiguration = doneButtonConfiguration(for: todo)
         doneButtonConfiguration.tintColor = .mainColor
-        cell.accessories = [.customView(configuration: doneButtonConfiguration),
-                            .disclosureIndicator(displayed: .always)]
+        cell.accessories = [.customView(configuration: doneButtonConfiguration)]
     }
     
     private func doneButtonConfiguration(for todo: Todo) -> UICellAccessory.CustomViewConfiguration {
