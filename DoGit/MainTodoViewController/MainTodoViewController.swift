@@ -29,6 +29,9 @@ class MainTodoViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // testData()
+        
         configureUI()
         checkRepositoriesCount()
         
@@ -54,6 +57,15 @@ extension MainTodoViewController {
         print(realm.configuration.fileURL!)
         print(realm.configuration.schemaVersion)
         print("=========================")
+    }
+    
+    func testData() {
+        guard let repo = realm.objects(Repository.self).first else { return }
+        print(repo)
+        
+        try! realm.write {
+            repo.todos.append(Todo())
+        }
     }
     
     // MARK: - Method
