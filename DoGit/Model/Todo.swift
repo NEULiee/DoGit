@@ -8,8 +8,9 @@
 import Foundation
 import RealmSwift
 
-class Todo: Object {
+class Todo: Object, Identifiable {
     
+    @Persisted var id: String = UUID().uuidString
     @Persisted var isDone: Bool = false
     @Persisted var content: String = ""
 }
