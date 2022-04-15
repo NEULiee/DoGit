@@ -49,25 +49,27 @@ extension MainTodoViewController {
             stackView.heightAnchor.constraint(equalToConstant: 40)
         ])
         
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        NSLayoutConstraint.activate([
-//            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            collectionView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
-//            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-//        ])
+        view.addSubview(todoView)
+        
+        todoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            todoView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            todoView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            todoView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            todoView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        ])
     }
     
-    func addGuideMentLabel() {
-        let guideMentLabel: UILabel = UILabel()
+    func addGuideMentLabelInTodoView() {
+        deleteCollectionView()
         
         guideMentLabel.font = UIFont.Font.light18
         guideMentLabel.textAlignment = .center
         guideMentLabel.numberOfLines = 0
         guideMentLabel.text = "오른쪽 위의 +버튼을 눌러\n저장소를 추가해주세요."
         
-        view.addSubview(guideMentLabel)
+        todoView.addSubview(guideMentLabel)
         guideMentLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -77,6 +79,24 @@ extension MainTodoViewController {
     }
     
     func deleteGuidMentLabel() {
+        guideMentLabel.removeFromSuperview()
+    }
+    
+    func addCollectionViewInTodoView() {
+        deleteGuidMentLabel()
         
+        todoView.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: todoView.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: todoView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: todoView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: todoView.bottomAnchor)
+        ])
+    }
+    
+    func deleteCollectionView() {
+        collectionView.removeFromSuperview()
     }
 }
