@@ -14,7 +14,7 @@ class SetNameViewController: UIViewController {
     let doneToolbar = UIToolbar()
     let doneButton = UIButton.init(type: .custom)
     
-    let userDataManager = UserDataManager()
+    let githubDataManager = GithubDataManager()
     
     let hapticNotification = UINotificationFeedbackGenerator()
     

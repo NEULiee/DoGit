@@ -24,33 +24,33 @@ class SetNameViewControllerUITests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func test_providedWrongUserName_showAlert() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        nameTextField = app.textFields["nameTextField"]
-        doneButton = app.buttons["doneButton"]
-        
-        nameTextField.typeText("NEULieeNEULieeNEULieeNEULiee")
-        doneButton.tap()
-        
-        XCTAssertTrue(app.alerts["nameAlert"].waitForExistence(timeout: 1), "이름 잘못입력하면 떠야되는데 안떴음")
-    }
-    
-    func test_providedRightUserName_saveNameInUserRealmDB() throws {
-        let app = XCUIApplication()
-        app.launch()
-
-        nameTextField = app.textFields["nameTextField"]
-        doneButton = app.buttons["doneButton"]
-        
-        nameTextField.typeText("NEULiee")
-        doneButton.tap()
-        
-        let realm = try! Realm()
-        let result = realm.objects(DoGit.User.self).first!
-        XCTAssertEqual(result.name, "NEULiee")
-    }
+//    func test_providedWrongUserName_showAlert() throws {
+//        let app = XCUIApplication()
+//        app.launch()
+//
+//        nameTextField = app.textFields["nameTextField"]
+//        doneButton = app.buttons["doneButton"]
+//
+//        nameTextField.typeText("NEULieeNEULieeNEULieeNEULiee")
+//        doneButton.tap()
+//
+//        XCTAssertTrue(app.alerts["nameAlert"].waitForExistence(timeout: 1), "이름 잘못입력하면 떠야되는데 안떴음")
+//    }
+//
+//    func test_providedRightUserName_saveNameInUserRealmDB() throws {
+//        let app = XCUIApplication()
+//        app.launch()
+//
+//        nameTextField = app.textFields["nameTextField"]
+//        doneButton = app.buttons["doneButton"]
+//
+//        nameTextField.typeText("NEULiee")
+//        doneButton.tap()
+//
+//        let realm = try! Realm()
+//        let result = realm.objects(DoGit.User.self).first!
+//        XCTAssertEqual(result.name, "NEULiee")
+//    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
