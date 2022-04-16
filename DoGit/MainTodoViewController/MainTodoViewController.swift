@@ -24,7 +24,7 @@ class MainTodoViewController: UIViewController {
     
     // MARK: dataSource
     var dataSource: DataSource!
-    var repositories: [TodoRepository] = []
+    var repositories: [Repository] = []
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ extension MainTodoViewController {
     }
     
     func testData() {
-        guard let repo = realm.objects(TodoRepository.self).first else { return }
+        guard let repo = realm.objects(Repository.self).first else { return }
         print(repo)
         
         try! realm.write {
@@ -90,15 +90,15 @@ extension MainTodoViewController {
     }
     
     func checkRepositoriesCount() {
-        let repositories = realm.objects(TodoRepository.self)
+        let repositories = realm.objects(Repository.self)
         if repositories.isEmpty {
             addGuideMentLabelInTodoView()
         } else {
-            addCollectionView()
+            configureCollectionView()
         }
     }
     
-    func addCollectionView() {
+    func configureCollectionView() {
         // 1. collection view configuration
         let listLayout = listLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
