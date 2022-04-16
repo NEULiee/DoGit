@@ -13,8 +13,21 @@ class TodoRepositoryStore {
     static let shared = TodoRepositoryStore()
     let realm = try! Realm()
     
-    func readAll() -> [TodoRepository] {
-        let repositories = Array(realm.objects(TodoRepository.self))
+    func readTodoAll() -> [Repository] {
+        let repositories = Array(realm.objects(Repository.self))
         return repositories
+    }
+    
+    func readTodoAllId() -> [Int64] {
+        let repositories = Array(realm.objects(Repository.self))
+        return repositories.map { $0.id }
+    }
+    
+    func isExistTodoRepository(id: Int64) -> Bool {
+        let repositoryArray = self.readTodoAll().filter { $0.id == id }
+        if let _ = repositoryArray.first {
+            return true
+        }
+        return false
     }
 }
