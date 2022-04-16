@@ -11,7 +11,7 @@ extension SetNameViewController {
     
     @objc func didPressDoneButton(_ sender: UIButton)  {
         guard let name = self.nameTextField.text else { return }
-        userDataManager.fetchUser(userId: name) { result in
+        githubDataManager.fetchUser(userId: name) { result in
             switch result {
             case .success:
                 DispatchQueue.main.sync {
