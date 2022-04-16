@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct GithubRepository: Codable {
-    let id: Int
+struct GithubRepository: Codable, Hashable {
+    let id: Int64
     let name: String
     let description: String?
     
-    init(_ id: Int, _ name: String) {
+    init(_ id: Int64, _ name: String) {
         self.init(id, name, "")
     }
     
-    init(_ id: Int, _ name: String, _ description: String) {
+    init(_ id: Int64, _ name: String, _ description: String) {
         self.id = id
         self.name = name
         self.description = description

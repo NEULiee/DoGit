@@ -19,6 +19,7 @@ extension MainTodoViewController {
         
         addRepositoryButton.setImage(systemName: "plus")
         addRepositoryButton.tintColor = .darkGray
+        addRepositoryButton.addTarget(self, action: #selector(touchUpInsideAddButton(_:)), for: .touchUpInside)
         NSLayoutConstraint.activate([
             addRepositoryButton.widthAnchor.constraint(equalToConstant: 28),
             addRepositoryButton.heightAnchor.constraint(equalToConstant: 28),
@@ -62,7 +63,9 @@ extension MainTodoViewController {
     }
     
     func addGuideMentLabelInTodoView() {
-        deleteCollectionView()
+        if let _ = collectionView {
+            deleteCollectionView()
+        }
         
         guideMentLabel.font = UIFont.Font.light18
         guideMentLabel.textAlignment = .center

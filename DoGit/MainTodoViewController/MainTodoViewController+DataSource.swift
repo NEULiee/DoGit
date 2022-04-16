@@ -13,7 +13,7 @@ extension MainTodoViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Repository, Todo>
     
     func getRepositories() {
-        repositories = TodoRepositoryStore.shared.readAll()
+        repositories = TodoRepositoryStore.shared.readTodoAll()
     }
     
     func updateSnapshot() {

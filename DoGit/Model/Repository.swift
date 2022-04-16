@@ -10,12 +10,12 @@ import RealmSwift
 
 class Repository: Object, Identifiable {
     
-    @Persisted var id: String
+    @Persisted var id: Int64
     @Persisted var name: String
     
     @Persisted var todos = List<Todo>()
     
-    convenience init(id: String, name: String) {
+    convenience init(id: Int64, name: String) {
         self.init()
         self.id = id
         self.name = name

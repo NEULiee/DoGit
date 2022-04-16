@@ -94,11 +94,11 @@ extension MainTodoViewController {
         if repositories.isEmpty {
             addGuideMentLabelInTodoView()
         } else {
-            addCollectionView()
+            configureCollectionView()
         }
     }
     
-    func addCollectionView() {
+    func configureCollectionView() {
         // 1. collection view configuration
         let listLayout = listLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
