@@ -235,11 +235,11 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D89A1C6927FC8D890041FA58 /* Model */,
 				D8B64BDF2804449B009A70BA /* Font */,
 				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
 				D89A1C6B27FC8DB70041FA58 /* SetNameViewController */,
 				D89A1C6A27FC8D990041FA58 /* View */,
-				D89A1C6927FC8D890041FA58 /* Model */,
 				D8AFFC6027FC882E000E6F9F /* AppDelegate.swift */,
 				D8AFFC6227FC882E000E6F9F /* SceneDelegate.swift */,
 				D8AFFC6927FC882F000E6F9F /* Assets.xcassets */,

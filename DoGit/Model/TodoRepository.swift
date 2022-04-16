@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Repository: Object, Identifiable {
+class TodoRepository: Object, Identifiable {
     
     @Persisted var id: String
     @Persisted var name: String

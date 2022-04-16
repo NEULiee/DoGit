@@ -9,8 +9,8 @@ import UIKit
 
 extension MainTodoViewController {
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Repository, Todo>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Repository, Todo>
+    typealias DataSource = UICollectionViewDiffableDataSource<TodoRepository, Todo>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<TodoRepository, Todo>
     
     func getRepositories() {
         repositories = TodoRepositoryStore.shared.readAll()
@@ -67,7 +67,7 @@ extension MainTodoViewController {
         }
     }
     
-    private func addTodo(repository: Repository) {
+    private func addTodo(repository: TodoRepository) {
         // 투두 추가하는 함수
     }
 }

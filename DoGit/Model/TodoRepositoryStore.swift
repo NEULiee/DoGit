@@ -13,8 +13,8 @@ class TodoRepositoryStore {
     static let shared = TodoRepositoryStore()
     let realm = try! Realm()
     
-    func readAll() -> [Repository] {
-        let repositories = Array(realm.objects(Repository.self))
+    func readAll() -> [TodoRepository] {
+        let repositories = Array(realm.objects(TodoRepository.self))
         return repositories
     }
 }
