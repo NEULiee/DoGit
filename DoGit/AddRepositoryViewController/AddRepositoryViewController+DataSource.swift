@@ -31,25 +31,24 @@ extension AddRepositoryViewController {
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = itemIdentifier.name
         contentConfiguration.secondaryText = itemIdentifier.description
-        contentConfiguration.textProperties.font = UIFont.Font.bold16
-        contentConfiguration.secondaryTextProperties.font = UIFont.Font.light12
-        contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
+        contentConfiguration.textProperties.font = UIFont.Font.bold18
+        contentConfiguration.secondaryTextProperties.font = UIFont.Font.regular8
         cell.contentConfiguration = contentConfiguration
         
-        var checkImageConfiguration = checkButtonConfiguration(for: itemIdentifier)
-        checkImageConfiguration.tintColor = .mainColor
+        let checkImageConfiguration = checkButtonConfiguration(for: itemIdentifier)
         cell.accessories = [.customView(configuration: checkImageConfiguration)]
     }
     
     private func checkButtonConfiguration(for githubRepository: GithubRepository) -> UICellAccessory.CustomViewConfiguration {
         let checkedRepositoriesId = checkedRepositories.map { $0.id }
-        let symbolName = checkedRepositoriesId.contains(githubRepository.id) ? "checkmark" : ""
-        let image = UIImage(systemName: symbolName)
+        let tintColor = checkedRepositoriesId.contains(githubRepository.id) ? UIColor.mainColor : UIColor.systemGray4
+        let image = UIImage(systemName: "checkmark")
         
         let button = RepositoryCheckButton()
         button.addTarget(self, action: #selector(didSelectRepository(_:)), for: .touchUpInside)
         button.repository = githubRepository
         button.setImage(image, for: .normal)
+        button.tintColor = tintColor
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
     }
 }

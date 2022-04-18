@@ -13,8 +13,8 @@ extension AddRepositoryViewController {
         
         view.backgroundColor = .white
         
-        // MARK: - navigation bar
-        let barAttribute = [NSAttributedString.Key.font : UIFont.Font.light16]
+        // MARK: navigation bar
+        let barAttribute = [NSAttributedString.Key.font : UIFont.Font.regular16]
         let titleAttribute = [NSAttributedString.Key.font : UIFont.Font.bold18]
         navigationItem.title = "나의 저장소"
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
@@ -29,7 +29,7 @@ extension AddRepositoryViewController {
         navigationItem.rightBarButtonItem = saveBarButton
         saveBarButton.tintColor = .mainColor
         
-        // MARK: - view
+        // MARK: view
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "저장소 이름을 입력해주세요."
         searchBar.searchTextField.font = UIFont.Font.light14
@@ -39,8 +39,8 @@ extension AddRepositoryViewController {
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8)
         ])
     }
     
@@ -51,8 +51,8 @@ extension AddRepositoryViewController {
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
     }
