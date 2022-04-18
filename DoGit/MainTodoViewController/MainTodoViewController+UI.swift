@@ -55,10 +55,10 @@ extension MainTodoViewController {
         todoView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            todoView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            todoView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            todoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            todoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             todoView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
-            todoView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+            todoView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     

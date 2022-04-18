@@ -60,11 +60,14 @@ extension MainTodoViewController {
     }
     
     func testData() {
-        guard let repo = realm.objects(Repository.self).first else { return }
-        print(repo)
+        //guard let repo = realm.objects(Repository.self).first else { return }
+        //print(repo)
+        
+        let repos = realm.objects(Repository.self)
         
         try! realm.write {
-            repo.todos.append(Todo())
+            // repo.todos.append(Todo())
+            repos[1].todos.append(Todo())
         }
     }
     
