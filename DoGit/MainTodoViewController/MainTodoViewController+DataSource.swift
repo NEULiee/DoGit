@@ -42,19 +42,19 @@ extension MainTodoViewController {
         contentConfiguration.textProperties.font = UIFont.Font.light14
         cell.contentConfiguration = contentConfiguration
         
-        var doneButtonConfiguration = doneButtonConfiguration(for: todo)
-        doneButtonConfiguration.tintColor = .mainColor
+        let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
     }
     
     private func doneButtonConfiguration(for todo: Todo) -> UICellAccessory.CustomViewConfiguration {
-        let symbolName = todo.isDone ? "circle.fill" : "circle"
+        let tintColor = todo.isDone ? UIColor.mainColor : UIColor.systemGray6
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
-        let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
+        let image = UIImage(systemName: "square.fill", withConfiguration: symbolConfiguration)
         
         let button = TodoDoneButton()
         button.addTarget(self, action: #selector(touchUpInsideDoneButton(_:)), for: .touchUpInside)
         button.todo = todo
+        button.tintColor = tintColor
         button.setImage(image, for: .normal)
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
     }
