@@ -18,4 +18,12 @@ extension MainTodoViewController {
     @objc func touchUpInsideDoneButton(_ sender: UIButton) {
         
     }
+    
+    func addTodo(repository: Repository) {
+        // 투두 추가하는 함수
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: UIViewController())
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
 }
