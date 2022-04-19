@@ -66,8 +66,4 @@ extension MainTodoViewController {
             addTodo(repository: headerItem)
         }
     }
-    
-    private func addTodo(repository: Repository) {
-        // 투두 추가하는 함수
-    }
 }
