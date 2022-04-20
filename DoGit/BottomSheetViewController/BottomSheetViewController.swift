@@ -23,7 +23,7 @@ class BottomSheetViewController: UIViewController {
     private let bottomSheetView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 16
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.clipsToBounds = true
         return view
@@ -104,7 +104,7 @@ extension BottomSheetViewController {
             bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomSheetViewTopConstraint
+            bottomSheetViewTopConstraint,
         ])
         
         dragIndicatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -113,6 +113,14 @@ extension BottomSheetViewController {
             dragIndicatorView.heightAnchor.constraint(equalToConstant: dragIndicatorView.layer.cornerRadius * 2),
             dragIndicatorView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             dragIndicatorView.bottomAnchor.constraint(equalTo: bottomSheetView.topAnchor, constant: -10)
+        ])
+        
+        contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            contentViewController.view.topAnchor.constraint(equalTo: bottomSheetView.topAnchor),
+            contentViewController.view.leadingAnchor.constraint(equalTo: bottomSheetView.leadingAnchor),
+            contentViewController.view.trailingAnchor.constraint(equalTo: bottomSheetView.trailingAnchor),
+            contentViewController.view.bottomAnchor.constraint(equalTo: bottomSheetView.bottomAnchor)
         ])
     }
     

@@ -22,7 +22,9 @@ extension MainTodoViewController {
     func addTodo(repository: Repository) {
         // 투두 추가하는 함수
         
-        let bottomSheetViewController = BottomSheetViewController(contentViewController: UIViewController())
+        let writeTodoViewController = WriteTodoViewController(repository: repository)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
         bottomSheetViewController.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetViewController, animated: false)
     }
