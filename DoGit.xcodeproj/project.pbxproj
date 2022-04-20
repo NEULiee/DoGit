@@ -49,6 +49,8 @@
 		D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */; };
 		D8D894F92806C6C50045F68E /* SetNameViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D894F82806C6C50045F68E /* SetNameViewControllerUITests.swift */; };
 		D8E5FE1D27FC8A2700F0EDA5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D8E5FE1C27FC8A2700F0EDA5 /* .gitignore */; };
+		D8E6E90A280ECCAB0058AD15 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6E909280ECCAB0058AD15 /* BottomSheetViewController.swift */; };
+		D8E6E90C280EF6770058AD15 /* WriteTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E6E90B280EF6770058AD15 /* WriteTodoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetNameViewController+UI.swift"; sourceTree = "<group>"; };
 		D8D894F82806C6C50045F68E /* SetNameViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewControllerUITests.swift; sourceTree = "<group>"; };
 		D8E5FE1C27FC8A2700F0EDA5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D8E6E909280ECCAB0058AD15 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		D8E6E90B280EF6770058AD15 /* WriteTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoViewController.swift; sourceTree = "<group>"; };
 		F6FD0F0E79104D69A8E3F563 /* Pods-DoGitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGitTests.debug.xcconfig"; path = "Target Support Files/Pods-DoGitTests/Pods-DoGitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CA2D7E2A6D65A0C694812A /* Pods-DoGit-DoGitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoGit-DoGitUITests.release.xcconfig"; path = "Target Support Files/Pods-DoGit-DoGitUITests/Pods-DoGit-DoGitUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +261,7 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
 				D89A1C6927FC8D890041FA58 /* Model */,
 				D8B64BDF2804449B009A70BA /* Font */,
 				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
@@ -309,6 +314,15 @@
 				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		D8E6E908280ECC960058AD15 /* BottomSheetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8E6E909280ECCAB0058AD15 /* BottomSheetViewController.swift */,
+				D8E6E90B280EF6770058AD15 /* WriteTodoViewController.swift */,
+			);
+			path = BottomSheetViewController;
 			sourceTree = "<group>";
 		};
 		DF17AC7304DB09393DBDAD87 /* Frameworks */ = {
@@ -565,10 +579,12 @@
 			files = (
 				D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */,
 				D8971BF5280044D000568ED0 /* GithubUserData.swift in Sources */,
+				D8E6E90C280EF6770058AD15 /* WriteTodoViewController.swift in Sources */,
 				D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */,
 				D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */,
 				D80D3590280AD3D9003062B5 /* AddRepositoryViewController+Actions.swift in Sources */,
 				D80D358A280AA120003062B5 /* AddRepositoryViewController.swift in Sources */,
+				D8E6E90A280ECCAB0058AD15 /* BottomSheetViewController.swift in Sources */,
 				D80D358E280AA935003062B5 /* AddRepositoryViewController+DataSource.swift in Sources */,
 				D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */,
 				D80D3592280AE0F9003062B5 /* RepositoryCheckButton.swift in Sources */,
