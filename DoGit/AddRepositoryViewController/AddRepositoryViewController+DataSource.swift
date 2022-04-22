@@ -41,8 +41,7 @@ extension AddRepositoryViewController {
     }
     
     private func checkButtonConfiguration(for githubRepository: GithubRepository) -> UICellAccessory.CustomViewConfiguration {
-        let checkedRepositoriesId = checkedRepositories.map { $0.id }
-        let tintColor = checkedRepositoriesId.contains(githubRepository.id) ? UIColor.mainColor : UIColor.systemGray4
+        let tintColor = githubRepository.isCheck ? UIColor.mainColor : UIColor.systemGray6
         let image = UIImage(systemName: "checkmark")
         
         let button = RepositoryCheckButton()
@@ -56,5 +55,20 @@ extension AddRepositoryViewController {
     func repository(for id: GithubRepository.ID) -> GithubRepository {
         let index = githubRepositories.indexOfGithubRepository(with: id)
         return githubRepositories[index]
+    }
+    
+    func createDatasource() {
+        // cell registration
+        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistartionHandler)
+        
+        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        })
+        
+        // update snapshot
+        performQuery(with: searchBar.text)
+        
+        // dataSource 적용
+        collectionView.dataSource = dataSource
     }
 }

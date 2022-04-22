@@ -20,16 +20,14 @@ extension AddRepositoryViewController {
         let repository = githubRepositories[index]
         
         if checkedRepositoriesId.contains(repositoryID) {
-            // alert 창
-            // yes -> realm 삭제 후 checkRepositoriesID 다시 읽어와서 updateSanpshot()
-            // no -> x
+            showRepositoryTodoDeleteCheckAlert(index)
+            getRepositories()
         } else {
-            // realm 추가 후 checkRepositoriesID 다시 읽어와서 updateSanpshot()
             createRepository(with: repository)
-            getCheckedRepositoryID()
-            checkedRepositories = githubRepositories.filter { checkedRepositoriesId.contains($0.id) }
-            performQuery(with: searchBar.text)
+            githubRepositories[index].isCheck.toggle()
         }
+        getCheckRepositories()
+        createDatasource()
     }
     
     @objc func didSaveRepository(_ sender: UIBarButtonItem) {

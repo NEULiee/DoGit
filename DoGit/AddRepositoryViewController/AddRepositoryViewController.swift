@@ -20,12 +20,12 @@ class AddRepositoryViewController: UIViewController {
     let githubDataManager = GithubDataManager()
     
     var githubRepositories: [GithubRepository] = []
-    var checkedRepositories: [GithubRepository] = []
+//    var checkedRepositories: [GithubRepository] = []
     var checkedRepositoriesId: [Int64] = []
     
     override func viewDidLoad() {
         setDelegate()
-        getCheckedRepositoryID()
+        getCheckRepositories()
         getRepositories()
         configureUI()
     }
@@ -37,7 +37,7 @@ extension AddRepositoryViewController {
         searchBar.delegate = self
     }
     
-    func getCheckedRepositoryID() {
+    func getCheckRepositories() {
         checkedRepositoriesId = TodoRepositoryStore.shared.readTodoAllId()
     }
     
@@ -46,7 +46,10 @@ extension AddRepositoryViewController {
             switch result {
             case .success(let repositories):
                 self.githubRepositories = repositories
-                self.checkedRepositories = self.githubRepositories.filter { self.checkedRepositoriesId.contains($0.id) }
+                for index in 0..<self.githubRepositories.count
+                where self.checkedRepositoriesId.contains(self.githubRepositories[index].id) {
+                    self.githubRepositories[index].isCheck.toggle()
+                }
                 DispatchQueue.main.sync {
                     self.configureCollectionView()
                 }
@@ -87,11 +90,37 @@ extension AddRepositoryViewController {
         return githubRepositories.filter { $0.contains(filter) }
     }
     
+    // MARK: - RealmSwift
     func createRepository(with repository: GithubRepository) {
         let repository: Repository = Repository(id: repository.id, name: repository.name)
         try! realm.write {
             realm.add(repository)
         }
+    }
+    
+    func deleteRepository(with index: Int) {
+        if let savedRepository = realm.objects(Repository.self).filter({ $0.id == self.githubRepositories[index].id }).first {
+            try! realm.write {
+                realm.delete(savedRepository)
+            }
+        }
+    }
+    
+    // MARK: - Alert
+    func showRepositoryTodoDeleteCheckAlert(_ index: Int) {
+        let message = "저장소 체크 해제시 등록했던 할일이 모두 사라집니다."
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.view.tintColor = .mainColor
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { _ in
+            self.deleteRepository(with: index)
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 

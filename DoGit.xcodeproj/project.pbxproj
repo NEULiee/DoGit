@@ -13,7 +13,7 @@
 		D80BD83D28018C3600DD6780 /* UserDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */; };
 		D80BD8452801B22400DD6780 /* MainTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */; };
 		D80BD8472801B61500DD6780 /* MainTodoViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */; };
-		D80D3583280A7434003062B5 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D3582280A7434003062B5 /* GithubRepository.swift */; };
+		D80D3583280A7434003062B5 /* GithubRepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D3582280A7434003062B5 /* GithubRepositoryData.swift */; };
 		D80D358A280AA120003062B5 /* AddRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D3589280AA120003062B5 /* AddRepositoryViewController.swift */; };
 		D80D358C280AA483003062B5 /* AddRepositoryViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D358B280AA483003062B5 /* AddRepositoryViewController+UI.swift */; };
 		D80D358E280AA935003062B5 /* AddRepositoryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D358D280AA935003062B5 /* AddRepositoryViewController+DataSource.swift */; };
@@ -24,6 +24,7 @@
 		D84F2A1F28113B090061950E /* WriteTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */; };
 		D84F2A2128113B190061950E /* WriteTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2028113B190061950E /* WriteTodoViewController+Actions.swift */; };
 		D84F2A2328113BEE0061950E /* BottomSheetViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2228113BEE0061950E /* BottomSheetViewController+Actions.swift */; };
+		D84F2A252812839D0061950E /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A242812839D0061950E /* GithubRepository.swift */; };
 		D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */; };
 		D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */; };
 		D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */; };
@@ -85,7 +86,7 @@
 		D80BD83C28018C3600DD6780 /* UserDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManagerTests.swift; sourceTree = "<group>"; };
 		D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+UI.swift"; sourceTree = "<group>"; };
 		D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+DataSource.swift"; sourceTree = "<group>"; };
-		D80D3582280A7434003062B5 /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
+		D80D3582280A7434003062B5 /* GithubRepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoryData.swift; sourceTree = "<group>"; };
 		D80D3589280AA120003062B5 /* AddRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRepositoryViewController.swift; sourceTree = "<group>"; };
 		D80D358B280AA483003062B5 /* AddRepositoryViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRepositoryViewController+UI.swift"; sourceTree = "<group>"; };
 		D80D358D280AA935003062B5 /* AddRepositoryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRepositoryViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+UI.swift"; sourceTree = "<group>"; };
 		D84F2A2028113B190061950E /* WriteTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+Actions.swift"; sourceTree = "<group>"; };
 		D84F2A2228113BEE0061950E /* BottomSheetViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+Actions.swift"; sourceTree = "<group>"; };
+		D84F2A242812839D0061950E /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneButton.swift; sourceTree = "<group>"; };
 		D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+Actions.swift"; sourceTree = "<group>"; };
 		D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepositoryStore.swift; sourceTree = "<group>"; };
@@ -204,7 +206,7 @@
 			children = (
 				D8971BF4280044D000568ED0 /* GithubUserData.swift */,
 				D87F98C628097E89008BCE25 /* GithubDataManager.swift */,
-				D80D3582280A7434003062B5 /* GithubRepository.swift */,
+				D80D3582280A7434003062B5 /* GithubRepositoryData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -221,6 +223,7 @@
 				D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */,
 				D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */,
 				D80D3591280AE0F9003062B5 /* RepositoryCheckButton.swift */,
+				D84F2A242812839D0061950E /* GithubRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				D84F2A1F28113B090061950E /* WriteTodoViewController+UI.swift in Sources */,
 				D84F2A1D28113AFA0061950E /* BottomSheetViewController+UI.swift in Sources */,
 				D80D358E280AA935003062B5 /* AddRepositoryViewController+DataSource.swift in Sources */,
+				D84F2A252812839D0061950E /* GithubRepository.swift in Sources */,
 				D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */,
 				D80D3592280AE0F9003062B5 /* RepositoryCheckButton.swift in Sources */,
 				D8B64BF228044DD0009A70BA /* UIButton+SetImage.swift in Sources */,
@@ -610,7 +614,7 @@
 				D89A1C7327FC96B50041FA58 /* Todo.swift in Sources */,
 				D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */,
 				D89A1C6D27FC8EED0041FA58 /* UIColor+DoGit.swift in Sources */,
-				D80D3583280A7434003062B5 /* GithubRepository.swift in Sources */,
+				D80D3583280A7434003062B5 /* GithubRepositoryData.swift in Sources */,
 				D8AFFC6127FC882E000E6F9F /* AppDelegate.swift in Sources */,
 				D8971BF028001D0900568ED0 /* DoGitError.swift in Sources */,
 				D8AFFC6327FC882E000E6F9F /* SceneDelegate.swift in Sources */,
