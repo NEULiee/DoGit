@@ -24,11 +24,6 @@ extension AddRepositoryViewController {
         cancelBarButton.setTitleTextAttributes(barAttribute, for: .normal)
         navigationItem.leftBarButtonItem = cancelBarButton
         
-        let saveBarButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(didSaveRepository(_:)))
-        saveBarButton.setTitleTextAttributes(barAttribute, for: .normal)
-        navigationItem.rightBarButtonItem = saveBarButton
-        saveBarButton.tintColor = .mainColor
-        
         // MARK: view
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "저장소 이름을 입력해주세요."
