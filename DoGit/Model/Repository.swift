@@ -21,3 +21,10 @@ class Repository: Object, Identifiable {
         self.name = name
     }
 }
+
+extension Array where Element == Repository {
+    func indexOfRepository(with id: Repository.ID) -> Self.Index {
+        guard let index = firstIndex(where: { $0.id == id }) else { fatalError() }
+        return index
+    }
+}
