@@ -21,12 +21,17 @@ class AddRepositoryViewController: UIViewController {
     var checkedRepositoriesId: [Int64] = []
     
     override func viewDidLoad() {
+        setDelegate()
         getRepositories()
         configureUI()
     }
 }
 
 extension AddRepositoryViewController {
+    
+    func setDelegate() {
+        searchBar.delegate = self
+    }
     
     func getRepositories() {
         checkedRepositoriesId = TodoRepositoryStore.shared.readTodoAllId()
@@ -60,9 +65,26 @@ extension AddRepositoryViewController {
         })
         
         // 3. update snapshot
-        updateSnapshot()
+        updateSnapshot(with: githubRepositories)
         
         // 4. dataSource 적용
         collectionView.dataSource = dataSource
+    }
+    
+    func performQuery(with filter: String?) {
+        let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name < $1.name }
+        updateSnapshot(with: filteredGithubRepositories)
+    }
+    
+    private func filteredGithubRepositories(with filter: String? = nil) -> [GithubRepository] {
+        return githubRepositories.filter { $0.contains(filter) }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension AddRepositoryViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(#function)
+        performQuery(with: searchText)
     }
 }
