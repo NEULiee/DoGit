@@ -21,13 +21,12 @@ extension AddRepositoryViewController {
         
         if checkedRepositoriesId.contains(repositoryID) {
             showRepositoryTodoDeleteCheckAlert(index)
-            getRepositories()
         } else {
             createRepository(with: repository)
             githubRepositories[index].isCheck.toggle()
+            getCheckRepositories()
+            createDatasource()
         }
-        getCheckRepositories()
-        createDatasource()
     }
     
     @objc func didSaveRepository(_ sender: UIBarButtonItem) {
