@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddRepositoryViewController: UIViewController {
+    
+    let realm = try! Realm()
     
     let searchBar = UISearchBar(frame: .zero)
     
@@ -22,6 +25,7 @@ class AddRepositoryViewController: UIViewController {
     
     override func viewDidLoad() {
         setDelegate()
+        getCheckedRepositoryID()
         getRepositories()
         configureUI()
     }
@@ -33,8 +37,11 @@ extension AddRepositoryViewController {
         searchBar.delegate = self
     }
     
-    func getRepositories() {
+    func getCheckedRepositoryID() {
         checkedRepositoriesId = TodoRepositoryStore.shared.readTodoAllId()
+    }
+    
+    func getRepositories() {
         githubDataManager.fetchRepositories { result in
             switch result {
             case .success(let repositories):
@@ -72,12 +79,19 @@ extension AddRepositoryViewController {
     }
     
     func performQuery(with filter: String?) {
-        let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name < $1.name }
+        let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name.lowercased() < $1.name.lowercased() }
         updateSnapshot(with: filteredGithubRepositories)
     }
     
-    private func filteredGithubRepositories(with filter: String? = nil) -> [GithubRepository] {
+    func filteredGithubRepositories(with filter: String? = nil) -> [GithubRepository] {
         return githubRepositories.filter { $0.contains(filter) }
+    }
+    
+    func createRepository(with repository: GithubRepository) {
+        let repository: Repository = Repository(id: repository.id, name: repository.name)
+        try! realm.write {
+            realm.add(repository)
+        }
     }
 }
 

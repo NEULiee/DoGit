@@ -8,5 +8,5 @@
 import UIKit
 
 class RepositoryCheckButton: UIButton {
-    var repository: GithubRepository?
+    var repositoryID: GithubRepository.ID?
 }

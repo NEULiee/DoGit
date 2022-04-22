@@ -47,13 +47,13 @@ extension AddRepositoryViewController {
         
         let button = RepositoryCheckButton()
         button.addTarget(self, action: #selector(didSelectRepository(_:)), for: .touchUpInside)
-        button.repository = githubRepository
+        button.repositoryID = githubRepository.id
         button.setImage(image, for: .normal)
         button.tintColor = tintColor
         return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
     }
     
-    private func repository(for id: GithubRepository.ID) -> GithubRepository {
+    func repository(for id: GithubRepository.ID) -> GithubRepository {
         let index = githubRepositories.indexOfGithubRepository(with: id)
         return githubRepositories[index]
     }
