@@ -83,7 +83,8 @@ struct GithubDataManager {
                 return
             }
             
-            if let repositoryList = self.repositoryJSONDecoder(data: data) {
+            if let repositoryDataList = self.repositoryJSONDecoder(data: data) {
+                let repositoryList = repositoryDataList.map { GithubRepository($0.id, $0.name, $0.description ?? "") }
                 completion(.success(repositoryList))
             } else {
                 completion(.failure(DoGitError.repositoryNotFound))
@@ -91,19 +92,19 @@ struct GithubDataManager {
         }.resume()
     }
     
-    private func repositoryJSONDecoder(data: Data) -> [GithubRepository]? {
+    private func repositoryJSONDecoder(data: Data) -> [GithubRepositoryData]? {
         
         print(#function)
         
         let decoder = JSONDecoder()
         
         do {
-            let decodeData = try decoder.decode([GithubRepository].self, from: data)
+            let decodeData = try decoder.decode([GithubRepositoryData].self, from: data)
             return decodeData.map {
                 if let description = $0.description {
-                    return GithubRepository($0.id, $0.name, description)
+                    return GithubRepositoryData($0.id, $0.name, description)
                 } else {
-                    return GithubRepository($0.id, $0.name)
+                    return GithubRepositoryData($0.id, $0.name)
                 }
             }
         } catch {

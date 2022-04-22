@@ -26,4 +26,14 @@ class SetNameViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    
+    func showAlert(message errorDescription: String) {
+        let alert = UIAlertController(title: "", message: errorDescription, preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "nameAlert"
+        alert.view.tintColor = .mainColor
+        alert.addAction(UIAlertAction(title: "다시입력", style: .default, handler: { [weak self] _ in
+            self?.dismiss(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
 }
