@@ -278,9 +278,9 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D8B64BDF2804449B009A70BA /* Font */,
 				D89A1C6927FC8D890041FA58 /* Model */,
 				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
-				D8B64BDF2804449B009A70BA /* Font */,
 				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
 				D89A1C6B27FC8DB70041FA58 /* SetNameViewController */,
 				D80D3588280A970D003062B5 /* AddRepositoryViewController */,

@@ -30,6 +30,8 @@ class WriteTodoViewController: UIViewController {
     }
     
     func focusOnContentTextField() {
-        contentTextField.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
+            self.contentTextField.becomeFirstResponder()
+        }
     }
 }
