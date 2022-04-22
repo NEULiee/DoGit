@@ -14,3 +14,10 @@ class Todo: Object, Identifiable {
     @Persisted var isDone: Bool = false
     @Persisted var content: String = ""
 }
+
+extension Array where Element == Todo {
+    func indexOfTodo(with id: Todo.ID) -> Self.Index {
+        guard let index = firstIndex(where: { $0.id == id }) else { fatalError() }
+        return index
+    }
+}

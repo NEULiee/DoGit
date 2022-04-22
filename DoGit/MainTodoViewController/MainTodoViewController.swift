@@ -13,6 +13,8 @@ class MainTodoViewController: UIViewController {
     // MARK: - Properties
     
     let realm = try! Realm()
+    var notificationToken: NotificationToken!
+    var realmRepositories: Results<Repository>!
     
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
@@ -25,6 +27,7 @@ class MainTodoViewController: UIViewController {
     // MARK: dataSource
     var dataSource: DataSource!
     var repositories: [Repository] = []
+    var todos: [Todo] = []
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -34,8 +37,11 @@ class MainTodoViewController: UIViewController {
         
         configureUI()
         checkRepositoriesCount()
+        getTodos()
         
         realmLocation()
+        
+        repositoryNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +107,10 @@ extension MainTodoViewController {
         }
     }
     
+    func getTodos() {
+        todos = Array(realm.objects(Todo.self))
+    }
+    
     func configureCollectionView() {
         // 1. collection view configuration
         let listLayout = listLayout()
@@ -113,7 +123,7 @@ extension MainTodoViewController {
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
         
         dataSource = DataSource(collectionView: collectionView, cellProvider: {
-            (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Todo) in
+            (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Todo.ID) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         })
         

@@ -26,6 +26,7 @@
 		D84F2A2328113BEE0061950E /* BottomSheetViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2228113BEE0061950E /* BottomSheetViewController+Actions.swift */; };
 		D84F2A252812839D0061950E /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A242812839D0061950E /* GithubRepository.swift */; };
 		D84F2A272812B3540061950E /* AddRepositoryViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A262812B3540061950E /* AddRepositoryViewController+Realm.swift */; };
+		D84F2A292812CCFC0061950E /* MainTodoViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A282812CCFC0061950E /* MainTodoViewController+Realm.swift */; };
 		D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */; };
 		D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */; };
 		D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */; };
@@ -100,6 +101,7 @@
 		D84F2A2228113BEE0061950E /* BottomSheetViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+Actions.swift"; sourceTree = "<group>"; };
 		D84F2A242812839D0061950E /* GithubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		D84F2A262812B3540061950E /* AddRepositoryViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRepositoryViewController+Realm.swift"; sourceTree = "<group>"; };
+		D84F2A282812CCFC0061950E /* MainTodoViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+Realm.swift"; sourceTree = "<group>"; };
 		D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneButton.swift; sourceTree = "<group>"; };
 		D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+Actions.swift"; sourceTree = "<group>"; };
 		D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepositoryStore.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D80BD8442801B22400DD6780 /* MainTodoViewController+UI.swift */,
 				D80BD8462801B61500DD6780 /* MainTodoViewController+DataSource.swift */,
 				D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */,
+				D84F2A282812CCFC0061950E /* MainTodoViewController+Realm.swift */,
 				D82DC69828085C6800C5ABCB /* TodoHeader.swift */,
 			);
 			path = MainTodoViewController;
@@ -275,9 +278,9 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D8B64BDF2804449B009A70BA /* Font */,
 				D89A1C6927FC8D890041FA58 /* Model */,
 				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
-				D8B64BDF2804449B009A70BA /* Font */,
 				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
 				D89A1C6B27FC8DB70041FA58 /* SetNameViewController */,
 				D80D3588280A970D003062B5 /* AddRepositoryViewController */,
@@ -630,6 +633,7 @@
 				D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */,
 				D89A1C7527FC97320041FA58 /* User.swift in Sources */,
 				D84F2A272812B3540061950E /* AddRepositoryViewController+Realm.swift in Sources */,
+				D84F2A292812CCFC0061950E /* MainTodoViewController+Realm.swift in Sources */,
 				D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

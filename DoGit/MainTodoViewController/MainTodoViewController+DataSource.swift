@@ -9,8 +9,8 @@ import UIKit
 
 extension MainTodoViewController {
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Repository, Todo>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Repository, Todo>
+    typealias DataSource = UICollectionViewDiffableDataSource<Repository.ID, Todo.ID>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Repository.ID, Todo.ID>
     
     func getRepositories() {
         repositories = TodoRepositoryStore.shared.readTodoAll()
@@ -20,10 +20,10 @@ extension MainTodoViewController {
         getRepositories()
         
         var snapshot = Snapshot()
-        snapshot.appendSections(repositories)
+        snapshot.appendSections(repositories.map { $0.id })
         
         for repository in repositories {
-            snapshot.appendItems(Array(repository.todos), toSection: repository)
+            snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
         
         dataSource.apply(snapshot)
@@ -36,8 +36,9 @@ extension MainTodoViewController {
         return UICollectionViewCompositionalLayout.list(using: layoutConfiguration)
     }
     
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, todo: Todo) {
+    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, todoID: Todo.ID) {
         var contentConfiguration = cell.defaultContentConfiguration()
+        let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.font = UIFont.Font.light14
         cell.contentConfiguration = contentConfiguration
@@ -60,10 +61,16 @@ extension MainTodoViewController {
     }
     
     func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
-        let headerItem = dataSource.snapshot().sectionIdentifiers[indexPath.section]
+        let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
+        let headerItem = repository(with: headerItemID)
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
             addTodo(repository: headerItem)
         }
+    }
+    
+    func repository(with id: Repository.ID) -> Repository {
+        let index = repositories.indexOfRepository(with: id)
+        return repositories[index]
     }
 }

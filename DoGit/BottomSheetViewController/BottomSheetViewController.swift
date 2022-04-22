@@ -83,7 +83,7 @@ extension BottomSheetViewController {
             bottomSheetViewTopConstraint.constant = bottomSheetPanMinTopConstant
         }
         
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
             self.blurView.alpha = 0.7
             self.view.layoutIfNeeded()
         })
@@ -93,7 +93,7 @@ extension BottomSheetViewController {
         let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding = view.safeAreaInsets.bottom
         bottomSheetViewTopConstraint.constant = safeAreaHeight + bottomPadding
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn,  animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn,  animations: {
             self.blurView.alpha = 0.0
             self.view.layoutIfNeeded()
         }) { _ in
