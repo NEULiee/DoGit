@@ -15,8 +15,14 @@ extension MainTodoViewController {
         self.present(navigationController, animated: true)
     }
 
-    @objc func touchUpInsideDoneButton(_ sender: UIButton) {
-        
+    @objc func touchUpInsideDoneButton(_ sender: TodoDoneButton) {
+        print(#function)
+        guard let todoID = sender.todo?.id else { return }
+        guard let todo = realm.objects(Todo.self).filter({ $0.id == todoID }).first else { return }
+        try! realm.write {
+            todo.isDone.toggle()
+        }
+        updateSnapshot()
     }
     
     func showBottomSheet(repository: Repository) {

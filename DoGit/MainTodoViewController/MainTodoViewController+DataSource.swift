@@ -26,6 +26,7 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
+        snapshot.reloadItems(todos.map{ $0.id })
         
         dataSource.apply(snapshot)
     }
@@ -41,6 +42,7 @@ extension MainTodoViewController {
         var contentConfiguration = cell.defaultContentConfiguration()
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
+        contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
         contentConfiguration.textProperties.font = UIFont.Font.light14
         cell.contentConfiguration = contentConfiguration
         
