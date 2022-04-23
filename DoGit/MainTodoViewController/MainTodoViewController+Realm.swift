@@ -19,6 +19,7 @@ extension MainTodoViewController {
                 if 0 < deletions.count || 0 < insertions.count {
                     self?.repositories = TodoRepositoryStore.shared.readTodoAll()
                     self?.updateSnapshot()
+                    self?.checkRepositoriesCount()
                 }
             case .error(let error):
                 fatalError("\(error)")

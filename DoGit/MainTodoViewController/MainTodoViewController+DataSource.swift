@@ -20,6 +20,10 @@ extension MainTodoViewController {
         getRepositories()
         getTodos()
         
+        if collectionView == nil {
+            configureCollectionView()
+        }
+        
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
         
@@ -89,6 +93,8 @@ extension MainTodoViewController {
     func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
         let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
         let headerItem = repository(with: headerItemID)
+        // headerView.backgroundColor = .systemGray6
+        // headerView.layer.cornerRadius = 10
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
             showBottomSheet(repository: headerItem)

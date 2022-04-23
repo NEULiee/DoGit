@@ -43,14 +43,17 @@ extension TodoHeader {
             stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
         ])
         
-        repositoryLabel.font = UIFont.Font.light14
+        stackView.layoutIfNeeded()
+        stackView.underLine(borderColor: .gray)
+        
+        repositoryLabel.font = UIFont.Font.bold16
         
         stackView.addArrangedSubview(repositoryLabel)
         
         addButton.tintColor = .mainColor
-        addButton.setTitleColor(.mainColor, for: .normal)
-        addButton.setTitle("할일 추가하기", for: .normal)
-        addButton.titleLabel?.font = UIFont.Font.light12
+        // addButton.setTitleColor(.mainColor, for: .normal)
+        // addButton.setTitle("할일 추가하기", for: .normal)
+        // addButton.titleLabel?.font = UIFont.Font.light12
         
         addButton.addAction(UIAction(handler: { [unowned self] _ in
             self.touchUpInsideAddButton?()
