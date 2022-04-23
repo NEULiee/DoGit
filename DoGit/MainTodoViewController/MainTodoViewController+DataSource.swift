@@ -18,6 +18,7 @@ extension MainTodoViewController {
     
     func updateSnapshot() {
         getRepositories()
+        getTodos()
         
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
@@ -65,7 +66,7 @@ extension MainTodoViewController {
         let headerItem = repository(with: headerItemID)
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
-            addTodo(repository: headerItem)
+            showBottomSheet(repository: headerItem)
         }
     }
     

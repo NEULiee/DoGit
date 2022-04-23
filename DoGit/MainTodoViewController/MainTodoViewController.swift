@@ -13,8 +13,11 @@ class MainTodoViewController: UIViewController {
     // MARK: - Properties
     
     let realm = try! Realm()
-    var notificationToken: NotificationToken!
+    var repositoryNotificationToken: NotificationToken!
     var realmRepositories: Results<Repository>!
+    
+    var todoNotificationToken: NotificationToken!
+    var realmTodos: Results<Todo>!
     
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
@@ -42,6 +45,7 @@ class MainTodoViewController: UIViewController {
         realmLocation()
         
         repositoryNotification()
+        todoNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

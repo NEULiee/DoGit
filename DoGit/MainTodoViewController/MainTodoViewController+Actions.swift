@@ -19,9 +19,7 @@ extension MainTodoViewController {
         
     }
     
-    func addTodo(repository: Repository) {
-        // 투두 추가하는 함수
-        
+    func showBottomSheet(repository: Repository) {
         let writeTodoViewController = WriteTodoViewController(repository: repository)
         
         let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
