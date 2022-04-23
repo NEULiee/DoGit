@@ -50,6 +50,7 @@ extension MainTodoViewController {
     func listLayout() -> UICollectionViewCompositionalLayout {
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
         layoutConfiguration.headerMode = .supplementary
+        layoutConfiguration.showsSeparators = false
         layoutConfiguration.backgroundColor = .clear
         return UICollectionViewCompositionalLayout.list(using: layoutConfiguration)
     }
