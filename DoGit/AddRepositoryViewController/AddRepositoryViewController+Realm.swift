@@ -19,6 +19,7 @@ extension AddRepositoryViewController {
     func deleteRepository(with index: Int) {
         if let savedRepository = realm.objects(Repository.self).filter({ $0.id == self.githubRepositories[index].id }).first {
             try! realm.write {
+                realm.delete(savedRepository.todos)
                 realm.delete(savedRepository)
             }
         }
