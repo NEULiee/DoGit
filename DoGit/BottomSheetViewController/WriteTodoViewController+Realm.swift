@@ -1,17 +1,14 @@
 //
-//  WriteTodoViewController+Actions.swift
+//  WriteTodoViewController+Realm.swift
 //  DoGit
 //
-//  Created by neuli on 2022/04/21.
+//  Created by neuli on 2022/04/23.
 //
 
 import UIKit
 
 extension WriteTodoViewController {
-    
-    @objc func doneButtonTapped() {
-        print(#function)
-        
+    func updateTodo() {
         guard let text = contentTextField.text else { return }
         let todo = Todo(content: text)
         let repositoryID = repository.id

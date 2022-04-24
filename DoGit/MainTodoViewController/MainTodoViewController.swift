@@ -13,8 +13,11 @@ class MainTodoViewController: UIViewController {
     // MARK: - Properties
     
     let realm = try! Realm()
-    var notificationToken: NotificationToken!
+    var repositoryNotificationToken: NotificationToken!
     var realmRepositories: Results<Repository>!
+    
+    var todoNotificationToken: NotificationToken!
+    var realmTodos: Results<Todo>!
     
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
@@ -42,6 +45,7 @@ class MainTodoViewController: UIViewController {
         realmLocation()
         
         repositoryNotification()
+        todoNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,7 +112,7 @@ extension MainTodoViewController {
     }
     
     func getTodos() {
-        todos = Array(realm.objects(Todo.self))
+        todos = Array(realm.objects(Todo.self).sorted(byKeyPath: "content"))
     }
     
     func configureCollectionView() {
@@ -139,5 +143,13 @@ extension MainTodoViewController {
         
         // 5. datasource 적용
         collectionView.dataSource = dataSource
+    }
+    
+    func deleteTodo(with id: Todo.ID) {
+        guard let todo = realm.objects(Todo.self).first else { return }
+        try! realm.write {
+            realm.delete(todo)
+        }
+        updateSnapshot()
     }
 }

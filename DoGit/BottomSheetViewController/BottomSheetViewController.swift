@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class BottomSheetViewController: UIViewController {
+    
+    let realm = try! Realm()
+    var notificationToken: NotificationToken!
+    var realmTodos: Results<Todo>!
     
     enum BottomSheetViewState {
         case expanded
@@ -63,6 +68,8 @@ class BottomSheetViewController: UIViewController {
         blurView.isUserInteractionEnabled = true
         
         recognizePanGesture()
+        
+        todoNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {

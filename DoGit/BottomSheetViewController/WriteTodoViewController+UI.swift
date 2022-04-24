@@ -38,6 +38,7 @@ extension WriteTodoViewController {
         doneButton.backgroundColor = .mainColor
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.layer.cornerRadius = 5
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         view.addSubview(doneButton)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

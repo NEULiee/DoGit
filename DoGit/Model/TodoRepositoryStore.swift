@@ -14,7 +14,7 @@ class TodoRepositoryStore {
     let realm = try! Realm()
     
     func readTodoAll() -> [Repository] {
-        let repositories = Array(realm.objects(Repository.self))
+        let repositories = Array(realm.objects(Repository.self).sorted(byKeyPath: "name"))
         return repositories
     }
     

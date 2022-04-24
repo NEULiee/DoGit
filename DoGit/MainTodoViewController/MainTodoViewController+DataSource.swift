@@ -18,6 +18,11 @@ extension MainTodoViewController {
     
     func updateSnapshot() {
         getRepositories()
+        getTodos()
+        
+        if collectionView == nil {
+            configureCollectionView()
+        }
         
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
@@ -25,14 +30,33 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
+        snapshot.reconfigureItems(todos.map { $0.id })
+        //snapshot.reloadItems(todos.map { $0.id })
         
         dataSource.apply(snapshot)
     }
     
+//    func updateSnapshot(with id: Todo.ID) {
+//        getRepositories()
+//        getTodos()
+//
+//        var snapshot = Snapshot()
+//        snapshot.appendSections(repositories.map { $0.id })
+//
+//        for repository in repositories {
+//            snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
+//        }
+//        snapshot.reconfigureItems([id])
+//
+//        dataSource.apply(snapshot)
+//    }
+    
     func listLayout() -> UICollectionViewCompositionalLayout {
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
         layoutConfiguration.headerMode = .supplementary
+        layoutConfiguration.showsSeparators = false
         layoutConfiguration.backgroundColor = .clear
+        layoutConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         return UICollectionViewCompositionalLayout.list(using: layoutConfiguration)
     }
     
@@ -40,8 +64,15 @@ extension MainTodoViewController {
         var contentConfiguration = cell.defaultContentConfiguration()
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
+        contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
         contentConfiguration.textProperties.font = UIFont.Font.light14
         cell.contentConfiguration = contentConfiguration
+        let background: UIView = {
+            let view = UIView()
+            view.backgroundColor = .clear
+            return view
+        }()
+        cell.selectedBackgroundView = background
         
         let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
@@ -63,9 +94,11 @@ extension MainTodoViewController {
     func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
         let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
         let headerItem = repository(with: headerItemID)
+        // headerView.backgroundColor = .systemGray6
+        // headerView.layer.cornerRadius = 10
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
-            addTodo(repository: headerItem)
+            showBottomSheet(repository: headerItem)
         }
     }
     
@@ -73,4 +106,23 @@ extension MainTodoViewController {
         let index = repositories.indexOfRepository(with: id)
         return repositories[index]
     }
+    
+    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        let deleteActionTitle = "삭제"
+        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
+            self?.deleteTodo(with: id)
+            completion(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+        
+//    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+//        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+//        let deleteActionTitle = "삭제"
+//        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
+//            <#code#>
+//        }
+//        return UISwipeActionsConfiguration(actions: [deleteAction])
+//    }
 }

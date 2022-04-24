@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WriteTodoViewController: UIViewController {
+    
+    let realm = try! Realm()
     
     let titleLabel = UILabel()
     let contentTextField = UITextField()
