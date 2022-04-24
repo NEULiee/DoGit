@@ -11,7 +11,7 @@ extension MainTodoViewController {
     
     func configureUI() {
 
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         
         // nameLabel.numberOfLines = 2
         nameLabel.font = UIFont.Font.bold32
@@ -63,7 +63,7 @@ extension MainTodoViewController {
     }
     
     func addGuideMentLabelInTodoView() {
-        if let _ = collectionView {
+        if collectionView != nil {
             deleteCollectionView()
         }
         

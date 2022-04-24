@@ -25,7 +25,7 @@ extension AddRepositoryViewController {
             createRepository(with: repository)
             githubRepositories[index].isCheck.toggle()
             getCheckRepositories()
-            createDatasource()
+            updateSnapshot(with: githubRepositories)
         }
     }
     

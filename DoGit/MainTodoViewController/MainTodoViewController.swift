@@ -39,7 +39,7 @@ class MainTodoViewController: UIViewController {
         // testData()
         
         configureUI()
-        checkRepositoriesCount()
+        configureCollectionView()
         getTodos()
         
         realmLocation()
@@ -49,7 +49,7 @@ class MainTodoViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        checkRepositoriesCount()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -107,7 +107,7 @@ extension MainTodoViewController {
         if repositories.isEmpty {
             addGuideMentLabelInTodoView()
         } else {
-            configureCollectionView()
+            addCollectionViewInTodoView()
         }
     }
     
@@ -121,7 +121,7 @@ extension MainTodoViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
         
         // UI
-        addCollectionViewInTodoView()
+        // addCollectionViewInTodoView()
         
         // 2. cell registration
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)

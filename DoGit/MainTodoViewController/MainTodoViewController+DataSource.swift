@@ -20,9 +20,9 @@ extension MainTodoViewController {
         getRepositories()
         getTodos()
         
-        if collectionView == nil {
-            configureCollectionView()
-        }
+//        if collectionView == nil {
+//            configureCollectionView()
+//        }
         
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
@@ -30,8 +30,8 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
-        snapshot.reconfigureItems(todos.map { $0.id })
-        //snapshot.reloadItems(todos.map { $0.id })
+        // snapshot.reconfigureItems(todos.map { $0.id })
+        snapshot.reloadItems(todos.map { $0.id })
         
         dataSource.apply(snapshot)
     }
@@ -65,7 +65,8 @@ extension MainTodoViewController {
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
-        contentConfiguration.textProperties.font = UIFont.Font.light14
+        contentConfiguration.textProperties.font = UIFont.Font.regular14
+        contentConfiguration.textProperties.color = .fontColor
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
             let view = UIView()
