@@ -30,8 +30,8 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
-        // snapshot.reconfigureItems(todos.map { $0.id })
-        snapshot.reloadItems(todos.map { $0.id })
+        snapshot.reconfigureItems(todos.map { $0.id })
+        //snapshot.reloadItems(todos.map { $0.id })
         
         dataSource.apply(snapshot)
     }
@@ -56,6 +56,7 @@ extension MainTodoViewController {
         layoutConfiguration.headerMode = .supplementary
         layoutConfiguration.showsSeparators = false
         layoutConfiguration.backgroundColor = .clear
+        layoutConfiguration.trailingSwipeActionsConfigurationProvider = makeSwipeActions
         return UICollectionViewCompositionalLayout.list(using: layoutConfiguration)
     }
     
@@ -105,4 +106,23 @@ extension MainTodoViewController {
         let index = repositories.indexOfRepository(with: id)
         return repositories[index]
     }
+    
+    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        let deleteActionTitle = "삭제"
+        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
+            self?.deleteTodo(with: id)
+            completion(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+        
+//    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+//        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+//        let deleteActionTitle = "삭제"
+//        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
+//            <#code#>
+//        }
+//        return UISwipeActionsConfiguration(actions: [deleteAction])
+//    }
 }
