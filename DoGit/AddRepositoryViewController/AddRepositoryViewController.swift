@@ -102,7 +102,7 @@ extension AddRepositoryViewController {
             self.deleteRepository(with: index)
             self.githubRepositories[index].isCheck.toggle()
             self.getCheckRepositories()
-            self.createDatasource()
+            self.updateSnapshot(with: self.githubRepositories)
         }
         
         alert.addAction(cancelAction)

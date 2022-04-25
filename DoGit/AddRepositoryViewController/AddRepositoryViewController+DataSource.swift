@@ -18,6 +18,7 @@ extension AddRepositoryViewController {
         snapshot.appendItems(repositories.map { $0.id })
         
         print(#function)
+        snapshot.reconfigureItems(repositories.map { $0.id })
         
         dataSource.apply(snapshot)
     }
@@ -37,10 +38,16 @@ extension AddRepositoryViewController {
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
             let view = UIView()
+            view.backgroundColor = .backgroundColor
+            return view
+        }()
+        cell.backgroundView = background
+        let selectedBackground: UIView = {
+            let view = UIView()
             view.backgroundColor = .clear
             return view
         }()
-        cell.selectedBackgroundView = background
+        cell.selectedBackgroundView = selectedBackground
         
         let checkImageConfiguration = checkButtonConfiguration(for: item)
         cell.accessories = [.customView(configuration: checkImageConfiguration)]
@@ -61,20 +68,5 @@ extension AddRepositoryViewController {
     func repository(for id: GithubRepository.ID) -> GithubRepository {
         let index = githubRepositories.indexOfGithubRepository(with: id)
         return githubRepositories[index]
-    }
-    
-    func createDatasource() {
-        // cell registration
-        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistartionHandler)
-        
-        dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-        })
-        
-        // update snapshot
-        performQuery(with: searchBar.text)
-        
-        // dataSource 적용
-        collectionView.dataSource = dataSource
     }
 }

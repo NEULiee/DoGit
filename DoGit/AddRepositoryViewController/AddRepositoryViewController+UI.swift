@@ -11,7 +11,7 @@ extension AddRepositoryViewController {
     
     func configureUI() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         
         // MARK: navigation bar
         let barAttribute = [NSAttributedString.Key.font : UIFont.Font.regular16]
@@ -20,7 +20,7 @@ extension AddRepositoryViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         let cancelBarButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(didCancelAdd(_:)))
-        cancelBarButton.tintColor = .gray
+        cancelBarButton.tintColor = .fontColor
         cancelBarButton.setTitleTextAttributes(barAttribute, for: .normal)
         navigationItem.leftBarButtonItem = cancelBarButton
         

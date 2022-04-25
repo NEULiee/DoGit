@@ -12,4 +12,12 @@ extension UIColor {
     static var mainColor: UIColor {
         UIColor(named: "mainColor") ?? .green
     }
+    
+    static var backgroundColor: UIColor {
+        UIColor(named: "backgroundColor") ?? .darkGray
+    }
+    
+    static var fontColor: UIColor {
+        UIColor(named: "fontColor") ?? .darkGray
+    }
 }

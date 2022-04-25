@@ -11,14 +11,14 @@ extension MainTodoViewController {
     
     func configureUI() {
 
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         
         // nameLabel.numberOfLines = 2
         nameLabel.font = UIFont.Font.bold32
         nameLabel.sizeToFit()
         
         addRepositoryButton.setImage(systemName: "plus")
-        addRepositoryButton.tintColor = .darkGray
+        addRepositoryButton.tintColor = .fontColor
         addRepositoryButton.addTarget(self, action: #selector(touchUpInsideAddButton(_:)), for: .touchUpInside)
         NSLayoutConstraint.activate([
             addRepositoryButton.widthAnchor.constraint(equalToConstant: 28),
@@ -26,7 +26,7 @@ extension MainTodoViewController {
         ])
 
         menuButton.setImage(systemName: "ellipsis")
-        menuButton.tintColor = .darkGray
+        menuButton.tintColor = .fontColor
         NSLayoutConstraint.activate([
             menuButton.widthAnchor.constraint(equalToConstant: 28),
             menuButton.heightAnchor.constraint(equalToConstant: 28)
@@ -63,7 +63,7 @@ extension MainTodoViewController {
     }
     
     func addGuideMentLabelInTodoView() {
-        if let _ = collectionView {
+        if collectionView != nil {
             deleteCollectionView()
         }
         
