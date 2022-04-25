@@ -38,10 +38,16 @@ extension AddRepositoryViewController {
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
             let view = UIView()
+            view.backgroundColor = .backgroundColor
+            return view
+        }()
+        cell.backgroundView = background
+        let selectedBackground: UIView = {
+            let view = UIView()
             view.backgroundColor = .clear
             return view
         }()
-        cell.selectedBackgroundView = background
+        cell.selectedBackgroundView = selectedBackground
         
         let checkImageConfiguration = checkButtonConfiguration(for: item)
         cell.accessories = [.customView(configuration: checkImageConfiguration)]

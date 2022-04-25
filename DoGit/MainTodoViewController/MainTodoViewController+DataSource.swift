@@ -67,20 +67,27 @@ extension MainTodoViewController {
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
         contentConfiguration.textProperties.font = UIFont.Font.regular14
         contentConfiguration.textProperties.color = .fontColor
+        cell.backgroundColor = .backgroundColor
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
+            let view = UIView()
+            view.backgroundColor = .backgroundColor
+            return view
+        }()
+        cell.backgroundView = background
+        let selectedBackground: UIView = {
             let view = UIView()
             view.backgroundColor = .clear
             return view
         }()
-        cell.selectedBackgroundView = background
+        cell.selectedBackgroundView = selectedBackground
         
         let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
     }
     
     private func doneButtonConfiguration(for todo: Todo) -> UICellAccessory.CustomViewConfiguration {
-        let tintColor = todo.isDone ? UIColor.mainColor : UIColor.systemGray6
+        let tintColor = todo.isDone ? UIColor.mainColor : UIColor.systemGray4
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: "square.fill", withConfiguration: symbolConfiguration)
         
@@ -95,8 +102,7 @@ extension MainTodoViewController {
     func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
         let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
         let headerItem = repository(with: headerItemID)
-        // headerView.backgroundColor = .systemGray6
-        // headerView.layer.cornerRadius = 10
+        headerView.backgroundColor = .backgroundColor
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
             showBottomSheet(repository: headerItem)

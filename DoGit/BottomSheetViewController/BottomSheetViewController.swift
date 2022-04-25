@@ -27,7 +27,7 @@ class BottomSheetViewController: UIViewController {
     
     let bottomSheetView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .backgroundColor
         view.layer.cornerRadius = 16
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.clipsToBounds = true
