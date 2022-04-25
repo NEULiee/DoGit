@@ -22,7 +22,7 @@ extension MainTodoViewController {
         try! realm.write {
             todo.isDone.toggle()
         }
-        updateSnapshot()
+        updateSnapshot(with: [todoID])
     }
     
     func showBottomSheet(repository: Repository) {

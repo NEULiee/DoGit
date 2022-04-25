@@ -16,13 +16,9 @@ extension MainTodoViewController {
         repositories = TodoRepositoryStore.shared.readTodoAll()
     }
     
-    func updateSnapshot() {
+    func makeSnapshot() {
         getRepositories()
         getTodos()
-        
-//        if collectionView == nil {
-//            configureCollectionView()
-//        }
         
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
@@ -30,26 +26,23 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
-        // snapshot.reconfigureItems(todos.map { $0.id })
-        snapshot.reloadItems(todos.map { $0.id })
         
         dataSource.apply(snapshot)
     }
     
-//    func updateSnapshot(with id: Todo.ID) {
-//        getRepositories()
-//        getTodos()
-//
-//        var snapshot = Snapshot()
-//        snapshot.appendSections(repositories.map { $0.id })
-//
-//        for repository in repositories {
-//            snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
-//        }
-//        snapshot.reconfigureItems([id])
-//
-//        dataSource.apply(snapshot)
-//    }
+    func updateSnapshot(with id: [Todo.ID]) {
+        getRepositories()
+        getTodos()
+
+        var snapshot = dataSource.snapshot()
+        if id.isEmpty {
+            snapshot.reconfigureItems(todos.map { $0.id })
+        } else {
+            snapshot.reconfigureItems(id)
+        }
+
+        dataSource.apply(snapshot)
+    }
     
     func listLayout() -> UICollectionViewCompositionalLayout {
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)

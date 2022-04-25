@@ -139,7 +139,7 @@ extension MainTodoViewController {
         }
         
         // 4. update snapshot
-        updateSnapshot()
+        makeSnapshot()
         
         // 5. datasource 적용
         collectionView.dataSource = dataSource
@@ -150,6 +150,6 @@ extension MainTodoViewController {
         try! realm.write {
             realm.delete(todo)
         }
-        updateSnapshot()
+        updateSnapshot(with: [id])
     }
 }
