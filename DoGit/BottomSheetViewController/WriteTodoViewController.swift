@@ -15,10 +15,21 @@ class WriteTodoViewController: UIViewController {
     let titleLabel = UILabel()
     let contentTextField = UITextField()
     let doneButton = UIButton()
-    let repository: Repository
+    let repository: Repository!
+    let todo: Todo!
     
     init(repository: Repository) {
         self.repository = repository
+        self.todo = nil
+        self.titleLabel.text = "할일 추가하기"
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(todo: Todo) {
+        self.repository = nil
+        self.todo = todo
+        self.titleLabel.text = "할일 수정하기"
+        self.contentTextField.text = todo.content
         super.init(nibName: nil, bundle: nil)
     }
     

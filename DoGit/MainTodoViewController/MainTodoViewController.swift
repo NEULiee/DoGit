@@ -143,6 +143,8 @@ extension MainTodoViewController {
         
         // 5. datasource 적용
         collectionView.dataSource = dataSource
+        
+        collectionView.delegate = self
     }
     
     func deleteTodo(with id: Todo.ID) {
@@ -151,5 +153,17 @@ extension MainTodoViewController {
             realm.delete(todo)
         }
         makeSnapshot()
+    }
+}
+
+extension MainTodoViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedItemID = dataSource.itemIdentifier(for: indexPath) else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            return
+        }
+        guard let todo = realm.objects(Todo.self).filter({ $0.id == selectedItemID }).first else { return }
+        showBottomSheet(todo: todo)
     }
 }

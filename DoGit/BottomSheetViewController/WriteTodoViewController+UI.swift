@@ -10,7 +10,6 @@ import UIKit
 extension WriteTodoViewController {
     
     func configureLayout() {
-        titleLabel.text = "할일 추가하기"
         titleLabel.font = UIFont.Font.bold18
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +27,7 @@ extension WriteTodoViewController {
         NSLayoutConstraint.activate([
             contentTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             contentTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            contentTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -30)
+            contentTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
         view.layoutIfNeeded()
         contentTextField.underLine(borderColor: .mainColor)

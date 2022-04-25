@@ -32,4 +32,12 @@ extension MainTodoViewController {
         bottomSheetViewController.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetViewController, animated: false)
     }
+    
+    func showBottomSheet(todo: Todo) {
+        let writeTodoViewController = WriteTodoViewController(todo: todo)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
 }

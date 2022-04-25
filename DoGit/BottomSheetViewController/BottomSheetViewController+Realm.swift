@@ -15,8 +15,8 @@ extension BottomSheetViewController {
             switch changes {
             case .initial:
                 break
-            case .update(_, _, let insertions, _):
-                if 0 < insertions.count {
+            case .update(_, _, let insertions, let modifications):
+                if 0 < insertions.count || 0 < modifications.count {
                     self?.hideBottomSheetAndGoBack()
                 }
             case .error(let error):
