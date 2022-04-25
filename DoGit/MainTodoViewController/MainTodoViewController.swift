@@ -146,10 +146,10 @@ extension MainTodoViewController {
     }
     
     func deleteTodo(with id: Todo.ID) {
-        guard let todo = realm.objects(Todo.self).first else { return }
+        guard let todo = realm.objects(Todo.self).filter({ $0.id == id }).first else { return }
         try! realm.write {
             realm.delete(todo)
         }
-        updateSnapshot(with: [id])
+        makeSnapshot()
     }
 }
