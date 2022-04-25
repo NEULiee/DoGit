@@ -33,14 +33,14 @@ extension MainTodoViewController {
     func updateSnapshot(with id: [Todo.ID]) {
         getRepositories()
         getTodos()
-
+        
         var snapshot = dataSource.snapshot()
         if id.isEmpty {
             snapshot.reconfigureItems(todos.map { $0.id })
         } else {
             snapshot.reconfigureItems(id)
         }
-
+        
         dataSource.apply(snapshot)
     }
     
@@ -58,8 +58,13 @@ extension MainTodoViewController {
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
-        contentConfiguration.textProperties.font = UIFont.Font.regular14
-        contentConfiguration.textProperties.color = .fontColor
+        contentConfiguration.textProperties.font = UIFont.Font.regular16
+        if todo.isDone {
+            contentConfiguration.attributedText = strikeThrough(string: contentConfiguration.text ?? "")
+            contentConfiguration.textProperties.color = .systemGray4
+        } else {
+            contentConfiguration.textProperties.color = .fontColor
+        }
         cell.backgroundColor = .backgroundColor
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
@@ -121,13 +126,11 @@ extension MainTodoViewController {
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-        
-//    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
-//        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
-//        let deleteActionTitle = "삭제"
-//        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
-//            <#code#>
-//        }
-//        return UISwipeActionsConfiguration(actions: [deleteAction])
-//    }
+    
+    // 취소선
+    func strikeThrough(string: String) -> NSAttributedString {
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: string)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
 }
