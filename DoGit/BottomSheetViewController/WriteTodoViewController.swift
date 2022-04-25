@@ -46,6 +46,9 @@ class WriteTodoViewController: UIViewController {
     func focusOnContentTextField() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
             self.contentTextField.becomeFirstResponder()
+            if self.contentTextField.text != "" {
+                self.contentTextField.selectAll(self)
+            }
         }
     }
 }
