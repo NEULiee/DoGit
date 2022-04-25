@@ -16,13 +16,9 @@ extension MainTodoViewController {
         repositories = TodoRepositoryStore.shared.readTodoAll()
     }
     
-    func updateSnapshot() {
+    func makeSnapshot() {
         getRepositories()
         getTodos()
-        
-//        if collectionView == nil {
-//            configureCollectionView()
-//        }
         
         var snapshot = Snapshot()
         snapshot.appendSections(repositories.map { $0.id })
@@ -30,26 +26,23 @@ extension MainTodoViewController {
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
         }
-        // snapshot.reconfigureItems(todos.map { $0.id })
-        snapshot.reloadItems(todos.map { $0.id })
         
         dataSource.apply(snapshot)
     }
     
-//    func updateSnapshot(with id: Todo.ID) {
-//        getRepositories()
-//        getTodos()
-//
-//        var snapshot = Snapshot()
-//        snapshot.appendSections(repositories.map { $0.id })
-//
-//        for repository in repositories {
-//            snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
-//        }
-//        snapshot.reconfigureItems([id])
-//
-//        dataSource.apply(snapshot)
-//    }
+    func updateSnapshot(with id: [Todo.ID]) {
+        getRepositories()
+        getTodos()
+        
+        var snapshot = dataSource.snapshot()
+        if id.isEmpty {
+            snapshot.reconfigureItems(todos.map { $0.id })
+        } else {
+            snapshot.reconfigureItems(id)
+        }
+        
+        dataSource.apply(snapshot)
+    }
     
     func listLayout() -> UICollectionViewCompositionalLayout {
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
@@ -65,8 +58,13 @@ extension MainTodoViewController {
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
-        contentConfiguration.textProperties.font = UIFont.Font.regular14
-        contentConfiguration.textProperties.color = .fontColor
+        contentConfiguration.textProperties.font = UIFont.Font.regular16
+        if todo.isDone {
+            contentConfiguration.attributedText = strikeThrough(string: contentConfiguration.text ?? "")
+            contentConfiguration.textProperties.color = .systemGray4
+        } else {
+            contentConfiguration.textProperties.color = .fontColor
+        }
         cell.backgroundColor = .backgroundColor
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
@@ -116,20 +114,23 @@ extension MainTodoViewController {
     
     func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
         guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        guard let repository = repositories.filter({ $0.todos.map { $0.id }.contains(id) }).first else { return nil }
         let deleteActionTitle = "삭제"
         let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
-            self?.deleteTodo(with: id)
+            if repository.todos.count == 1 {
+                self?.showAlert(message: "할일을 모두 삭제하려면 저장소를 제거해주세요.")
+            } else {
+                self?.deleteTodo(with: id)
+            }
             completion(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-        
-//    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
-//        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
-//        let deleteActionTitle = "삭제"
-//        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
-//            <#code#>
-//        }
-//        return UISwipeActionsConfiguration(actions: [deleteAction])
-//    }
+    
+    // 취소선
+    func strikeThrough(string: String) -> NSAttributedString {
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: string)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
 }

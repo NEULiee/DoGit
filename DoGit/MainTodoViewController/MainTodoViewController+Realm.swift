@@ -18,7 +18,7 @@ extension MainTodoViewController {
             case .update(_, let deletions, let insertions, _):
                 if 0 < deletions.count || 0 < insertions.count {
                     self?.repositories = TodoRepositoryStore.shared.readTodoAll()
-                    self?.updateSnapshot()
+                    self?.makeSnapshot()
                     self?.checkRepositoriesCount()
                 }
             case .error(let error):
@@ -33,9 +33,11 @@ extension MainTodoViewController {
             switch changes {
             case .initial:
                 break
-            case .update(_, _, let insertions, let deletions):
-                if 0 < insertions.count || 0 < deletions.count {
-                    self?.updateSnapshot()
+            case .update(let todos, let deletions, let insertions, let modification):
+                if 0 < deletions.count || 0 < insertions.count {
+                    self?.makeSnapshot()
+                } else if 0 < modification.count {
+                    self?.updateSnapshot(with: [todos[modification[0]].id])
                 }
             case .error(let error):
                 fatalError("\(error)")

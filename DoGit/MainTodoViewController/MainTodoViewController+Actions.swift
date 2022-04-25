@@ -22,14 +22,6 @@ extension MainTodoViewController {
         try! realm.write {
             todo.isDone.toggle()
         }
-        updateSnapshot()
-    }
-    
-    func showBottomSheet(repository: Repository) {
-        let writeTodoViewController = WriteTodoViewController(repository: repository)
-        
-        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
-        bottomSheetViewController.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetViewController, animated: false)
+        updateSnapshot(with: [todoID])
     }
 }

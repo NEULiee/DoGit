@@ -12,14 +12,21 @@ extension AddRepositoryViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, GithubRepository.ID>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, GithubRepository.ID>
     
-    func updateSnapshot(with repositories: [GithubRepository]) {
+    func makeSnapshot(_ repositories: [GithubRepository] = []) {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
-        snapshot.appendItems(repositories.map { $0.id })
+        if repositories.isEmpty {
+            snapshot.appendItems(githubRepositories.map { $0.id })
+        } else {
+            snapshot.appendItems(repositories.map { $0.id })
+        }
         
-        print(#function)
+        dataSource.apply(snapshot)
+    }
+    
+    func updateSnapshot(with repositories: [GithubRepository]) {
+        var snapshot = dataSource.snapshot()
         snapshot.reconfigureItems(repositories.map { $0.id })
-        
         dataSource.apply(snapshot)
     }
     

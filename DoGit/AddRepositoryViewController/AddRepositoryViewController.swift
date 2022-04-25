@@ -76,7 +76,7 @@ extension AddRepositoryViewController {
         })
         
         // 3. update snapshot
-        updateSnapshot(with: githubRepositories)
+        makeSnapshot()
         
         // 4. dataSource 적용
         collectionView.dataSource = dataSource
@@ -84,7 +84,7 @@ extension AddRepositoryViewController {
     
     func performQuery(with filter: String?) {
         let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name.lowercased() < $1.name.lowercased() }
-        updateSnapshot(with: filteredGithubRepositories)
+        makeSnapshot(filteredGithubRepositories)
     }
     
     func filteredGithubRepositories(with filter: String? = nil) -> [GithubRepository] {
@@ -92,7 +92,7 @@ extension AddRepositoryViewController {
     }
     
     // MARK: - Alert
-    func showRepositoryTodoDeleteCheckAlert(_ index: Int) {
+    func showRepositoryTodoDeleteCheckAlert(_ index: Int, _ repository: GithubRepository) {
         let message = "저장소 체크 해제시 등록했던 할일이 모두 사라집니다."
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.view.tintColor = .mainColor
@@ -102,7 +102,7 @@ extension AddRepositoryViewController {
             self.deleteRepository(with: index)
             self.githubRepositories[index].isCheck.toggle()
             self.getCheckRepositories()
-            self.updateSnapshot(with: self.githubRepositories)
+            self.updateSnapshot(with: [repository])
         }
         
         alert.addAction(cancelAction)

@@ -102,6 +102,31 @@ extension MainTodoViewController {
         self.present(setNameViewController, animated: true, completion: nil)
     }
     
+    func showBottomSheet(repository: Repository) {
+        let writeTodoViewController = WriteTodoViewController(repository: repository)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
+    
+    func showBottomSheet(todo: Todo) {
+        let writeTodoViewController = WriteTodoViewController(todo: todo)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.view.tintColor = .mainColor
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+            self?.dismiss(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func checkRepositoriesCount() {
         let repositories = realm.objects(Repository.self)
         if repositories.isEmpty {
@@ -139,17 +164,31 @@ extension MainTodoViewController {
         }
         
         // 4. update snapshot
-        updateSnapshot()
+        makeSnapshot()
         
         // 5. datasource 적용
         collectionView.dataSource = dataSource
+        
+        collectionView.delegate = self
     }
     
     func deleteTodo(with id: Todo.ID) {
-        guard let todo = realm.objects(Todo.self).first else { return }
+        guard let todo = realm.objects(Todo.self).filter({ $0.id == id }).first else { return }
         try! realm.write {
             realm.delete(todo)
         }
-        updateSnapshot()
+        makeSnapshot()
+    }
+}
+
+extension MainTodoViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedItemID = dataSource.itemIdentifier(for: indexPath) else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            return
+        }
+        guard let todo = realm.objects(Todo.self).filter({ $0.id == selectedItemID }).first else { return }
+        showBottomSheet(todo: todo)
     }
 }
