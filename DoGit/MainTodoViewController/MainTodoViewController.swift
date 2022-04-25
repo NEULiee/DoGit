@@ -102,6 +102,31 @@ extension MainTodoViewController {
         self.present(setNameViewController, animated: true, completion: nil)
     }
     
+    func showBottomSheet(repository: Repository) {
+        let writeTodoViewController = WriteTodoViewController(repository: repository)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
+    
+    func showBottomSheet(todo: Todo) {
+        let writeTodoViewController = WriteTodoViewController(todo: todo)
+        
+        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
+        bottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(bottomSheetViewController, animated: false)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.view.tintColor = .mainColor
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { [weak self] _ in
+            self?.dismiss(animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func checkRepositoriesCount() {
         let repositories = realm.objects(Repository.self)
         if repositories.isEmpty {

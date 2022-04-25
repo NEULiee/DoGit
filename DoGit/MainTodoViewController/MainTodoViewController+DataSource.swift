@@ -109,9 +109,14 @@ extension MainTodoViewController {
     
     func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
         guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        guard let repository = repositories.filter({ $0.todos.map { $0.id }.contains(id) }).first else { return nil }
         let deleteActionTitle = "삭제"
         let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
-            self?.deleteTodo(with: id)
+            if repository.todos.count == 1 {
+                self?.showAlert(message: "할일을 모두 삭제하려면 저장소를 제거해주세요.")
+            } else {
+                self?.deleteTodo(with: id)
+            }
             completion(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])

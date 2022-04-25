@@ -24,20 +24,4 @@ extension MainTodoViewController {
         }
         updateSnapshot(with: [todoID])
     }
-    
-    func showBottomSheet(repository: Repository) {
-        let writeTodoViewController = WriteTodoViewController(repository: repository)
-        
-        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
-        bottomSheetViewController.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetViewController, animated: false)
-    }
-    
-    func showBottomSheet(todo: Todo) {
-        let writeTodoViewController = WriteTodoViewController(todo: todo)
-        
-        let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
-        bottomSheetViewController.modalPresentationStyle = .overFullScreen
-        self.present(bottomSheetViewController, animated: false)
-    }
 }
