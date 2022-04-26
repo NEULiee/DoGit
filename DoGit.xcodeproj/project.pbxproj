@@ -49,9 +49,6 @@
 		D8AFFC7827FC882F000E6F9F /* DoGitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC7727FC882F000E6F9F /* DoGitTests.swift */; };
 		D8AFFC8227FC882F000E6F9F /* DoGitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */; };
 		D8AFFC8427FC882F000E6F9F /* DoGitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */; };
-		D8B64BEB28044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B64BE828044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf */; };
-		D8B64BEC28044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B64BE928044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf */; };
-		D8B64BED28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8B64BEA28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf */; };
 		D8B64BEF280447BB009A70BA /* UIFont+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B64BEE280447BB009A70BA /* UIFont+Font.swift */; };
 		D8B64BF228044DD0009A70BA /* UIButton+SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */; };
 		D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6F627FECC52003372BC /* SetNameViewController.swift */; };
@@ -131,9 +128,6 @@
 		D8AFFC7D27FC882F000E6F9F /* DoGitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoGitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITests.swift; sourceTree = "<group>"; };
 		D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D8B64BE828044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXON Lv1 Gothic Low OTF.otf"; sourceTree = "<group>"; };
-		D8B64BE928044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXON Lv1 Gothic Low OTF Bold.otf"; sourceTree = "<group>"; };
-		D8B64BEA28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NEXON Lv1 Gothic Low OTF Light.otf"; sourceTree = "<group>"; };
 		D8B64BEE280447BB009A70BA /* UIFont+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Font.swift"; sourceTree = "<group>"; };
 		D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+SetImage.swift"; sourceTree = "<group>"; };
 		D8D5C6F627FECC52003372BC /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
@@ -321,9 +315,6 @@
 		D8B64BDF2804449B009A70BA /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				D8B64BE928044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf */,
-				D8B64BEA28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf */,
-				D8B64BE828044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -475,11 +466,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E5FE1D27FC8A2700F0EDA5 /* .gitignore in Resources */,
-				D8B64BED28044699009A70BA /* NEXON Lv1 Gothic Low OTF Light.otf in Resources */,
 				D8AFFC6D27FC882F000E6F9F /* LaunchScreen.storyboard in Resources */,
 				D8AFFC6A27FC882F000E6F9F /* Assets.xcassets in Resources */,
-				D8B64BEB28044699009A70BA /* NEXON Lv1 Gothic Low OTF.otf in Resources */,
-				D8B64BEC28044699009A70BA /* NEXON Lv1 Gothic Low OTF Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

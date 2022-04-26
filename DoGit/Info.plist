@@ -4,9 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NEXON Lv1 Gothic Low OTF Bold.otf</string>
-		<string>NEXON Lv1 Gothic Low OTF Light.otf</string>
-		<string>NEXON Lv1 Gothic Low OTF.otf</string>
+		<string>NEXON Lv2 Gothic OTF Medium.otf</string>
+		<string>NEXON Lv2 Gothic OTF Bold.otf</string>
+		<string>NEXON Lv2 Gothic OTF Light.otf</string>
+		<string>NEXON Lv2 Gothic OTF.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
