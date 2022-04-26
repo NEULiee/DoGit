@@ -36,6 +36,7 @@ extension SetNameViewController {
         nameTextField.textAlignment = .center
         nameTextField.tintColor = .mainColor
         nameTextField.clearButtonMode = .whileEditing
+        nameTextField.keyboardType = .alphabet
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(nameTextField)

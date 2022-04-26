@@ -20,7 +20,7 @@ extension WriteTodoViewController {
         ])
         
         contentTextField.clearButtonMode = .whileEditing
-        contentTextField.borderStyle = .roundedRect
+        contentTextField.borderStyle = .none
         contentTextField.tintColor = .mainColor
         view.addSubview(contentTextField)
         contentTextField.translatesAutoresizingMaskIntoConstraints = false
