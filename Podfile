@@ -16,7 +16,6 @@ target 'DoGit' do
     # Pods for testing
   end
 
-  pod 'SnapKit', '~> 5.0.0'
   pod 'RealmSwift', '~>10'
 
 end
