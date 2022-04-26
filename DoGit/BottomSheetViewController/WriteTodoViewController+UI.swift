@@ -14,18 +14,18 @@ extension WriteTodoViewController {
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 30),
             titleLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
         
         contentTextField.clearButtonMode = .whileEditing
-        contentTextField.borderStyle = .none
+        contentTextField.borderStyle = .roundedRect
         contentTextField.tintColor = .mainColor
         view.addSubview(contentTextField)
         contentTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            contentTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             contentTextField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             contentTextField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
@@ -41,7 +41,7 @@ extension WriteTodoViewController {
         view.addSubview(doneButton)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            doneButton.topAnchor.constraint(equalTo: contentTextField.bottomAnchor, constant: 20),
+            doneButton.topAnchor.constraint(equalTo: contentTextField.bottomAnchor, constant: 30),
             doneButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             doneButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             doneButton.heightAnchor.constraint(equalToConstant: 36)

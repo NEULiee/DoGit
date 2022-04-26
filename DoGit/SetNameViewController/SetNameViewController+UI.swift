@@ -48,7 +48,7 @@ extension SetNameViewController {
         ])
         
         view.layoutIfNeeded()
-        nameTextField.underLine(borderColor: .mainColor)
+        nameTextField.setNameUnderLine(borderColor: .mainColor)
         
         // MARK: doneButton
         doneButton.accessibilityIdentifier = "doneButton"
