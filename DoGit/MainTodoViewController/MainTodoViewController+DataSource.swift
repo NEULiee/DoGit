@@ -58,7 +58,7 @@ extension MainTodoViewController {
         let todo = todos[todos.indexOfTodo(with: todoID)]
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
-        contentConfiguration.textProperties.font = UIFont.Font.regular16
+        contentConfiguration.textProperties.font = UIFont.Font.regular14
         if todo.isDone {
             contentConfiguration.attributedText = strikeThrough(string: contentConfiguration.text ?? "")
             contentConfiguration.textProperties.color = .systemGray4
@@ -73,12 +73,7 @@ extension MainTodoViewController {
             return view
         }()
         cell.backgroundView = background
-        let selectedBackground: UIView = {
-            let view = UIView()
-            view.backgroundColor = .clear
-            return view
-        }()
-        cell.selectedBackgroundView = selectedBackground
+        cell.selectedBackgroundView = background
         
         let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]

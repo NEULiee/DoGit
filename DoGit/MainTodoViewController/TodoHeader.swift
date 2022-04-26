@@ -39,8 +39,7 @@ extension TodoHeader {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            //stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -10)
+            stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
         ])
         
         stackView.layoutIfNeeded()
@@ -51,10 +50,6 @@ extension TodoHeader {
         stackView.addArrangedSubview(repositoryLabel)
         
         addButton.tintColor = .mainColor
-        // addButton.setTitleColor(.mainColor, for: .normal)
-        // addButton.setTitle("할일 추가하기", for: .normal)
-        // addButton.titleLabel?.font = UIFont.Font.light12
-        
         addButton.addAction(UIAction(handler: { [unowned self] _ in
             self.touchUpInsideAddButton?()
         }), for: .touchUpInside)

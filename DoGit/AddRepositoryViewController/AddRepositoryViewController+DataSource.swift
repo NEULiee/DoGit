@@ -45,7 +45,7 @@ extension AddRepositoryViewController {
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
             let view = UIView()
-            view.backgroundColor = .backgroundColor
+            view.backgroundColor = .clear
             return view
         }()
         cell.backgroundView = background
@@ -61,7 +61,7 @@ extension AddRepositoryViewController {
     }
     
     private func checkButtonConfiguration(for githubRepository: GithubRepository) -> UICellAccessory.CustomViewConfiguration {
-        let tintColor = githubRepository.isCheck ? UIColor.mainColor : UIColor.systemGray6
+        let tintColor = githubRepository.isCheck ? UIColor.mainColor : UIColor.systemGray4
         let image = UIImage(systemName: "checkmark")
         
         let button = RepositoryCheckButton()
