@@ -16,7 +16,6 @@ extension BottomSheetViewController {
         
         addChild(contentViewController)
         bottomSheetView.addSubview(contentViewController.view)
-        bottomSheetView.addConstraints(contentViewController.view.constraints)
         contentViewController.didMove(toParent: self)
         bottomSheetView.clipsToBounds = true
         
@@ -35,8 +34,7 @@ extension BottomSheetViewController {
         ])
         
         bottomSheetView.translatesAutoresizingMaskIntoConstraints = false
-        let topConstant = view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height
-        bottomSheetViewTopConstraint = bottomSheetView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstant)
+        bottomSheetViewTopConstraint = bottomSheetView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: defaultHeight)
         NSLayoutConstraint.activate([
             bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             bottomSheetView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
