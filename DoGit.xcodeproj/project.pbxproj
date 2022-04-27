@@ -19,6 +19,7 @@
 		D80D358E280AA935003062B5 /* AddRepositoryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D358D280AA935003062B5 /* AddRepositoryViewController+DataSource.swift */; };
 		D80D3590280AD3D9003062B5 /* AddRepositoryViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D358F280AD3D9003062B5 /* AddRepositoryViewController+Actions.swift */; };
 		D80D3592280AE0F9003062B5 /* RepositoryCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D3591280AE0F9003062B5 /* RepositoryCheckButton.swift */; };
+		D820BDE528184893000F130A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820BDE428184893000F130A /* SettingViewController.swift */; };
 		D82DC69928085C6800C5ABCB /* TodoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82DC69828085C6800C5ABCB /* TodoHeader.swift */; };
 		D84F2A1D28113AFA0061950E /* BottomSheetViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A1C28113AFA0061950E /* BottomSheetViewController+UI.swift */; };
 		D84F2A1F28113B090061950E /* WriteTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */; };
@@ -94,6 +95,7 @@
 		D80D358D280AA935003062B5 /* AddRepositoryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRepositoryViewController+DataSource.swift"; sourceTree = "<group>"; };
 		D80D358F280AD3D9003062B5 /* AddRepositoryViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRepositoryViewController+Actions.swift"; sourceTree = "<group>"; };
 		D80D3591280AE0F9003062B5 /* RepositoryCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCheckButton.swift; sourceTree = "<group>"; };
+		D820BDE428184893000F130A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D82DC69828085C6800C5ABCB /* TodoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeader.swift; sourceTree = "<group>"; };
 		D84F2A1C28113AFA0061950E /* BottomSheetViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UI.swift"; sourceTree = "<group>"; };
 		D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+UI.swift"; sourceTree = "<group>"; };
@@ -207,6 +209,14 @@
 			path = AddRepositoryViewController;
 			sourceTree = "<group>";
 		};
+		D820BDE328184877000F130A /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D820BDE428184893000F130A /* SettingViewController.swift */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
 		D8971BF32800441000568ED0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +290,7 @@
 			children = (
 				D8B64BDF2804449B009A70BA /* Font */,
 				D89A1C6927FC8D890041FA58 /* Model */,
+				D820BDE328184877000F130A /* SettingViewController */,
 				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
 				D80BD8432801B18A00DD6780 /* MainTodoViewController */,
 				D89A1C6B27FC8DB70041FA58 /* SetNameViewController */,
@@ -633,6 +644,7 @@
 				D8971BF22800266A00568ED0 /* SetNameViewController+Actions.swift in Sources */,
 				D89A1C7527FC97320041FA58 /* User.swift in Sources */,
 				D84F2A272812B3540061950E /* AddRepositoryViewController+Realm.swift in Sources */,
+				D820BDE528184893000F130A /* SettingViewController.swift in Sources */,
 				D84F2A292812CCFC0061950E /* MainTodoViewController+Realm.swift in Sources */,
 				D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */,
 			);
