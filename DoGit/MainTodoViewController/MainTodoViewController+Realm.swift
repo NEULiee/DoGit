@@ -44,4 +44,20 @@ extension MainTodoViewController {
             }
         }
     }
+    
+    func userNotification() {
+        realmUsers = realm.objects(User.self)
+        userNotificationToken = realmUsers.observe { [weak self] changes in
+            switch changes {
+            case .initial:
+                break
+            case .update(_, _, let insertions, _):
+                if 0 < insertions.count {
+                    self?.setUserName()
+                }
+            case .error(let error):
+                fatalError("\(error)")
+            }
+        }
+    }
 }

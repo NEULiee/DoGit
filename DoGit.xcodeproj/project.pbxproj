@@ -31,6 +31,7 @@
 		D84F2A2B2813EF5D0061950E /* WriteTodoViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2A2813EF5D0061950E /* WriteTodoViewController+Realm.swift */; };
 		D84F2A2D2813F0A40061950E /* BottomSheetViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2C2813F0A40061950E /* BottomSheetViewController+Realm.swift */; };
 		D84F2A2F281430E50061950E /* UIStackView+UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2E281430E50061950E /* UIStackView+UnderLine.swift */; };
+		D85157BE281A779700A17D26 /* SettingViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85157BD281A779700A17D26 /* SettingViewController+DataSource.swift */; };
 		D8792AB728094E0100D35EF2 /* TodoDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */; };
 		D8792AB928094E6500D35EF2 /* MainTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */; };
 		D8792ABB28095A8D00D35EF2 /* TodoRepositoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */; };
@@ -107,6 +108,7 @@
 		D84F2A2A2813EF5D0061950E /* WriteTodoViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+Realm.swift"; sourceTree = "<group>"; };
 		D84F2A2C2813F0A40061950E /* BottomSheetViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+Realm.swift"; sourceTree = "<group>"; };
 		D84F2A2E281430E50061950E /* UIStackView+UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+UnderLine.swift"; sourceTree = "<group>"; };
+		D85157BD281A779700A17D26 /* SettingViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingViewController+DataSource.swift"; sourceTree = "<group>"; };
 		D8792AB628094E0100D35EF2 /* TodoDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneButton.swift; sourceTree = "<group>"; };
 		D8792AB828094E6500D35EF2 /* MainTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTodoViewController+Actions.swift"; sourceTree = "<group>"; };
 		D8792ABA28095A8D00D35EF2 /* TodoRepositoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepositoryStore.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				D820BDE428184893000F130A /* SettingViewController.swift */,
+				D85157BD281A779700A17D26 /* SettingViewController+DataSource.swift */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				D84F2A2128113B190061950E /* WriteTodoViewController+Actions.swift in Sources */,
 				D80D3590280AD3D9003062B5 /* AddRepositoryViewController+Actions.swift in Sources */,
 				D80D358A280AA120003062B5 /* AddRepositoryViewController.swift in Sources */,
+				D85157BE281A779700A17D26 /* SettingViewController+DataSource.swift in Sources */,
 				D8E6E90A280ECCAB0058AD15 /* BottomSheetViewController.swift in Sources */,
 				D84F2A2D2813F0A40061950E /* BottomSheetViewController+Realm.swift in Sources */,
 				D84F2A1F28113B090061950E /* WriteTodoViewController+UI.swift in Sources */,

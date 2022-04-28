@@ -19,6 +19,9 @@ class MainTodoViewController: UIViewController {
     var todoNotificationToken: NotificationToken!
     var realmTodos: Results<Todo>!
     
+    var userNotificationToken: NotificationToken!
+    var realmUsers: Results<User>!
+    
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
     let menuButton = UIButton()
@@ -83,7 +86,9 @@ extension MainTodoViewController {
     
     // MARK: - Method
     func setUserName() {
-        nameLabel.text = "UserName"
+        let result = realm.objects(User.self)
+        guard let user = result.last else { return }
+        nameLabel.text = user.name
     }
     
     func checkUserName() {
@@ -91,8 +96,7 @@ extension MainTodoViewController {
         if result.count == 0 {
             presentSetNameViewControllerModal()
         } else {
-            guard let user = result.first else { return }
-            nameLabel.text = user.name
+            setUserName()
         }
     }
     

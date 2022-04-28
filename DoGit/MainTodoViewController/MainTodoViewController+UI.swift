@@ -26,6 +26,7 @@ extension MainTodoViewController {
         ])
 
         menuButton.setImage(systemName: "ellipsis")
+        menuButton.addTarget(self, action: #selector(touchUpInsideSettingButton(_:)), for: .touchUpInside)
         menuButton.tintColor = .fontColor
         NSLayoutConstraint.activate([
             menuButton.widthAnchor.constraint(equalToConstant: 28),
