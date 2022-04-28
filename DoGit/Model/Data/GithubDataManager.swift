@@ -60,7 +60,7 @@ struct GithubDataManager {
     private func getUserName() -> String {
         let realm = try! Realm()
         let result = realm.objects(User.self)
-        guard let user = result.first else { return "" }
+        guard let user = result.last else { return "" }
         return user.name
     }
     
