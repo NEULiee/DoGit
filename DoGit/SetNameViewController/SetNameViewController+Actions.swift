@@ -20,7 +20,7 @@ extension SetNameViewController {
             case .failure(let error):
                 self.hapticNotification.notificationOccurred(.error)
                 DispatchQueue.main.sync {
-                    self.showAlert(message: error.localizedDescription)
+                    self.showAlertRewrite(message: error.localizedDescription)
                 }
             }
         }

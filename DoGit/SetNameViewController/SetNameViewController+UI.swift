@@ -57,17 +57,7 @@ extension SetNameViewController {
         doneButton.setTitle("확인", for: .normal)
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.backgroundColor = .mainColor
-        doneButton.layer.cornerRadius = 5
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
-        
-        view.addSubview(doneButton)
-        
-        NSLayoutConstraint.activate([
-            doneButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
-            doneButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
-            doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
-        ])
         
         let doneBarButtonItem = UIBarButtonItem.init(customView: doneButton)
         
@@ -76,6 +66,7 @@ extension SetNameViewController {
         doneToolbar.barTintColor = .mainColor
         doneToolbar.isTranslucent = false
         doneToolbar.items = [doneBarButtonItem]
+        doneToolbar.updateConstraintsIfNeeded()
         
         nameTextField.inputAccessoryView = doneToolbar
         

@@ -12,7 +12,7 @@ class SetNameViewController: UIViewController {
     let titleLabel = UILabel()
     let nameTextField = UITextField()
     let doneToolbar = UIToolbar()
-    let doneButton = UIButton.init(type: .custom)
+    let doneButton = UIButton()
     
     let githubDataManager = GithubDataManager()
     
@@ -27,11 +27,19 @@ class SetNameViewController: UIViewController {
         configureUI()
     }
     
-    func showAlert(message errorDescription: String) {
+    func showAlertRewrite(message errorDescription: String) {
         let alert = UIAlertController(title: "", message: errorDescription, preferredStyle: .alert)
         alert.view.accessibilityIdentifier = "nameAlert"
         alert.view.tintColor = .mainColor
         alert.addAction(UIAlertAction(title: "다시입력", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "nameAlert"
+        alert.view.tintColor = .mainColor
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }
