@@ -14,6 +14,12 @@ extension MainTodoViewController {
         let navigationController = UINavigationController(rootViewController: addRepositoryViewController)
         self.present(navigationController, animated: true)
     }
+    
+    @objc func touchUpInsideSettingButton(_ sender: UIButton) {
+        let settingViewController = SettingViewController()
+        let navigationController = UINavigationController(rootViewController: settingViewController)
+        self.present(navigationController, animated: true)
+    }
 
     @objc func touchUpInsideDoneButton(_ sender: TodoDoneButton) {
         print(#function)
