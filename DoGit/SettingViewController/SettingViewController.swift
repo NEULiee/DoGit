@@ -12,7 +12,7 @@ class SettingViewController: UIViewController {
     
     // MARK: - Properties
     let settingMenu: [String] = ["이름 수정"]
-    let developerMenu: [String] = ["문의하기", "개발자 정보"]
+    let developerMenu: [String] = ["문의하기", "개발자 정보", "개인정보 처리방침"]
     
     // MARK: UICollectionView
     var collectionView: UICollectionView!
@@ -97,6 +97,12 @@ extension SettingViewController {
         }
     }
     
+    func openPrivacyPolicy() {
+        if let url = URL(string: "https://github.com/NEULiee/DoGit/tree/main/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EB%B0%A9%EC%B9%A8") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     // MARK: - Actions
     @objc func didCancelAdd(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
@@ -114,8 +120,10 @@ extension SettingViewController: UICollectionViewDelegate {
             presentSetNameViewControllerModal()
         } else if indexPath.section == 1 && indexPath.row == 0 {
             sendMail()
-        } else {
+        } else if indexPath.section == 1 && indexPath.row == 1 {
             openDeveloperSite()
+        } else {
+            openPrivacyPolicy()
         }
     }
 }
