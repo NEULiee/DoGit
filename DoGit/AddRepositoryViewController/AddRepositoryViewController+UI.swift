@@ -20,7 +20,7 @@ extension AddRepositoryViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         let cancelBarButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(didCancelAdd(_:)))
-        cancelBarButton.tintColor = .fontColor
+        cancelBarButton.tintColor = .mainColor
         cancelBarButton.setTitleTextAttributes(barAttribute, for: .normal)
         navigationItem.leftBarButtonItem = cancelBarButton
         
