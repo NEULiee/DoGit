@@ -289,7 +289,6 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
-				D8B64BDF2804449B009A70BA /* Font */,
 				D89A1C6927FC8D890041FA58 /* Model */,
 				D820BDE328184877000F130A /* SettingViewController */,
 				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
@@ -322,13 +321,6 @@
 				D8D894F82806C6C50045F68E /* SetNameViewControllerUITests.swift */,
 			);
 			path = DoGitUITests;
-			sourceTree = "<group>";
-		};
-		D8B64BDF2804449B009A70BA /* Font */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Font;
 			sourceTree = "<group>";
 		};
 		D8B64BF028044DB7009A70BA /* Custom */ = {
