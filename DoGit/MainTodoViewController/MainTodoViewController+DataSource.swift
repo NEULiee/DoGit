@@ -68,14 +68,13 @@ extension MainTodoViewController {
             contentConfiguration.textProperties.color = .fontColor
         }
         cell.contentConfiguration = contentConfiguration
-//        cell.backgroundColor = .backgroundColor
-//        let background: UIView = {
-//            let view = UIView()
-//            view.backgroundColor = .backgroundColor
-//            return view
-//        }()
-//        cell.backgroundView = background
-//        cell.selectedBackgroundView = background
+        let background: UIView = {
+            let view = UIView()
+            view.backgroundColor = .backgroundColor
+            return view
+        }()
+        cell.backgroundView = background
+        cell.selectedBackgroundView = background
         
         let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
