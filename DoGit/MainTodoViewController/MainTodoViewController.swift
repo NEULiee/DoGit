@@ -182,8 +182,7 @@ extension MainTodoViewController {
         
         guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
         guard let repository = DoGitStore.shared.repositories.filter({ $0.todos.map { $0.id }.contains(id) }).first else { return nil }
-        let deleteActionTitle = "삭제"
-        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completion in
             if repository.todos.count == 1 {
                 self?.showAlert(message: "할일을 모두 삭제하려면 저장소를 제거해주세요.")
             } else {
@@ -191,6 +190,8 @@ extension MainTodoViewController {
             }
             completion(true)
         }
+        deleteAction.image = UIImage(systemName: "trash")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+        deleteAction.backgroundColor = .backgroundColor
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
