@@ -48,18 +48,12 @@ extension AddRepositoryViewController {
         contentConfiguration.textProperties.font = UIFont.Font.bold18
         contentConfiguration.secondaryTextProperties.font = UIFont.Font.regular10
         cell.contentConfiguration = contentConfiguration
-//        let background: UIView = {
-//            let view = UIView()
-//            view.backgroundColor = .clear
-//            return view
-//        }()
-//        cell.backgroundView = background
-//        let selectedBackground: UIView = {
-//            let view = UIView()
-//            view.backgroundColor = .clear
-//            return view
-//        }()
-//        cell.selectedBackgroundView = selectedBackground
+        let background: UIView = {
+            let view = UIView()
+            view.backgroundColor = .backgroundColor
+            return view
+        }()
+        cell.backgroundView = background
         
         let checkImageConfiguration = checkButtonConfiguration(for: item)
         cell.accessories = [.customView(configuration: checkImageConfiguration)]
