@@ -24,7 +24,7 @@ class AddRepositoryViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         setDelegate()
         setGithubRepositoriesAndConfigureCollectionView()
         configureUI()
@@ -131,5 +131,20 @@ extension AddRepositoryViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         performQuery(with: searchText)
+    }
+}
+
+// MARK: - extension UIViewController : hide keyboard
+extension UIViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
