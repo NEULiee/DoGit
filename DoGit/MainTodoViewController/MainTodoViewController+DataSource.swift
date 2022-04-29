@@ -12,16 +12,14 @@ extension MainTodoViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Repository.ID, Todo.ID>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Repository.ID, Todo.ID>
     
-    func getRepositories() {
-        repositories = TodoRepositoryStore.shared.readTodoAll()
-    }
-    
+    // MARK: - Snapshot
     func makeSnapshot() {
-        getRepositories()
-        getTodos()
+        
+        let repositories = DoGitStore.shared.repositories
+        let repositoryIDs = repositories.map { $0.id }
         
         var snapshot = Snapshot()
-        snapshot.appendSections(repositories.map { $0.id })
+        snapshot.appendSections(repositoryIDs)
         
         for repository in repositories {
             snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
@@ -31,10 +29,11 @@ extension MainTodoViewController {
     }
     
     func updateSnapshot(with id: [Todo.ID]) {
-        getRepositories()
-        getTodos()
+        
+        let todos = DoGitStore.shared.todos
         
         var snapshot = dataSource.snapshot()
+        
         if id.isEmpty {
             snapshot.reconfigureItems(todos.map { $0.id })
         } else {
@@ -44,7 +43,9 @@ extension MainTodoViewController {
         dataSource.apply(snapshot)
     }
     
+    // MARK: - UICollectionView configuration
     func listLayout() -> UICollectionViewCompositionalLayout {
+        
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
         layoutConfiguration.headerMode = .supplementary
         layoutConfiguration.showsSeparators = false
@@ -54,8 +55,9 @@ extension MainTodoViewController {
     }
     
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, todoID: Todo.ID) {
+        
         var contentConfiguration = cell.defaultContentConfiguration()
-        let todo = todos[todos.indexOfTodo(with: todoID)]
+        let todo = DoGitStore.shared.todo(with: todoID)
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
         contentConfiguration.textProperties.font = UIFont.Font.regular14
@@ -65,21 +67,22 @@ extension MainTodoViewController {
         } else {
             contentConfiguration.textProperties.color = .fontColor
         }
-        cell.backgroundColor = .backgroundColor
         cell.contentConfiguration = contentConfiguration
-        let background: UIView = {
-            let view = UIView()
-            view.backgroundColor = .backgroundColor
-            return view
-        }()
-        cell.backgroundView = background
-        cell.selectedBackgroundView = background
+//        cell.backgroundColor = .backgroundColor
+//        let background: UIView = {
+//            let view = UIView()
+//            view.backgroundColor = .backgroundColor
+//            return view
+//        }()
+//        cell.backgroundView = background
+//        cell.selectedBackgroundView = background
         
         let doneButtonConfiguration = doneButtonConfiguration(for: todo)
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
     }
     
     private func doneButtonConfiguration(for todo: Todo) -> UICellAccessory.CustomViewConfiguration {
+        
         let tintColor = todo.isDone ? UIColor.mainColor : UIColor.systemGray4
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: "square.fill", withConfiguration: symbolConfiguration)
@@ -93,39 +96,13 @@ extension MainTodoViewController {
     }
     
     func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
+        
         let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
-        let headerItem = repository(with: headerItemID)
+        let headerItem = DoGitStore.shared.repository(with: headerItemID)
         headerView.backgroundColor = .backgroundColor
         headerView.repositoryLabel.text = headerItem.name
         headerView.touchUpInsideAddButton = { [unowned self] in
-            showBottomSheet(repository: headerItem)
+            presentBottomSheet(repository: headerItem)
         }
-    }
-    
-    func repository(with id: Repository.ID) -> Repository {
-        let index = repositories.indexOfRepository(with: id)
-        return repositories[index]
-    }
-    
-    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
-        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
-        guard let repository = repositories.filter({ $0.todos.map { $0.id }.contains(id) }).first else { return nil }
-        let deleteActionTitle = "삭제"
-        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
-            if repository.todos.count == 1 {
-                self?.showAlert(message: "할일을 모두 삭제하려면 저장소를 제거해주세요.")
-            } else {
-                self?.deleteTodo(with: id)
-            }
-            completion(true)
-        }
-        return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    
-    // 취소선
-    func strikeThrough(string: String) -> NSAttributedString {
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: string)
-        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
-        return attributeString
     }
 }

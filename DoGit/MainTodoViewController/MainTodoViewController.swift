@@ -11,17 +11,7 @@ import RealmSwift
 class MainTodoViewController: UIViewController {
     
     // MARK: - Properties
-    
-    let realm = try! Realm()
-    var repositoryNotificationToken: NotificationToken!
-    var realmRepositories: Results<Repository>!
-    
-    var todoNotificationToken: NotificationToken!
-    var realmTodos: Results<Todo>!
-    
-    var userNotificationToken: NotificationToken!
-    var realmUsers: Results<User>!
-    
+    // MARK: UI Properties
     let nameLabel = UILabel()
     let addRepositoryButton = UIButton()
     let menuButton = UIButton()
@@ -32,27 +22,34 @@ class MainTodoViewController: UIViewController {
     
     // MARK: dataSource
     var dataSource: DataSource!
-    var repositories: [Repository] = []
-    var todos: [Todo] = []
+    
+    // MARK: Notification
+    let realm = try! Realm()
+    var repositoryNotificationToken: NotificationToken!
+    var realmRepositories: Results<Repository>!
+    
+    var todoNotificationToken: NotificationToken!
+    var realmTodos: Results<Todo>!
+    
+    var userNotificationToken: NotificationToken!
+    var realmUsers: Results<User>!
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // testData()
+        setFirstData()
         
         configureUI()
         configureCollectionView()
-        getTodos()
         
         realmLocation()
         
-        repositoryNotification()
-        todoNotification()
+        subscribeRealmNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        checkRepositoriesCount()
+        checkRepositoriesIsEmpty()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,32 +68,49 @@ extension MainTodoViewController {
         print(realm.configuration.schemaVersion)
         print("=========================")
     }
-    
-    func testData() {
-        //guard let repo = realm.objects(Repository.self).first else { return }
-        //print(repo)
-        
-        let repos = realm.objects(Repository.self)
-        
-        try! realm.write {
-            // repo.todos.append(Todo())
-            repos[1].todos.append(Todo())
-        }
+
+    // MARK: - Methods
+    func subscribeRealmNotification() {
+        repositoryNotification()
+        todoNotification()
+        userNotification()
     }
     
-    // MARK: - Method
+    func setFirstData() {
+        DoGitStore.shared.readRepositoryAll()
+        DoGitStore.shared.readTodoAll()
+        DoGitStore.shared.readCurrentUser()
+    }
+    
     func setUserName() {
-        let result = realm.objects(User.self)
-        guard let user = result.last else { return }
-        nameLabel.text = user.name
+        if nameLabel.text != DoGitStore.shared.user {
+            makeSnapshot()
+        }
+        nameLabel.text = DoGitStore.shared.user
+    }
+    
+    func setUserNameAfterChangeName() {
+        if nameLabel.text != DoGitStore.shared.user {
+            DoGitStore.shared.resetDoGitStore()
+            DoGitStore.shared.readAll()
+            makeSnapshot()
+        }
+        nameLabel.text = DoGitStore.shared.user
     }
     
     func checkUserName() {
-        let result = realm.objects(User.self)
-        if result.count == 0 {
+        if DoGitStore.shared.user == "" {
             presentSetNameViewControllerModal()
         } else {
             setUserName()
+        }
+    }
+    
+    func checkRepositoriesIsEmpty() {
+        if DoGitStore.shared.repositories.isEmpty {
+            addGuideMentLabelInTodoView()
+        } else {
+            addCollectionViewInTodoView()
         }
     }
     
@@ -106,17 +120,15 @@ extension MainTodoViewController {
         self.present(setNameViewController, animated: true, completion: nil)
     }
     
-    func showBottomSheet(repository: Repository) {
+    func presentBottomSheet(repository: Repository) {
         let writeTodoViewController = WriteTodoViewController(repository: repository)
-        
         let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
         bottomSheetViewController.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetViewController, animated: false)
     }
     
-    func showBottomSheet(todo: Todo) {
+    func presentBottomSheet(todo: Todo) {
         let writeTodoViewController = WriteTodoViewController(todo: todo)
-        
         let bottomSheetViewController = BottomSheetViewController(contentViewController: writeTodoViewController)
         bottomSheetViewController.modalPresentationStyle = .overFullScreen
         self.present(bottomSheetViewController, animated: false)
@@ -131,26 +143,10 @@ extension MainTodoViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func checkRepositoriesCount() {
-        let repositories = realm.objects(Repository.self)
-        if repositories.isEmpty {
-            addGuideMentLabelInTodoView()
-        } else {
-            addCollectionViewInTodoView()
-        }
-    }
-    
-    func getTodos() {
-        todos = Array(realm.objects(Todo.self).sorted(byKeyPath: "content"))
-    }
-    
     func configureCollectionView() {
         // 1. collection view configuration
         let listLayout = listLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
-        
-        // UI
-        // addCollectionViewInTodoView()
         
         // 2. cell registration
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
@@ -177,22 +173,45 @@ extension MainTodoViewController {
     }
     
     func deleteTodo(with id: Todo.ID) {
-        guard let todo = realm.objects(Todo.self).filter({ $0.id == id }).first else { return }
-        try! realm.write {
-            realm.delete(todo)
-        }
+        DoGitStore.shared.deleteTodo(with: id)
         makeSnapshot()
+    }
+    
+    // MARK: swipe action
+    func makeSwipeActions(for indexPath: IndexPath?) -> UISwipeActionsConfiguration? {
+        
+        guard let indexPath = indexPath, let id = dataSource.itemIdentifier(for: indexPath) else { return nil }
+        guard let repository = DoGitStore.shared.repositories.filter({ $0.todos.map { $0.id }.contains(id) }).first else { return nil }
+        let deleteActionTitle = "삭제"
+        let deleteAction = UIContextualAction(style: .destructive, title: deleteActionTitle) { [weak self] _, _, completion in
+            if repository.todos.count == 1 {
+                self?.showAlert(message: "할일을 모두 삭제하려면 저장소를 제거해주세요.")
+            } else {
+                self?.deleteTodo(with: id)
+            }
+            completion(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    // MARK: 취소선
+    func strikeThrough(string: String) -> NSAttributedString {
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: string)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
     }
 }
 
+
+// MARK: - extension: UICollectionViewDelegate
 extension MainTodoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         guard let selectedItemID = dataSource.itemIdentifier(for: indexPath) else {
-            collectionView.deselectItem(at: indexPath, animated: true)
             return
         }
-        guard let todo = realm.objects(Todo.self).filter({ $0.id == selectedItemID }).first else { return }
-        showBottomSheet(todo: todo)
+        let todo = DoGitStore.shared.todo(with: selectedItemID)
+        presentBottomSheet(todo: todo)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 extension MainTodoViewController {
     
     func repositoryNotification() {
+        
         realmRepositories = realm.objects(Repository.self)
         repositoryNotificationToken = realmRepositories.observe { [weak self] changes in
             switch changes {
@@ -17,9 +18,8 @@ extension MainTodoViewController {
                 break
             case .update(_, let deletions, let insertions, _):
                 if 0 < deletions.count || 0 < insertions.count {
-                    self?.repositories = TodoRepositoryStore.shared.readTodoAll()
                     self?.makeSnapshot()
-                    self?.checkRepositoriesCount()
+                    self?.checkRepositoriesIsEmpty()
                 }
             case .error(let error):
                 fatalError("\(error)")
@@ -28,12 +28,14 @@ extension MainTodoViewController {
     }
     
     func todoNotification() {
+        
         realmTodos = realm.objects(Todo.self)
         todoNotificationToken = realmTodos.observe { [weak self] changes in
             switch changes {
             case .initial:
                 break
             case .update(let todos, let deletions, let insertions, let modification):
+                DoGitStore.shared.readAll()
                 if 0 < deletions.count || 0 < insertions.count {
                     self?.makeSnapshot()
                 } else if 0 < modification.count {
@@ -46,6 +48,7 @@ extension MainTodoViewController {
     }
     
     func userNotification() {
+        
         realmUsers = realm.objects(User.self)
         userNotificationToken = realmUsers.observe { [weak self] changes in
             switch changes {
@@ -53,7 +56,8 @@ extension MainTodoViewController {
                 break
             case .update(_, _, let insertions, _):
                 if 0 < insertions.count {
-                    self?.setUserName()
+                    DoGitStore.shared.readCurrentUser()
+                    self?.setUserNameAfterChangeName()
                 }
             case .error(let error):
                 fatalError("\(error)")

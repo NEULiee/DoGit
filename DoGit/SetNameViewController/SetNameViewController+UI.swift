@@ -21,9 +21,7 @@ extension SetNameViewController {
         titleLabel.text = "Github의 아이디를 입력해주세요."
         titleLabel.font = UIFont.Font.regular18
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(titleLabel)
-        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -38,16 +36,13 @@ extension SetNameViewController {
         nameTextField.clearButtonMode = .whileEditing
         nameTextField.keyboardType = .alphabet
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(nameTextField)
-        
         NSLayoutConstraint.activate([
             nameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 55),
             nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -55),
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        
         view.layoutIfNeeded()
         nameTextField.setNameUnderLine(borderColor: .mainColor)
         
@@ -58,7 +53,6 @@ extension SetNameViewController {
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.backgroundColor = .mainColor
         doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
-        
         let doneBarButtonItem = UIBarButtonItem.init(customView: doneButton)
         
         // MARK: doneToolbar
@@ -67,8 +61,6 @@ extension SetNameViewController {
         doneToolbar.isTranslucent = false
         doneToolbar.items = [doneBarButtonItem]
         doneToolbar.updateConstraintsIfNeeded()
-        
         nameTextField.inputAccessoryView = doneToolbar
-        
     }
 }

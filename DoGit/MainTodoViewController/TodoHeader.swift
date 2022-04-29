@@ -9,6 +9,7 @@ import UIKit
 
 class TodoHeader: UICollectionReusableView {
     
+    // MARK: - Properties
     static var elementKind: String { UICollectionView.elementKindSectionHeader }
     
     let repositoryLabel = UILabel()
@@ -16,6 +17,7 @@ class TodoHeader: UICollectionReusableView {
     
     var touchUpInsideAddButton: (() -> Void)?
     
+    // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -26,6 +28,7 @@ class TodoHeader: UICollectionReusableView {
     }
 }
 
+// MARK: - extension UI
 extension TodoHeader {
     
     private func configureUI() {
@@ -35,26 +38,22 @@ extension TodoHeader {
         stackView.distribution = .fill
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
         ])
-        
         stackView.layoutIfNeeded()
         stackView.underLine(borderColor: .gray)
         
         repositoryLabel.font = UIFont.Font.bold18
         repositoryLabel.textColor = .fontColor
-        
         stackView.addArrangedSubview(repositoryLabel)
         
         addButton.tintColor = .mainColor
         addButton.addAction(UIAction(handler: { [unowned self] _ in
             self.touchUpInsideAddButton?()
         }), for: .touchUpInside)
-        
         stackView.addArrangedSubview(addButton)
     }
 }

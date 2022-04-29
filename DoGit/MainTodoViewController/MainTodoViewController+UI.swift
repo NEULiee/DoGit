@@ -13,10 +13,8 @@ extension MainTodoViewController {
 
         view.backgroundColor = .backgroundColor
         
-        // nameLabel.numberOfLines = 2
         nameLabel.font = UIFont.Font.bold32
         nameLabel.sizeToFit()
-        
         addRepositoryButton.setImage(systemName: "plus")
         addRepositoryButton.tintColor = .fontColor
         addRepositoryButton.addTarget(self, action: #selector(touchUpInsideAddButton(_:)), for: .touchUpInside)
@@ -43,7 +41,6 @@ extension MainTodoViewController {
             return stackView
         }()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
@@ -52,9 +49,7 @@ extension MainTodoViewController {
         ])
         
         view.addSubview(todoView)
-        
         todoView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             todoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             todoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -64,18 +59,17 @@ extension MainTodoViewController {
     }
     
     func addGuideMentLabelInTodoView() {
+        
         if collectionView != nil {
-            deleteCollectionView()
+            removeCollectionViewFromSuperView()
         }
         
         guideMentLabel.font = UIFont.Font.light18
         guideMentLabel.textAlignment = .center
         guideMentLabel.numberOfLines = 0
         guideMentLabel.text = "오른쪽 위의 +버튼을 눌러\n저장소를 추가해주세요."
-        
         todoView.addSubview(guideMentLabel)
         guideMentLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             guideMentLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             guideMentLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -87,11 +81,11 @@ extension MainTodoViewController {
     }
     
     func addCollectionViewInTodoView() {
+        
         deleteGuidMentLabel()
         
         todoView.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: todoView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: todoView.leadingAnchor),
@@ -100,7 +94,7 @@ extension MainTodoViewController {
         ])
     }
     
-    func deleteCollectionView() {
+    func removeCollectionViewFromSuperView() {
         collectionView.removeFromSuperview()
     }
 }

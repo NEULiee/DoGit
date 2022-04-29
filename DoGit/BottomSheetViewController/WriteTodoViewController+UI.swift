@@ -10,6 +10,7 @@ import UIKit
 extension WriteTodoViewController {
     
     func configureLayout() {
+        
         titleLabel.font = UIFont.Font.bold18
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

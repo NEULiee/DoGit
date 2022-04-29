@@ -29,9 +29,7 @@ extension AddRepositoryViewController {
         searchBar.placeholder = "저장소 이름을 입력해주세요."
         searchBar.searchTextField.font = UIFont.Font.light14
         searchBar.searchBarStyle = .minimal
-        
         view.addSubview(searchBar)
-        
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
@@ -40,10 +38,9 @@ extension AddRepositoryViewController {
     }
     
     func addCollectionView() {
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(collectionView)
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

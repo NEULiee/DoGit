@@ -10,6 +10,7 @@ import UIKit
 extension BottomSheetViewController {
     
     func setUI() {
+        
         view.addSubview(blurView)
         view.addSubview(bottomSheetView)
         view.addSubview(dragIndicatorView)
@@ -25,6 +26,7 @@ extension BottomSheetViewController {
     }
     
     private func setLayout() {
+        
         blurView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             blurView.topAnchor.constraint(equalTo: view.topAnchor),

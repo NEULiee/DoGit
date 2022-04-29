@@ -13,6 +13,7 @@ extension BottomSheetViewController {
     }
     
     @objc func viewPanned(_ panGestureRecognizer: UIPanGestureRecognizer) {
+        
         let translation = panGestureRecognizer.translation(in: view)
         
         let velocity = panGestureRecognizer.velocity(in: view)

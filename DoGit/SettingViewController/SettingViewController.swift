@@ -10,13 +10,17 @@ import MessageUI
 
 class SettingViewController: UIViewController {
     
+    // MARK: - Properties
     let settingMenu: [String] = ["이름 수정"]
     let developerMenu: [String] = ["문의하기", "개발자 정보"]
     
+    // MARK: UICollectionView
     var collectionView: UICollectionView!
     var dataSource: DataSource!
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         configureCollectionView()
         configureUI()
@@ -25,6 +29,7 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController {
     
+    // MARK: - Methods
     func configureCollectionView() {
         
         view.backgroundColor = .backgroundColor
@@ -92,11 +97,13 @@ extension SettingViewController {
         }
     }
     
+    // MARK: - Actions
     @objc func didCancelAdd(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension SettingViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -113,6 +120,7 @@ extension SettingViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - MFMailComposeViewControllerDelegate
 extension SettingViewController: MFMailComposeViewControllerDelegate {
     
     func sendMail() {

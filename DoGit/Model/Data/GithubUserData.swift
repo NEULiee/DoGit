@@ -8,6 +8,7 @@
 import Foundation
 
 struct GithubUserData: Codable {
+    
     let name: String
     
     enum CodingKeys: String, CodingKey {

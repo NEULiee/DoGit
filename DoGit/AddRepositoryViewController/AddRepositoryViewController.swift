@@ -10,8 +10,7 @@ import RealmSwift
 
 class AddRepositoryViewController: UIViewController {
     
-    let realm = try! Realm()
-    
+    // MARK: - Properties
     let searchBar = UISearchBar(frame: .zero)
     
     var collectionView: UICollectionView!
@@ -19,37 +18,38 @@ class AddRepositoryViewController: UIViewController {
     
     let githubDataManager = GithubDataManager()
     
-    var githubRepositories: [GithubRepository] = []
-    var checkedRepositoriesId: [Int64] = []
+    // var githubRepositories: [GithubRepository] = []
+    // var checkedRepositoriesId: [Int64] = []
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setDelegate()
-        getCheckRepositories()
-        getRepositories()
+        setGithubRepositoriesAndConfigureCollectionView()
         configureUI()
     }
 }
 
 extension AddRepositoryViewController {
     
+    // MARK: - Methods
     func setDelegate() {
         searchBar.delegate = self
     }
     
-    func getCheckRepositories() {
-        checkedRepositoriesId = TodoRepositoryStore.shared.readTodoAllId()
-    }
-    
-    func getRepositories() {
+    func setGithubRepositoriesAndConfigureCollectionView() {
+        
         githubDataManager.fetchRepositories { result in
             switch result {
             case .success(let repositories):
-                self.githubRepositories = repositories
-                for index in 0..<self.githubRepositories.count
-                where self.checkedRepositoriesId.contains(self.githubRepositories[index].id) {
-                    self.githubRepositories[index].isCheck.toggle()
+                GithubRepositoryStore.shared.githubRepositories = repositories
+                DispatchQueue.main.sync {
+                    GithubRepositoryStore.shared.setCheckedRepositoriesID()
+                }
+                for index in 0..<repositories.count
+                where GithubRepositoryStore.shared.checkedRepositoriesID.contains(repositories[index].id) {
+                    GithubRepositoryStore.shared.githubRepositoryIsCheckToggle(index: index)
                 }
                 DispatchQueue.main.sync {
                     self.configureCollectionView()
@@ -61,6 +61,7 @@ extension AddRepositoryViewController {
     }
     
     func configureCollectionView() {
+        
         // 1. collection view configuration
         let listLayout = listLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
@@ -80,28 +81,33 @@ extension AddRepositoryViewController {
         
         // 4. dataSource 적용
         collectionView.dataSource = dataSource
+        
+        collectionView.delegate = self
     }
     
     func performQuery(with filter: String?) {
+        
         let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name.lowercased() < $1.name.lowercased() }
         makeSnapshot(filteredGithubRepositories)
     }
     
     func filteredGithubRepositories(with filter: String? = nil) -> [GithubRepository] {
-        return githubRepositories.filter { $0.contains(filter) }
+        return GithubRepositoryStore.shared.githubRepositories.filter { $0.contains(filter) }
     }
     
-    // MARK: - Alert
+    // MARK: Alert
     func showRepositoryTodoDeleteCheckAlert(_ index: Int, _ repository: GithubRepository) {
+        
         let message = "저장소 체크 해제시 등록했던 할일이 모두 사라집니다."
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.view.tintColor = .mainColor
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         let confirmAction = UIAlertAction(title: "확인", style: .default) { _ in
-            self.deleteRepository(with: index)
-            self.githubRepositories[index].isCheck.toggle()
-            self.getCheckRepositories()
+            // 구독될듯
+            DoGitStore.shared.deleteRepository(with: index)
+            GithubRepositoryStore.shared.githubRepositoryIsCheckToggle(index: index)
+            GithubRepositoryStore.shared.setCheckedRepositoriesID()
             self.updateSnapshot(with: [repository])
         }
         
@@ -112,10 +118,18 @@ extension AddRepositoryViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension AddRepositoryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
 // MARK: - UISearchBarDelegate
 extension AddRepositoryViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(#function)
         performQuery(with: searchText)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 extension SetNameViewController {
     
     @objc func didPressDoneButton(_ sender: UIButton)  {
+        
         guard let name = self.nameTextField.text else { return }
         githubDataManager.fetchUser(userId: name) { result in
             switch result {

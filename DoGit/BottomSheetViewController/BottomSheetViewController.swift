@@ -10,10 +10,7 @@ import RealmSwift
 
 class BottomSheetViewController: UIViewController {
     
-    let realm = try! Realm()
-    var notificationToken: NotificationToken!
-    var realmTodos: Results<Todo>!
-    
+    // MARK: - Properties
     enum BottomSheetViewState {
         case expanded
         case normal
@@ -47,9 +44,14 @@ class BottomSheetViewController: UIViewController {
     lazy var bottomSheetPanStartingTopConstant: CGFloat = bottomSheetPanMinTopConstant
     
     let contentViewController: UIViewController
-    
     var viewPanGesture: UIPanGestureRecognizer!
     
+    // MARK: Realm
+    let realm = try! Realm()
+    var notificationToken: NotificationToken!
+    var realmTodos: Results<Todo>!
+    
+    // MARK: - Life Cycle
     init(contentViewController: UIViewController) {
         self.contentViewController = contentViewController
         super.init(nibName: nil, bundle: nil)
@@ -68,7 +70,6 @@ class BottomSheetViewController: UIViewController {
         blurView.isUserInteractionEnabled = true
         
         recognizePanGesture()
-        
         todoNotification()
     }
     
@@ -80,6 +81,7 @@ class BottomSheetViewController: UIViewController {
 
 extension BottomSheetViewController {
     
+    // MARK: - Methods
     func showBottomSheet(atState: BottomSheetViewState = .normal) {
         
         if atState == .normal {

@@ -15,13 +15,16 @@ class Todo: Object, Identifiable {
     @Persisted var content: String = ""
     
     convenience init(content: String) {
+        
         self.init()
         self.content = content
     }
 }
 
 extension Array where Element == Todo {
+    
     func indexOfTodo(with id: Todo.ID) -> Self.Index {
+        
         guard let index = firstIndex(where: { $0.id == id }) else { fatalError() }
         return index
     }

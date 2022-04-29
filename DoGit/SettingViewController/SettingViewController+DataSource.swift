@@ -18,6 +18,7 @@ extension SettingViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
     
     func listLayout() -> UICollectionViewCompositionalLayout {
+        
         let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }

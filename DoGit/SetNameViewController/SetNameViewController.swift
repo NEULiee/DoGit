@@ -9,15 +9,19 @@ import UIKit
 
 class SetNameViewController: UIViewController {
     
+    // MARK: - Properties
+    // MARK: UI Properties
     let titleLabel = UILabel()
     let nameTextField = UITextField()
     let doneToolbar = UIToolbar()
     let doneButton = UIButton()
     
-    let githubDataManager = GithubDataManager()
-    
     let hapticNotification = UINotificationFeedbackGenerator()
     
+    // MARK: URLSession
+    let githubDataManager = GithubDataManager()
+    
+    // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         focusOnNameTextField()
     }
@@ -27,6 +31,7 @@ class SetNameViewController: UIViewController {
         configureUI()
     }
     
+    // MARK: - Methods
     func showAlertRewrite(message errorDescription: String) {
         let alert = UIAlertController(title: "", message: errorDescription, preferredStyle: .alert)
         alert.view.accessibilityIdentifier = "nameAlert"

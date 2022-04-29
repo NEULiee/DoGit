@@ -10,6 +10,7 @@ import UIKit
 extension UIFont {
     
     class Font {
+        
         static let regular8: UIFont = UIFont(name: "NEXONLv2GothicOTF", size: 8) ?? UIFont.systemFont(ofSize: 8)
         static let regular10: UIFont = UIFont(name: "NEXONLv2GothicOTF", size: 10) ?? UIFont.systemFont(ofSize: 10)
         static let regular12: UIFont = UIFont(name: "NEXONLv2GothicOTF", size: 12) ?? UIFont.systemFont(ofSize: 12)

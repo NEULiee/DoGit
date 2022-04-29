@@ -10,23 +10,16 @@ import UIKit
 extension WriteTodoViewController {
     
     @objc func doneButtonTapped() {
-        print(#function)
         
         if todo == nil { // 할일 추가
             guard let text = contentTextField.text else { return }
             let todo = Todo(content: text)
             let repositoryID = repository.id
-            guard let realmRepository = realm.objects(Repository.self).filter({ $0.id == repositoryID }).first else { return }
-            
-            try! realm.write {
-                realmRepository.todos.append(todo)
-            }
+            let repository = DoGitStore.shared.repository(with: repositoryID)
+            DoGitStore.shared.appendTodoInRepository(repository: repository, todo: todo)
         } else { // 할일 수정
             guard let text = contentTextField.text else { return }
-            
-            try! realm.write {
-                todo.content = text
-            }
+            DoGitStore.shared.updateTodo(todo: todo, content: text)
         }
     }
 }

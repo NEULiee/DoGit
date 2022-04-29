@@ -14,6 +14,7 @@ enum DoGitError: LocalizedError {
     case repositoryNotFound
     
     var errorDescription: String? {
+        
         switch self {
         case .failedConnectServer:
             return NSLocalizedString("서버연결에 실패했어요.", comment: "fail to connect server")

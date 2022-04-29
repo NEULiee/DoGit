@@ -58,6 +58,7 @@ struct GithubDataManager {
     // MARK: - Repository
     
     private func getUserName() -> String {
+        
         let realm = try! Realm()
         let result = realm.objects(User.self)
         guard let user = result.last else { return "" }
@@ -93,9 +94,7 @@ struct GithubDataManager {
     }
     
     private func repositoryJSONDecoder(data: Data) -> [GithubRepositoryData]? {
-        
-        print(#function)
-        
+
         let decoder = JSONDecoder()
         
         do {
