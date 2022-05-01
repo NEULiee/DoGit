@@ -18,6 +18,8 @@ Github Repository 만의 Todo를 사용하고 싶어 제작하게 되었습니�
 ## Supported Platform
 
 - iOS (v15.0~)
+- iPadOS
+- MacOS
 
 ## Functions
 
