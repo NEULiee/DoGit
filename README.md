@@ -32,6 +32,5 @@ Github Repository 만의 Todo를 사용하고 싶어 제작하게 되었습니�
 <a href="https://apps.apple.com/us/app/%EB%91%90%EA%B9%83/id1621659382" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
 
-### 기획
-[앱구상](https://neuli.notion.site/1483becafc2846fbb01f80311c31c186)  
-[기능 정리](https://neuli.notion.site/e020c2e275e64dd085792a8adfced6ae)
+### notion
+[notion](https://neuli.notion.site/1e6df9aad8444b1098eafc4adbf8ea92)
