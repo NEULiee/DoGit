@@ -27,6 +27,7 @@ extension AddRepositoryViewController {
             GithubRepositoryStore.shared.githubRepositoryIsCheckToggle(index: index)
             GithubRepositoryStore.shared.setCheckedRepositoriesID()
             updateSnapshot(with: [githubRepository])
+            showToastMessageLabel()
         }
     }
 }
