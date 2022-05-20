@@ -234,7 +234,6 @@
 		D89A1C6927FC8D890041FA58 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D8B64BF028044DB7009A70BA /* Custom */,
 				D8971BF32800441000568ED0 /* Data */,
 				D8971BEF28001D0900568ED0 /* DoGitError.swift */,
 				D89A1C6E27FC92A10041FA58 /* Repository.swift */,
@@ -291,6 +290,7 @@
 		D8AFFC5F27FC882E000E6F9F /* DoGit */ = {
 			isa = PBXGroup;
 			children = (
+				D8B64BF028044DB7009A70BA /* Util */,
 				D89A1C6927FC8D890041FA58 /* Model */,
 				D820BDE328184877000F130A /* SettingViewController */,
 				D8E6E908280ECC960058AD15 /* BottomSheetViewController */,
@@ -325,7 +325,7 @@
 			path = DoGitUITests;
 			sourceTree = "<group>";
 		};
-		D8B64BF028044DB7009A70BA /* Custom */ = {
+		D8B64BF028044DB7009A70BA /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */,
@@ -335,7 +335,7 @@
 				D84F2A2E281430E50061950E /* UIStackView+UnderLine.swift */,
 				D86E580F282E19FA00E85131 /* UIView+ConfigureUI.swift */,
 			);
-			path = Custom;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		D8E6E908280ECC960058AD15 /* BottomSheetViewController */ = {
