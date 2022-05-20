@@ -11,15 +11,18 @@ import RealmSwift
 class AddRepositoryViewController: UIViewController {
     
     // MARK: - Properties
-    let searchBar = UISearchBar(frame: .zero)
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.placeholder = "저장소 이름을 입력해주세요."
+        searchBar.searchTextField.font = UIFont.Font.light14
+        searchBar.searchBarStyle = .minimal
+        return searchBar
+    }()
     
     var collectionView: UICollectionView!
     var dataSource: DataSource!
     
     let githubDataManager = GithubDataManager()
-    
-    // var githubRepositories: [GithubRepository] = []
-    // var checkedRepositoriesId: [Int64] = []
     
     // MARK: - Life Cycle
     override func viewDidLoad() {

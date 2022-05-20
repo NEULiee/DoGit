@@ -18,47 +18,28 @@ extension SetNameViewController {
         view.backgroundColor = .backgroundColor
         
         // MARK: titleLabel
-        titleLabel.text = "Github의 아이디를 입력해주세요."
-        titleLabel.font = UIFont.Font.regular18
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                          paddingTop: 100)
+        titleLabel.centerX(inview: view)
         
         // MARK: nameTextField
-        nameTextField.accessibilityIdentifier = "nameTextField"
-        nameTextField.font = UIFont.Font.regular18
-        nameTextField.borderStyle = .none
-        nameTextField.textAlignment = .center
-        nameTextField.tintColor = .mainColor
-        nameTextField.clearButtonMode = .whileEditing
-        nameTextField.keyboardType = .alphabet
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameTextField)
-        NSLayoutConstraint.activate([
-            nameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
-            nameTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 55),
-            nameTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -55),
-            nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        nameTextField.anchor(top: titleLabel.bottomAnchor,
+                             leading: view.safeAreaLayoutGuide.leadingAnchor,
+                             trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                             paddingTop: 40,
+                             paddingLeading: 55,
+                             paddingTrailing: -55)
+        nameTextField.centerX(inview: view)
         view.layoutIfNeeded()
         nameTextField.setNameUnderLine(borderColor: .mainColor)
         
         // MARK: doneButton
-        doneButton.accessibilityIdentifier = "doneButton"
-        doneButton.titleLabel?.font = UIFont.Font.regular18
-        doneButton.setTitle("확인", for: .normal)
-        doneButton.setTitleColor(.white, for: .normal)
-        doneButton.backgroundColor = .mainColor
         doneButton.addTarget(self, action: #selector(didPressDoneButton(_:)), for: .touchUpInside)
         let doneBarButtonItem = UIBarButtonItem.init(customView: doneButton)
         
         // MARK: doneToolbar
-        doneToolbar.sizeToFit()
-        doneToolbar.barTintColor = .mainColor
-        doneToolbar.isTranslucent = false
         doneToolbar.items = [doneBarButtonItem]
         doneToolbar.updateConstraintsIfNeeded()
         nameTextField.inputAccessoryView = doneToolbar

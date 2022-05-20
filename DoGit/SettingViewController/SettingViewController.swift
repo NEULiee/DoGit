@@ -75,15 +75,11 @@ extension SettingViewController {
         navigationItem.leftBarButtonItem = cancelBarButton
         
         // MARK: collectionView
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
-        
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                              leading: view.safeAreaLayoutGuide.leadingAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                              bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
     func presentSetNameViewControllerModal() {

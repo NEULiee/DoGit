@@ -18,4 +18,11 @@ extension UIButton {
         
         setImage(UIImage(systemName: systemName), for: .normal)
     }
+    
+    func doGitButton(systemName: String) -> UIButton {
+        let button = UIButton()
+        button.setImage(systemName: systemName)
+        button.tintColor = UIColor.fontColor
+        return button
+    }
 }

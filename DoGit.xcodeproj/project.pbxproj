@@ -52,7 +52,7 @@
 		D8AFFC8227FC882F000E6F9F /* DoGitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */; };
 		D8AFFC8427FC882F000E6F9F /* DoGitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */; };
 		D8B64BEF280447BB009A70BA /* UIFont+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B64BEE280447BB009A70BA /* UIFont+Font.swift */; };
-		D8B64BF228044DD0009A70BA /* UIButton+SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */; };
+		D8B64BF228044DD0009A70BA /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B64BF128044DD0009A70BA /* UIButton+.swift */; };
 		D8D5C6F727FECC52003372BC /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6F627FECC52003372BC /* SetNameViewController.swift */; };
 		D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */; };
 		D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */; };
@@ -133,7 +133,7 @@
 		D8AFFC8127FC882F000E6F9F /* DoGitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITests.swift; sourceTree = "<group>"; };
 		D8AFFC8327FC882F000E6F9F /* DoGitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoGitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D8B64BEE280447BB009A70BA /* UIFont+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Font.swift"; sourceTree = "<group>"; };
-		D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+SetImage.swift"; sourceTree = "<group>"; };
+		D8B64BF128044DD0009A70BA /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		D8D5C6F627FECC52003372BC /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
 		D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UnderLine.swift"; sourceTree = "<group>"; };
 		D8D5C6FA27FF0268003372BC /* SetNameViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetNameViewController+UI.swift"; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 		D8B64BF028044DB7009A70BA /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				D8B64BF128044DD0009A70BA /* UIButton+SetImage.swift */,
+				D8B64BF128044DD0009A70BA /* UIButton+.swift */,
 				D8B64BEE280447BB009A70BA /* UIFont+Font.swift */,
 				D8D5C6F827FEF7CA003372BC /* UITextField+UnderLine.swift */,
 				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
@@ -618,7 +618,7 @@
 				D84F2A252812839D0061950E /* GithubRepository.swift in Sources */,
 				D8AFFC6527FC882E000E6F9F /* MainTodoViewController.swift in Sources */,
 				D80D3592280AE0F9003062B5 /* RepositoryCheckButton.swift in Sources */,
-				D8B64BF228044DD0009A70BA /* UIButton+SetImage.swift in Sources */,
+				D8B64BF228044DD0009A70BA /* UIButton+.swift in Sources */,
 				D8D5C6F927FEF7CA003372BC /* UITextField+UnderLine.swift in Sources */,
 				D8D5C6FB27FF0268003372BC /* SetNameViewController+UI.swift in Sources */,
 				D82DC69928085C6800C5ABCB /* TodoHeader.swift in Sources */,
