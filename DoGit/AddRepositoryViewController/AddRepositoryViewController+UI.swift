@@ -25,27 +25,20 @@ extension AddRepositoryViewController {
         navigationItem.leftBarButtonItem = cancelBarButton
         
         // MARK: view
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.placeholder = "저장소 이름을 입력해주세요."
-        searchBar.searchTextField.font = UIFont.Font.light14
-        searchBar.searchBarStyle = .minimal
         view.addSubview(searchBar)
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            searchBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            searchBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8)
-        ])
+        searchBar.anchor(top: view.layoutMarginsGuide.topAnchor,
+                         leading: view.safeAreaLayoutGuide.leadingAnchor,
+                         trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                         paddingLeading: 8,
+                         paddingTrailing: -8)
     }
     
     func addCollectionView() {
         
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
-        ])
+        collectionView.anchor(top: searchBar.bottomAnchor,
+                              leading: view.safeAreaLayoutGuide.leadingAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                              bottom: view.layoutMarginsGuide.bottomAnchor)
     }
 }

@@ -11,15 +11,18 @@ import RealmSwift
 class AddRepositoryViewController: UIViewController {
     
     // MARK: - Properties
-    let searchBar = UISearchBar(frame: .zero)
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.placeholder = "저장소 이름을 입력해주세요."
+        searchBar.searchTextField.font = UIFont.Font.light14
+        searchBar.searchBarStyle = .minimal
+        return searchBar
+    }()
     
     var collectionView: UICollectionView!
     var dataSource: DataSource!
     
     let githubDataManager = GithubDataManager()
-    
-    // var githubRepositories: [GithubRepository] = []
-    // var checkedRepositoriesId: [Int64] = []
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -96,6 +99,29 @@ extension AddRepositoryViewController {
     }
     
     // MARK: Alert
+    
+    func showToastMessageLabel() {
+        
+        let toastMessageLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75,
+                                                      y: view.frame.size.height - 100,
+                                                      width: 160,
+                                                      height: 35))
+        toastMessageLabel.backgroundColor = UIColor.mainColor.withAlphaComponent(1.0)
+        toastMessageLabel.textAlignment = .center
+        toastMessageLabel.layer.cornerRadius = 10
+        toastMessageLabel.clipsToBounds = true
+        toastMessageLabel.text = "저장소가 추가되었습니다."
+        toastMessageLabel.textColor = .white
+        toastMessageLabel.font = UIFont.Font.regular14
+        view.addSubview(toastMessageLabel)
+        UIView.animate(withDuration: 0.7, delay: 1.0, options: .curveEaseOut) {
+            toastMessageLabel.alpha = 0.0
+        } completion: { _ in
+            toastMessageLabel.removeFromSuperview()
+        }
+
+    }
+    
     func showRepositoryTodoDeleteCheckAlert(_ index: Int, _ repository: GithubRepository) {
         
         let message = "저장소 체크 해제시 등록했던 할일이 모두 사라집니다."
