@@ -8,7 +8,6 @@
 import UIKit
 
 extension MainTodoViewController {
- 
     @objc func touchUpInsideAddButton(_ sender: UIButton) {
         let addRepositoryViewController = AddRepositoryViewController()
         let navigationController = UINavigationController(
@@ -29,5 +28,6 @@ extension MainTodoViewController {
         guard let todoID = sender.todo?.id else { return }
         DoGitStore.shared.todoIsDoneToggle(with: todoID)
         updateSnapshot(with: [todoID])
+        HapticNotificationManager.occur(notificationType: .success)
     }
 }

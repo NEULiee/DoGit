@@ -19,6 +19,7 @@
 		D820BDE528184893000F130A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820BDE428184893000F130A /* SettingViewController.swift */; };
 		D82DC69928085C6800C5ABCB /* TodoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82DC69828085C6800C5ABCB /* TodoHeader.swift */; };
 		D84E89D12954813000A29DED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D84E89D02954813000A29DED /* RealmSwift */; };
+		D84E89D3295489B600A29DED /* HapticNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84E89D2295489B600A29DED /* HapticNotificationManager.swift */; };
 		D84F2A1D28113AFA0061950E /* BottomSheetViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A1C28113AFA0061950E /* BottomSheetViewController+UI.swift */; };
 		D84F2A1F28113B090061950E /* WriteTodoViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */; };
 		D84F2A2128113B190061950E /* WriteTodoViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84F2A2028113B190061950E /* WriteTodoViewController+Actions.swift */; };
@@ -89,6 +90,7 @@
 		D80D3591280AE0F9003062B5 /* RepositoryCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCheckButton.swift; sourceTree = "<group>"; };
 		D820BDE428184893000F130A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D82DC69828085C6800C5ABCB /* TodoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoHeader.swift; sourceTree = "<group>"; };
+		D84E89D2295489B600A29DED /* HapticNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticNotificationManager.swift; sourceTree = "<group>"; };
 		D84F2A1C28113AFA0061950E /* BottomSheetViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+UI.swift"; sourceTree = "<group>"; };
 		D84F2A1E28113B090061950E /* WriteTodoViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+UI.swift"; sourceTree = "<group>"; };
 		D84F2A2028113B190061950E /* WriteTodoViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteTodoViewController+Actions.swift"; sourceTree = "<group>"; };
@@ -198,7 +200,6 @@
 			children = (
 				D8792ABA28095A8D00D35EF2 /* DoGitStore.swift */,
 				D8971BF4280044D000568ED0 /* GithubUserData.swift */,
-				D87F98C628097E89008BCE25 /* GithubDataManager.swift */,
 				D80D3582280A7434003062B5 /* GithubRepositoryData.swift */,
 				D85157BF281AF7D900A17D26 /* GithubRepositoryStore.swift */,
 			);
@@ -306,6 +307,8 @@
 				D89A1C6C27FC8EED0041FA58 /* UIColor+DoGit.swift */,
 				D84F2A2E281430E50061950E /* UIStackView+UnderLine.swift */,
 				D86E580F282E19FA00E85131 /* UIView+ConfigureUI.swift */,
+				D87F98C628097E89008BCE25 /* GithubDataManager.swift */,
+				D84E89D2295489B600A29DED /* HapticNotificationManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				D820BDE528184893000F130A /* SettingViewController.swift in Sources */,
 				D84F2A292812CCFC0061950E /* MainTodoViewController+Realm.swift in Sources */,
 				D8792ABB28095A8D00D35EF2 /* DoGitStore.swift in Sources */,
+				D84E89D3295489B600A29DED /* HapticNotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
