@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class AddRepositoryViewController: UIViewController {
+final class AddRepositoryViewController: UIViewController {
     
     // MARK: - Properties
     let searchBar: UISearchBar = {
@@ -21,7 +21,6 @@ class AddRepositoryViewController: UIViewController {
     
     var collectionView: UICollectionView!
     var dataSource: DataSource!
-    
     let githubDataManager = GithubDataManager()
     
     // MARK: - Life Cycle
@@ -42,7 +41,6 @@ extension AddRepositoryViewController {
     }
     
     func setGithubRepositoriesAndConfigureCollectionView() {
-        
         githubDataManager.fetchRepositories { result in
             switch result {
             case .success(let repositories):
@@ -76,7 +74,11 @@ extension AddRepositoryViewController {
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistartionHandler)
         
         dataSource = DataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            return collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration,
+                for: indexPath,
+                item: itemIdentifier
+            )
         })
         
         // 3. update snapshot
@@ -90,7 +92,8 @@ extension AddRepositoryViewController {
     
     func performQuery(with filter: String?) {
         
-        let filteredGithubRepositories = filteredGithubRepositories(with: filter).sorted { $0.name.lowercased() < $1.name.lowercased() }
+        let filteredGithubRepositories = filteredGithubRepositories(with: filter)
+            .sorted { $0.name.lowercased() < $1.name.lowercased() }
         makeSnapshot(filteredGithubRepositories)
     }
     
@@ -102,10 +105,12 @@ extension AddRepositoryViewController {
     
     func showToastMessageLabel() {
         
-        let toastMessageLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 75,
-                                                      y: view.frame.size.height - 100,
-                                                      width: 160,
-                                                      height: 35))
+        let toastMessageLabel = UILabel(frame: CGRect(
+            x: view.frame.size.width/2 - 75,
+            y: view.frame.size.height - 100,
+            width: 160,
+            height: 35)
+        )
         toastMessageLabel.backgroundColor = UIColor.mainColor.withAlphaComponent(1.0)
         toastMessageLabel.textAlignment = .center
         toastMessageLabel.layer.cornerRadius = 10
@@ -119,7 +124,7 @@ extension AddRepositoryViewController {
         } completion: { _ in
             toastMessageLabel.removeFromSuperview()
         }
-
+        
     }
     
     func showRepositoryTodoDeleteCheckAlert(_ index: Int, _ repository: GithubRepository) {
@@ -146,15 +151,16 @@ extension AddRepositoryViewController {
 
 // MARK: - UICollectionViewDelegate
 extension AddRepositoryViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
 // MARK: - UISearchBarDelegate
 extension AddRepositoryViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         performQuery(with: searchText)
     }
@@ -164,8 +170,10 @@ extension AddRepositoryViewController: UISearchBarDelegate {
 extension UIViewController {
     
     func hideKeyboardWhenTappedAround() {
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard)
+        )
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

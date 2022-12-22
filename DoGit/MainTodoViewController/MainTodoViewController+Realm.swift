@@ -10,7 +10,6 @@ import UIKit
 extension MainTodoViewController {
     
     func repositoryNotification() {
-        
         realmRepositories = realm.objects(Repository.self)
         repositoryNotificationToken = realmRepositories.observe { [weak self] changes in
             switch changes {
@@ -28,7 +27,6 @@ extension MainTodoViewController {
     }
     
     func todoNotification() {
-        
         realmTodos = realm.objects(Todo.self)
         todoNotificationToken = realmTodos.observe { [weak self] changes in
             switch changes {
@@ -48,7 +46,6 @@ extension MainTodoViewController {
     }
     
     func userNotification() {
-        
         realmUsers = realm.objects(User.self)
         userNotificationToken = realmUsers.observe { [weak self] changes in
             switch changes {

@@ -13,9 +13,7 @@ extension BottomSheetViewController {
     }
     
     @objc func viewPanned(_ panGestureRecognizer: UIPanGestureRecognizer) {
-        
         let translation = panGestureRecognizer.translation(in: view)
-        
         let velocity = panGestureRecognizer.velocity(in: view)
         
         switch panGestureRecognizer.state {
@@ -44,8 +42,7 @@ extension BottomSheetViewController {
             } else {
                 hideBottomSheetAndGoBack()
             }
-        default:
-            break
+        default: break
         }
     }
 }

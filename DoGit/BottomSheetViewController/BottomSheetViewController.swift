@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class BottomSheetViewController: UIViewController {
+final class BottomSheetViewController: UIViewController {
     
     // MARK: - Properties
     enum BottomSheetViewState {
@@ -83,7 +83,6 @@ extension BottomSheetViewController {
     
     // MARK: - Methods
     func showBottomSheet(atState: BottomSheetViewState = .normal) {
-        
         if atState == .normal {
             let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
             let bottomPadding: CGFloat = view.safeAreaInsets.bottom
@@ -120,15 +119,13 @@ extension BottomSheetViewController {
     }
     
     func nearest(to number: CGFloat, inValues values: [CGFloat]) -> CGFloat {
-        guard let nearestVal = values.min(by: { abs(number - $0) < abs(number - $1) }) else {
-            return number
-        }
+        guard let nearestVal = values.min(by: { abs(number - $0) < abs(number - $1) })
+        else { return number }
         return nearestVal
     }
     
     func blurViewAlphaWithBottomSheetTopConstaint(value: CGFloat) -> CGFloat {
         let fullBlurAlpha: CGFloat = 0.7
-        
         let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding = view.safeAreaInsets.bottom
         

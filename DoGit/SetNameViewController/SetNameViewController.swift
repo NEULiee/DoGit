@@ -7,10 +7,9 @@
 
 import UIKit
 
-class SetNameViewController: UIViewController {
+final class SetNameViewController: UIViewController {
     
     // MARK: - Properties
-    // MARK: UI Properties
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Github의 아이디를 입력해주세요."

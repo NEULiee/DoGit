@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
     
     // MARK: - Properties
     let settingMenu: [String] = ["이름 수정"]
@@ -20,7 +20,6 @@ class SettingViewController: UIViewController {
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         configureCollectionView()
         configureUI()
@@ -31,13 +30,13 @@ extension SettingViewController {
     
     // MARK: - Methods
     func configureCollectionView() {
-        
         view.backgroundColor = .backgroundColor
         
         let listLayout = listLayout()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: listLayout)
         
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String> { (cell, indexPath, item) in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String> {
+            cell, indexPath, item in
             var content = cell.defaultContentConfiguration()
             content.text = "\(item)"
             cell.contentConfiguration = content
@@ -45,7 +44,11 @@ extension SettingViewController {
         
         dataSource = DataSource(collectionView: collectionView, cellProvider: {
             (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            return collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration,
+                for: indexPath,
+                item: itemIdentifier
+            )
         })
         
         var snapshot = Snapshot()
@@ -56,12 +59,10 @@ extension SettingViewController {
         dataSource.apply(snapshot)
         
         collectionView.dataSource = dataSource
-        
         collectionView.delegate = self
     }
     
     func configureUI() {
-        
         // MARK: navigation bar
         let barAttribute = [NSAttributedString.Key.font : UIFont.regular16]
         let titleAttribute = [NSAttributedString.Key.font : UIFont.bold18]
@@ -69,17 +70,24 @@ extension SettingViewController {
         navigationItem.title = "설정"
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
-        let cancelBarButton = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(didCancelAdd(_:)))
+        let cancelBarButton = UIBarButtonItem(
+            title: "닫기",
+            style: .plain,
+            target: self,
+            action: #selector(didCancelAdd(_:))
+        )
         cancelBarButton.tintColor = .mainColor
         cancelBarButton.setTitleTextAttributes(barAttribute, for: .normal)
         navigationItem.leftBarButtonItem = cancelBarButton
         
         // MARK: collectionView
         view.addSubview(collectionView)
-        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
-                              leading: view.safeAreaLayoutGuide.leadingAnchor,
-                              trailing: view.safeAreaLayoutGuide.trailingAnchor,
-                              bottom: view.safeAreaLayoutGuide.bottomAnchor)
+        collectionView.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            leading: view.safeAreaLayoutGuide.leadingAnchor,
+            trailing: view.safeAreaLayoutGuide.trailingAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor
+        )
     }
     
     func presentSetNameViewControllerModal() {
@@ -109,7 +117,6 @@ extension SettingViewController {
 extension SettingViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         collectionView.deselectItem(at: indexPath, animated: true)
         
         if indexPath.section == 0 && indexPath.row == 0 {
@@ -128,7 +135,6 @@ extension SettingViewController: UICollectionViewDelegate {
 extension SettingViewController: MFMailComposeViewControllerDelegate {
     
     func sendMail() {
-        
         if MFMailComposeViewController.canSendMail() {
             let composeViewController = MFMailComposeViewController()
             composeViewController.mailComposeDelegate = self

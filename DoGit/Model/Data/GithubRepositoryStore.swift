@@ -16,6 +16,8 @@ class GithubRepositoryStore {
     var githubRepositories: [GithubRepository] = []
     var checkedRepositoriesID: [Int64] = []
     
+    private init() {}
+    
     func githubRepositoryIsCheckToggle(index: Int) {
         GithubRepositoryStore.shared.githubRepositories[index].isCheck.toggle()
     }
@@ -29,6 +31,4 @@ class GithubRepositoryStore {
     func setCheckedRepositoriesID() {
         GithubRepositoryStore.shared.checkedRepositoriesID = DoGitStore.shared.readRepositoryIDAll()
     }
-    
-    private init() {}
 }

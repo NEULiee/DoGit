@@ -9,17 +9,18 @@ import UIKit
 
 extension UIView {
     
-    func anchor(top: NSLayoutYAxisAnchor? = nil,
-                leading: NSLayoutXAxisAnchor? = nil,
-                trailing: NSLayoutXAxisAnchor? = nil,
-                bottom: NSLayoutYAxisAnchor? = nil,
-                paddingTop: CGFloat = 0,
-                paddingLeading: CGFloat = 0,
-                paddingTrailing: CGFloat = 0,
-                paddingBottom: CGFloat = 0,
-                width: CGFloat? = nil,
-                height: CGFloat? = nil) {
-        
+    func anchor(
+        top: NSLayoutYAxisAnchor? = nil,
+        leading: NSLayoutXAxisAnchor? = nil,
+        trailing: NSLayoutXAxisAnchor? = nil,
+        bottom: NSLayoutYAxisAnchor? = nil,
+        paddingTop: CGFloat = 0,
+        paddingLeading: CGFloat = 0,
+        paddingTrailing: CGFloat = 0,
+        paddingBottom: CGFloat = 0,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil
+    ) {
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
