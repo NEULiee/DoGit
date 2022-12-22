@@ -10,7 +10,6 @@ import UIKit
 extension WriteTodoViewController {
     
     @objc func doneButtonTapped() {
-        
         if todo == nil { // 할일 추가
             guard let text = contentTextField.text else { return }
             let todo = Todo(content: text)

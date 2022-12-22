@@ -8,6 +8,5 @@
 import UIKit
 
 class TodoDoneButton: UIButton {
-    
     var todo: Todo?
 }

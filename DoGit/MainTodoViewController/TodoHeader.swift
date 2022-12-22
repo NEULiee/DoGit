@@ -11,10 +11,8 @@ class TodoHeader: UICollectionReusableView {
     
     // MARK: - Properties
     static var elementKind: String { UICollectionView.elementKindSectionHeader }
-    
     let repositoryLabel = UILabel()
     let addButton = UIButton(type: .contactAdd)
-    
     var touchUpInsideAddButton: (() -> Void)?
     
     // MARK: - Life Cycle
@@ -30,9 +28,7 @@ class TodoHeader: UICollectionReusableView {
 
 // MARK: - extension UI
 extension TodoHeader {
-    
     private func configureUI() {
-        
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fill

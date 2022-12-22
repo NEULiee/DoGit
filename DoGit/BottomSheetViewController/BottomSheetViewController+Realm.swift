@@ -10,7 +10,6 @@ import UIKit
 extension BottomSheetViewController {
     
     func todoNotification() {
-        
         realmTodos = realm.objects(Todo.self)
         notificationToken = realmTodos.observe { [weak self] changes in
             switch changes {

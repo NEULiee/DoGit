@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIButton {
-    
     func setImage(systemName: String) {
         contentHorizontalAlignment = .fill
         contentVerticalAlignment = .fill

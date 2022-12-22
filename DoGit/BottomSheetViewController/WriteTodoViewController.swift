@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class WriteTodoViewController: UIViewController {
+final class WriteTodoViewController: UIViewController {
     
     // MARK: - Properties
     let titleLabel = UILabel()
@@ -19,7 +19,6 @@ class WriteTodoViewController: UIViewController {
     
     // MARK: - Life Cycle
     init(repository: Repository) {
-        
         self.repository = repository
         self.todo = nil
         self.titleLabel.text = "할일 추가하기"
@@ -27,7 +26,6 @@ class WriteTodoViewController: UIViewController {
     }
     
     init(todo: Todo) {
-        
         self.repository = nil
         self.todo = todo
         self.titleLabel.text = "할일 수정하기"
@@ -40,15 +38,13 @@ class WriteTodoViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         configureLayout()
         focusOnContentTextField()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     func focusOnContentTextField() {
-        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
             self.contentTextField.becomeFirstResponder()
             if self.contentTextField.text != "" {

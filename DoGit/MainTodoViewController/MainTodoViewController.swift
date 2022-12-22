@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class MainTodoViewController: UIViewController {
+final class MainTodoViewController: UIViewController {
     
     // MARK: - Properties
     // MARK: UI Properties
@@ -54,12 +54,9 @@ class MainTodoViewController: UIViewController {
         super.viewDidLoad()
         
         setFirstData()
-        
         configureUI()
         configureCollectionView()
-        
         realmLocation()
-        
         subscribeRealmNotification()
     }
     

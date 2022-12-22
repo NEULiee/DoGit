@@ -9,17 +9,20 @@ import Foundation
 import RealmSwift
 
 struct GithubDataManager {
-    
     private let githubAPIURL = "https://api.github.com/users/"
     
     // MARK: - User
     
-    func fetchUser(userId: String, completion: @escaping (Result<String, Error>) -> Void) {
-        
+    func fetchUser(
+        userId: String,
+        completion: @escaping (Result<String, Error>) -> Void
+    ) {
         guard let url = URL(string: githubAPIURL + userId) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode)
+            else {
                 completion(.failure(error ?? DoGitError.userNameNotFound))
                 return
             }
@@ -43,7 +46,6 @@ struct GithubDataManager {
     }
     
     private func userJSONDecoder(data: Data) -> String? {
-        
         let decoder = JSONDecoder()
         
         do {
@@ -58,7 +60,6 @@ struct GithubDataManager {
     // MARK: - Repository
     
     private func getUserName() -> String {
-        
         let realm = try! Realm()
         let result = realm.objects(User.self)
         guard let user = result.last else { return "" }
@@ -69,12 +70,15 @@ struct GithubDataManager {
         return githubAPIURL + getUserName() + "/repos"
     }
     
-    func fetchRepositories(completion: @escaping (Result<[GithubRepository], Error>) -> Void) {
-        
+    func fetchRepositories(
+        completion: @escaping (Result<[GithubRepository], Error>) -> Void
+    ) {
         guard let url = URL(string: getGithubRepositoryURLString()) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+            guard let response = response as? HTTPURLResponse,
+                  (200...299).contains(response.statusCode)
+            else {
                 completion(.failure(error ?? DoGitError.failedConnectServer))
                 return
             }
@@ -85,7 +89,9 @@ struct GithubDataManager {
             }
             
             if let repositoryDataList = self.repositoryJSONDecoder(data: data) {
-                let repositoryList = repositoryDataList.map { GithubRepository($0.id, $0.name, $0.description ?? "") }
+                let repositoryList = repositoryDataList.map {
+                    GithubRepository($0.id, $0.name, $0.description ?? "")
+                }
                 completion(.success(repositoryList))
             } else {
                 completion(.failure(DoGitError.repositoryNotFound))
@@ -94,7 +100,6 @@ struct GithubDataManager {
     }
     
     private func repositoryJSONDecoder(data: Data) -> [GithubRepositoryData]? {
-
         let decoder = JSONDecoder()
         
         do {

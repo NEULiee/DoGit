@@ -14,7 +14,6 @@ extension MainTodoViewController {
     
     // MARK: - Snapshot
     func makeSnapshot() {
-        
         let repositories = DoGitStore.shared.repositories
         let repositoryIDs = repositories.map { $0.id }
         
@@ -22,16 +21,17 @@ extension MainTodoViewController {
         snapshot.appendSections(repositoryIDs)
         
         for repository in repositories {
-            snapshot.appendItems(Array(repository.todos.map { $0.id }), toSection: repository.id)
+            snapshot.appendItems(
+                Array(repository.todos.map { $0.id }),
+                toSection: repository.id
+            )
         }
         
         dataSource.apply(snapshot)
     }
     
     func updateSnapshot(with id: [Todo.ID]) {
-        
         let todos = DoGitStore.shared.todos
-        
         var snapshot = dataSource.snapshot()
         
         if id.isEmpty {
@@ -45,7 +45,6 @@ extension MainTodoViewController {
     
     // MARK: - UICollectionView configuration
     func listLayout() -> UICollectionViewCompositionalLayout {
-        
         var layoutConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
         layoutConfiguration.headerMode = .supplementary
         layoutConfiguration.showsSeparators = false
@@ -54,15 +53,20 @@ extension MainTodoViewController {
         return UICollectionViewCompositionalLayout.list(using: layoutConfiguration)
     }
     
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, todoID: Todo.ID) {
-        
+    func cellRegistrationHandler(
+        cell: UICollectionViewListCell,
+        indexPath: IndexPath,
+        todoID: Todo.ID
+    ) {
         var contentConfiguration = cell.defaultContentConfiguration()
         let todo = DoGitStore.shared.todo(with: todoID)
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
         contentConfiguration.textProperties.font = .regular14
         if todo.isDone {
-            contentConfiguration.attributedText = strikeThrough(string: contentConfiguration.text ?? "")
+            contentConfiguration.attributedText = strikeThrough(
+                string: contentConfiguration.text ?? ""
+            )
             contentConfiguration.textProperties.color = .systemGray4
         } else {
             contentConfiguration.textProperties.color = .fontColor
@@ -80,8 +84,9 @@ extension MainTodoViewController {
         cell.accessories = [.customView(configuration: doneButtonConfiguration)]
     }
     
-    private func doneButtonConfiguration(for todo: Todo) -> UICellAccessory.CustomViewConfiguration {
-        
+    private func doneButtonConfiguration(
+        for todo: Todo
+    ) -> UICellAccessory.CustomViewConfiguration {
         let tintColor = todo.isDone ? UIColor.mainColor : UIColor.systemGray4
         let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: "square.fill", withConfiguration: symbolConfiguration)
@@ -91,11 +96,17 @@ extension MainTodoViewController {
         button.todo = todo
         button.tintColor = tintColor
         button.setImage(image, for: .normal)
-        return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
+        return UICellAccessory.CustomViewConfiguration(
+            customView: button,
+            placement: .leading(displayed: .always)
+        )
     }
     
-    func headerRegistartionHandler(headerView: TodoHeader, elementKind: String, indexPath: IndexPath) {
-        
+    func headerRegistartionHandler(
+        headerView: TodoHeader,
+        elementKind: String,
+        indexPath: IndexPath
+    ) {
         let headerItemID = dataSource.snapshot().sectionIdentifiers[indexPath.section]
         let headerItem = DoGitStore.shared.repository(with: headerItemID)
         headerView.backgroundColor = .backgroundColor

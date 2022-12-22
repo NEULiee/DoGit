@@ -9,9 +9,7 @@ import Foundation
 import RealmSwift
 
 class User: Object {
-    
     @Persisted var name: String
-    
     convenience init(name: String) {
         self.init()
         self.name = name
