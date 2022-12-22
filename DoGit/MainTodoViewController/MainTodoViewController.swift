@@ -14,7 +14,7 @@ class MainTodoViewController: UIViewController {
     // MARK: UI Properties
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.Font.bold32
+        label.font = .bold32
         label.sizeToFit()
         return label
     }()
@@ -25,7 +25,7 @@ class MainTodoViewController: UIViewController {
     
     let guideMentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.Font.light18
+        label.font = .light18
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = "오른쪽 위의 +버튼을 눌러\n저장소를 추가해주세요."

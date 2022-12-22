@@ -14,7 +14,7 @@ class AddRepositoryViewController: UIViewController {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.placeholder = "저장소 이름을 입력해주세요."
-        searchBar.searchTextField.font = UIFont.Font.light14
+        searchBar.searchTextField.font = .light14
         searchBar.searchBarStyle = .minimal
         return searchBar
     }()
@@ -112,7 +112,7 @@ extension AddRepositoryViewController {
         toastMessageLabel.clipsToBounds = true
         toastMessageLabel.text = "저장소가 추가되었습니다."
         toastMessageLabel.textColor = .white
-        toastMessageLabel.font = UIFont.Font.regular14
+        toastMessageLabel.font = .regular14
         view.addSubview(toastMessageLabel)
         UIView.animate(withDuration: 0.7, delay: 1.0, options: .curveEaseOut) {
             toastMessageLabel.alpha = 0.0

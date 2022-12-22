@@ -14,8 +14,8 @@ extension AddRepositoryViewController {
         view.backgroundColor = .backgroundColor
         
         // MARK: navigation bar
-        let barAttribute = [NSAttributedString.Key.font : UIFont.Font.regular16]
-        let titleAttribute = [NSAttributedString.Key.font : UIFont.Font.bold18]
+        let barAttribute = [NSAttributedString.Key.font : UIFont.regular16]
+        let titleAttribute = [NSAttributedString.Key.font : UIFont.bold18]
         navigationItem.title = "나의 저장소"
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         

@@ -14,14 +14,14 @@ class SetNameViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Github의 아이디를 입력해주세요."
-        label.font = UIFont.Font.regular18
+        label.font = .regular18
         return label
     }()
     
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.accessibilityIdentifier = "nameTextField"
-        textField.font = UIFont.Font.regular18
+        textField.font = .regular18
         textField.borderStyle = .none
         textField.textAlignment = .center
         textField.tintColor = .mainColor
@@ -41,7 +41,7 @@ class SetNameViewController: UIViewController {
     let doneButton: UIButton = {
         let button = UIButton()
         button.accessibilityIdentifier = "doneButton"
-        button.titleLabel?.font = UIFont.Font.regular18
+        button.titleLabel?.font = .regular18
         button.setTitle("확인", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .mainColor

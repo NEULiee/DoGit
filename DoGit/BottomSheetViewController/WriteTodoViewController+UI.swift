@@ -11,7 +11,7 @@ extension WriteTodoViewController {
     
     func configureLayout() {
         
-        titleLabel.font = UIFont.Font.bold18
+        titleLabel.font = .bold18
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -34,7 +34,7 @@ extension WriteTodoViewController {
         contentTextField.underLine(borderColor: .mainColor)
         
         doneButton.setTitle("등록", for: .normal)
-        doneButton.titleLabel?.font = UIFont.Font.regular16
+        doneButton.titleLabel?.font = .regular16
         doneButton.backgroundColor = .mainColor
         doneButton.setTitleColor(.white, for: .normal)
         doneButton.layer.cornerRadius = 5

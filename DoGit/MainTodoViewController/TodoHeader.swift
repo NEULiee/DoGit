@@ -46,7 +46,7 @@ extension TodoHeader {
         stackView.layoutIfNeeded()
         stackView.underLine(borderColor: .gray)
         
-        repositoryLabel.font = UIFont.Font.bold18
+        repositoryLabel.font = .bold18
         repositoryLabel.textColor = .fontColor
         stackView.addArrangedSubview(repositoryLabel)
         
