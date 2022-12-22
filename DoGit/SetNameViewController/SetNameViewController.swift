@@ -47,8 +47,6 @@ final class SetNameViewController: UIViewController {
         return button
     }()
     
-    let hapticNotification = UINotificationFeedbackGenerator()
-    
     // MARK: URLSession
     let githubDataManager = GithubDataManager()
     

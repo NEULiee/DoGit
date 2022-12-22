@@ -26,6 +26,7 @@ extension AddRepositoryViewController {
             GithubRepositoryStore.shared.setCheckedRepositoriesID()
             updateSnapshot(with: [githubRepository])
             showToastMessageLabel()
+            HapticNotificationManager.occur(notificationType: .success)
         }
     }
 }
