@@ -60,7 +60,7 @@ extension MainTodoViewController {
         let todo = DoGitStore.shared.todo(with: todoID)
         contentConfiguration.text = todo.content
         contentConfiguration.textProperties.lineBreakMode = .byCharWrapping
-        contentConfiguration.textProperties.font = UIFont.Font.regular14
+        contentConfiguration.textProperties.font = .regular14
         if todo.isDone {
             contentConfiguration.attributedText = strikeThrough(string: contentConfiguration.text ?? "")
             contentConfiguration.textProperties.color = .systemGray4

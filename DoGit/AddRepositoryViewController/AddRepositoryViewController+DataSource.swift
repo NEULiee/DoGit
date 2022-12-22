@@ -45,8 +45,8 @@ extension AddRepositoryViewController {
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = item.name
         contentConfiguration.secondaryText = item.description
-        contentConfiguration.textProperties.font = UIFont.Font.bold18
-        contentConfiguration.secondaryTextProperties.font = UIFont.Font.regular10
+        contentConfiguration.textProperties.font = .bold18
+        contentConfiguration.secondaryTextProperties.font = .regular10
         cell.contentConfiguration = contentConfiguration
         let background: UIView = {
             let view = UIView()
